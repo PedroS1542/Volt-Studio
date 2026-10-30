@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#080a0f" name="theme-color"/>
+<meta content="VOLT Studio — treinos, alimentação, cursos, certificados e veículos no seu espaço de organização pessoal." name="description"/>
+<link href="./manifest.webmanifest" rel="manifest"/>
+<link href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cmVjdCB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgcng9IjI3IiBmaWxsPSIjMTAxMTE2Ii8+PHBhdGggZD0iTTExIDI2aDMybDIzIDM2IDIzLTM2aDI4TDY1IDEwOVoiIGZpbGw9IiNmMDQ0NGUiLz48cGF0aCBkPSJNMzkgMzVoMTlsMTIgMTkgMTItMTloMTVMNjkgODdaIiBmaWxsPSIjMTExMjE2Ii8+PC9zdmc+" rel="icon" type="image/svg+xml"/>
+<title>VOLT Studio — Sua vida em movimento</title>
+<style>
+:root{--bg:#0d0e11;--panel:#15171c;--panel2:#1b1e24;--text:#f5f6f8;--muted:#989eaa;--line:#2a2d35;--accent:#f04444;--accent2:#ff6969;--green:#5ad49a;--yellow:#f0bd54;--shadow:0 18px 50px #0003}
+[data-theme="light"]{--bg:#f4f5f7;--panel:#fff;--panel2:#f0f1f4;--text:#17191e;--muted:#656c79;--line:#e1e3e8;--accent:#d92e3b;--accent2:#f0525e;--green:#16895b;--yellow:#ad7810;--shadow:0 14px 35px #1b243014}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.01em}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.app{min-height:100vh;display:grid;grid-template-columns:248px minmax(0,1fr)}.sidebar{height:100vh;position:sticky;top:0;background:var(--panel);border-right:1px solid var(--line);padding:24px 15px;display:flex;flex-direction:column;gap:28px;z-index:10}.brand{display:flex;align-items:center;gap:11px;padding:0 10px}.brand-mark{height:40px;width:40px;border-radius:13px;background:linear-gradient(145deg,var(--accent2),#a90f20);display:grid;place-items:center;color:white;font-weight:900;font-size:19px;box-shadow:0 7px 24px #f0444433}.brand-name{font-size:15px;font-weight:850;letter-spacing:.02em}.brand-sub{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.17em}.nav-label{color:var(--muted);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:0 12px;margin:0 0 7px}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:var(--muted);border-radius:11px;padding:11px 12px;display:flex;align-items:center;gap:12px;text-align:left;transition:.18s;font-weight:600}.nav button:hover{background:var(--panel2);color:var(--text)}.nav button.active{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--text)}.nav button.active .nav-icon{color:var(--accent2)}.nav-icon{width:20px;text-align:center;font-size:17px}.side-bottom{margin-top:auto;display:grid;gap:10px}.local-note{border:1px solid var(--line);background:var(--panel2);border-radius:12px;padding:12px;font-size:11px;color:var(--muted)}.local-note strong{display:block;color:var(--text);font-size:12px;margin-bottom:3px}
+main{min-width:0;padding:30px clamp(18px,3vw,44px) 48px;max-width:1600px;width:100%;margin:0 auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:30px}.eyebrow{font-size:11px;color:var(--accent2);font-weight:800;text-transform:uppercase;letter-spacing:.17em}.page-title{font-size:clamp(25px,3vw,34px);line-height:1.15;letter-spacing:-.04em;margin:5px 0 6px;font-weight:850}.page-sub{color:var(--muted);margin:0;font-size:13px}.top-actions{display:flex;align-items:center;gap:9px}.icon-btn,.btn{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:11px;padding:10px 13px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:8px}.icon-btn{width:42px;height:42px;padding:0;font-size:17px}.btn.primary{background:var(--accent);border-color:var(--accent);color:white}.btn:hover,.icon-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}.btn.small{padding:7px 10px;font-size:12px;border-radius:9px}.btn.ghost{background:transparent}.section{display:none;animation:fade .2s ease}.section.active{display:block}@keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+.grid{display:grid;gap:16px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:18px}.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:19px;min-width:0;box-shadow:var(--shadow)}.stat-head{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px;font-weight:650}.stat-icon{height:33px;width:33px;border-radius:10px;background:var(--panel2);display:grid;place-items:center;font-size:16px}.stat-value{font-size:29px;font-weight:850;letter-spacing:-.05em;margin:14px 0 3px}.stat-foot{font-size:11px;color:var(--muted)}.accent{color:var(--accent2)}.dashboard-grid{grid-template-columns:minmax(0,1.45fr) minmax(280px,1fr)}.card-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}.card-title{font-size:15px;font-weight:800;margin:0}.card-caption{color:var(--muted);font-size:12px;margin:4px 0 0}.progress-line{height:7px;border-radius:99px;background:var(--panel2);overflow:hidden}.progress-line span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px;transition:width .25s}.goal-row{padding:13px 0;border-bottom:1px solid var(--line)}.goal-row:last-child{border:0;padding-bottom:0}.goal-top{display:flex;justify-content:space-between;gap:10px;margin-bottom:9px;font-weight:700;font-size:13px}.muted{color:var(--muted)}.quick-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.quick-action{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:17px;text-align:left;color:var(--text);display:flex;gap:12px;align-items:center}.quick-action:hover{border-color:var(--accent)}.quick-icon{height:40px;width:40px;border-radius:12px;background:var(--panel2);display:grid;place-items:center;font-size:19px}.quick-action strong{display:block;font-size:13px}.quick-action small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin:0 0 20px}.section-head h2{font-size:21px;margin:0 0 5px;letter-spacing:-.03em}.section-head p{margin:0;color:var(--muted);font-size:13px}.two-col{grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr)}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:grid;gap:6px;min-width:0}.field label{font-size:12px;font-weight:700;color:var(--muted)}.field input,.field select,.field textarea{width:100%;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:11px 12px}.field textarea{min-height:90px;resize:vertical}.field input::placeholder,.field textarea::placeholder{color:var(--muted)}.form-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.span-2{grid-column:1/-1}.empty{border:1px dashed var(--line);border-radius:13px;padding:28px;text-align:center;color:var(--muted);font-size:13px}.list{display:grid;gap:10px}.item{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:13px;display:flex;align-items:center;justify-content:space-between;gap:12px}.item-main{min-width:0}.item-main strong{display:block;font-size:13px}.item-main small{display:block;color:var(--muted);font-size:11px;margin-top:3px}.item-actions{display:flex;gap:6px;flex-shrink:0}.tiny-btn{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:8px;padding:6px 8px;font-size:11px}.tiny-btn.danger{color:var(--accent2)}.exercise-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.exercise{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;gap:8px}.exercise figure{margin:0;height:105px;border-radius:10px;background:var(--panel2);display:grid;place-items:center;overflow:hidden}.exercise svg{height:100%;max-width:100%}.exercise strong{font-size:12px}.exercise small{font-size:11px;color:var(--muted)}.exercise .btn{width:100%}.chip{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:99px;padding:4px 8px;font-size:10px;color:var(--muted);font-weight:700}.vehicle-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.vehicle-card{background:var(--panel);border:1px solid var(--line);border-radius:15px;overflow:hidden}.vehicle-img{height:145px;background:var(--panel2);display:grid;place-items:center;overflow:hidden}.vehicle-img img{width:100%;height:100%;object-fit:cover}.vehicle-img .placeholder{font-size:48px;opacity:.65}.vehicle-info{padding:14px}.vehicle-info h3{font-size:14px;margin:0 0 4px}.vehicle-info p{margin:0 0 12px;color:var(--muted);font-size:11px}.vehicle-info .progress-line{margin:10px 0}.vehicle-price{font-size:17px;font-weight:850}.meal-photo{width:100%;max-height:230px;object-fit:cover;border-radius:12px;display:none;margin-top:12px}.chart{height:160px;width:100%;display:block}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px;white-space:nowrap}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 9px}th{color:var(--muted);font-weight:700}.notice{padding:12px 13px;background:color-mix(in srgb,var(--yellow) 10%,transparent);border:1px solid color-mix(in srgb,var(--yellow) 28%,var(--line));border-radius:11px;color:var(--muted);font-size:12px}.notice strong{color:var(--text)}.bottom-nav{display:none}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--text);color:var(--bg);padding:11px 16px;border-radius:10px;font-size:12px;font-weight:750;z-index:50;transition:.2s;box-shadow:var(--shadow)}.toast.show{opacity:1;transform:translate(-50%,0)}.divider{height:1px;background:var(--line);margin:16px 0}.hide{display:none!important}
+@media(max-width:1050px){.app{grid-template-columns:215px minmax(0,1fr)}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.exercise-grid,.vehicle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-grid,.two-col{grid-template-columns:1fr}}
+@media(max-width:700px){.app{display:block}.sidebar{display:none}main{padding:21px 15px calc(92px + env(safe-area-inset-bottom));}.topbar{align-items:flex-start;margin-bottom:23px}.top-actions{gap:6px}.top-actions .btn span{display:none}.top-actions .btn{width:42px;height:42px;padding:0}.page-title{font-size:27px}.stats{gap:10px}.card{padding:15px;border-radius:14px}.stat-value{font-size:25px}.stat-head{font-size:11px}.dashboard-grid,.two-col{grid-template-columns:1fr}.quick-grid{grid-template-columns:1fr}.quick-action{padding:13px}.section-head{align-items:center}.section-head h2{font-size:19px}.form-grid{grid-template-columns:1fr}.span-2{grid-column:auto}.exercise-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.exercise{padding:9px}.exercise figure{height:90px}.vehicle-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.vehicle-img{height:110px}.vehicle-info{padding:11px}.vehicle-price{font-size:14px}.bottom-nav{position:fixed;z-index:20;display:flex;left:0;right:0;bottom:0;padding:8px 6px calc(8px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--panel) 94%,transparent);backdrop-filter:blur(18px);border-top:1px solid var(--line);justify-content:space-around;gap:2px}.bottom-nav button{flex:1;min-width:0;background:transparent;border:0;color:var(--muted);display:grid;justify-items:center;gap:3px;padding:6px 2px;font-size:9px;font-weight:750}.bottom-nav button span:first-child{font-size:18px}.bottom-nav button.active{color:var(--accent2)}.local-note{font-size:10px}.item{align-items:flex-start}.item-actions{flex-wrap:wrap;justify-content:flex-end}.stat-icon{width:29px;height:29px}.chart{height:130px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* VOLT — identidade visual */
+:root{--bg:#080a0e;--panel:#101319;--panel2:#171b22;--line:#282d35;--accent:#ef3345;--accent2:#ff6978;--shadow:0 16px 42px #0005}
+[data-theme="light"]{--bg:#f3f5f8;--panel:#fff;--panel2:#f5f6f8;--line:#e2e6ed;--accent:#d5283b;--accent2:#d5283b;--shadow:0 12px 28px #26314811}
+.sidebar{background:linear-gradient(168deg,var(--panel),var(--bg));gap:30px}
+.brand{padding:0 4px 0 0}.brand-logo{width:205px;max-width:100%;height:auto;display:block}
+main{max-width:1680px}
+.card{box-shadow:0 1px 1px #0001,var(--shadow)}
+.feature-card{position:relative;overflow:hidden;background:radial-gradient(circle at 90% 5%,#f0444424,transparent 52%),linear-gradient(135deg,var(--panel),var(--panel2));min-height:245px}
+.feature-card:after{position:absolute;content:"V";font-weight:950;font-size:280px;line-height:1;right:6px;bottom:-111px;color:var(--accent);opacity:.065;pointer-events:none}
+.feature-pulse{font-size:10px;font-weight:850;letter-spacing:.15em;color:var(--accent2)}
+.feature-heading{font-size:clamp(23px,3vw,38px);line-height:1.05;font-weight:950;letter-spacing:-.06em;max-width:450px;margin:22px 0 12px}
+.feature-heading span{color:var(--accent2)}.feature-divider{width:55px;height:3px;background:var(--accent);border-radius:4px}
+.feature-description{font-size:12px;line-height:1.65;color:var(--muted);max-width:400px}
+.exercise figure{height:142px;background:linear-gradient(120deg,#16181d,#262b32);border:1px solid #30333c}
+.exercise{padding:10px;align-content:start}.exercise strong{min-height:35px;line-height:1.3}
+.exercise-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.anatomy-visual{width:100%;height:100%;position:relative}.anatomy-visual img{width:100%;height:100%;object-fit:contain;display:block}
+.figure-fallback{display:none;width:100%;height:100%;place-items:center;position:relative;background:radial-gradient(ellipse at 50% 35%,#39414e,#101116)}
+.figure-fallback:after{content:'REFERÊNCIA ANATÔMICA';color:#ffffff55;letter-spacing:.11em;font-size:7px;position:absolute;right:8px;bottom:6px}
+.figure-fallback svg{width:100%;height:100%;filter:drop-shadow(1px 2px 3px #0009)}
+.anatomy-spotlight{margin-bottom:14px;display:flex;gap:15px;align-items:center;padding:9px;border-radius:13px;border:1px solid #763641;background:linear-gradient(110deg,#3e1b24,#16181e)}
+.anatomy-spotlight img{width:128px;height:104px;object-fit:cover;object-position:center;border-radius:9px}
+.anatomy-spotlight strong{display:block;color:#ff909b;font-size:11px;letter-spacing:.09em}
+.anatomy-spotlight span{display:block;color:#e6dce0;font-size:11px;margin-top:4px}
+#selectedExerciseFigure{width:134px!important;height:114px!important;overflow:hidden}
+#selectedExerciseFigure .anatomy-visual{width:100%;height:100%}
+#selectedExerciseFigure .figure-fallback{display:grid}
+#selectedExercisePreview{align-items:center!important}
+.plan-list{display:grid;gap:10px;margin-top:12px}.plan-entry{display:grid;gap:4px;padding:11px 13px;background:var(--panel2);border:1px solid var(--line);border-radius:11px}
+.plan-entry b{font-size:12px;color:var(--accent2)}.plan-entry span{font-size:12px;line-height:1.5}
+.plate-helper{border:1px solid var(--line);border-radius:12px;padding:13px;background:var(--panel2)}
+.photo-match{min-height:130px;border:1px dashed var(--line);background:var(--panel2);border-radius:12px;margin-top:14px;display:grid;place-items:center;overflow:hidden;padding:12px;font-size:12px;text-align:center;color:var(--muted)}
+.photo-match img{max-width:100%;max-height:210px;object-fit:contain;border-radius:10px}.photo-match a{color:var(--accent2);font-size:11px}
+.vehicle-img{height:175px}.vehicle-img img{object-fit:contain}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.exercise figure{height:112px}.anatomy-spotlight img{width:106px;height:90px}.brand-logo{width:166px}#selectedExerciseFigure{width:104px!important;height:110px!important}.feature-heading{font-size:26px}.vehicle-img{height:120px}}
+
+
+/* VOLT Studio — versão textual com painel semanal */
+.home-stats{grid-template-columns:repeat(3,minmax(0,1fr));margin:19px 0}.stat-card{position:relative;min-height:126px;border:1px solid var(--line)}.stat-card:before{content:"";position:absolute;left:16px;right:16px;top:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
+.hero-wide{background:linear-gradient(108deg,#121720 0%,#0c1018 60%,#210d16 100%);border:1px solid #333341;border-radius:21px;position:relative;overflow:hidden;display:grid;grid-template-columns:1.4fr .7fr;min-height:258px;box-shadow:0 22px 46px #0003}
+.hero-text{padding:34px clamp(22px,3.6vw,48px);position:relative;z-index:2}.hero-eyebrow{font-size:10px;letter-spacing:.23em;font-weight:850;color:#ff959f;display:inline-flex;gap:8px;align-items:center}.hero-dot{height:7px;width:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}.hero-text h2{font-size:clamp(31px,4vw,55px);line-height:1.03;font-weight:900;letter-spacing:-.065em;margin:18px 0 15px;color:white}.hero-text h2 em{font-style:normal;color:#ff4e61}.hero-text p{color:#c4c4ce;font-size:13px;max-width:475px;line-height:1.65}.hero-text .form-actions{margin-top:19px}.btn.glass{background:#ffffff0c;color:#fff;border-color:#ffffff25}.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:218px;background:radial-gradient(ellipse at 65% 55%,#ff30412a,transparent 62%)}.hero-monogram{font-size:clamp(180px,27vw,310px);font-weight:1000;line-height:.8;letter-spacing:-.1em;font-style:italic;color:#e82d44;text-shadow:11px 10px 1px #510d22,22px 22px 55px #0009;transform:rotate(-9deg)}.hero-annotation{position:absolute;right:20px;bottom:16px;color:#ffffff67;letter-spacing:.2em;font-size:8px}
+.home-bottom-grid{grid-template-columns:1fr 1fr;gap:17px}.home-activity,.home-shortcuts{padding:23px}.recent-entry{display:flex;align-items:center;gap:14px;padding:14px 2px;border-bottom:1px solid var(--line)}.recent-entry:last-child{border:0}.recent-icon{background:color-mix(in srgb,var(--accent) 15%,var(--panel2));border:1px solid color-mix(in srgb,var(--accent) 25%,var(--line));width:38px;height:38px;border-radius:12px;color:var(--accent2);display:grid;place-items:center;font-size:19px;flex-shrink:0}.recent-entry>div{display:grid;gap:1px;min-width:0}.recent-entry small{color:var(--muted);font-size:9px;letter-spacing:.11em}.recent-entry strong{font-size:13px;overflow-wrap:anywhere}.recent-entry div>span{font-size:11px;color:var(--muted)}
+.home-link{width:100%;border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:12px 14px;margin-top:9px;border-radius:12px;text-align:left;display:flex;align-items:center;gap:12px}.home-link:hover{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--panel2))}.shortcut-icon{color:var(--accent2);font-size:20px;width:28px}.home-link>span:nth-child(2){flex:1}.home-link strong,.home-link small{display:block}.home-link strong{font-size:12px}.home-link small{font-size:10px;color:var(--muted)}.home-link b{color:var(--accent2)}
+.custom-panel{margin-bottom:14px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:0 13px 13px}.custom-panel:not([open]){padding-bottom:0}.custom-panel summary{cursor:pointer;font-size:12px;color:var(--accent2);font-weight:800;padding:13px 2px}.custom-panel summary::marker{color:var(--accent)}.exercise{border:1px solid var(--line)}.exercise figure{height:156px;background:#0d121b}.exercise .anatomy-visual img{object-fit:contain}.exercise .illustration-tag{position:absolute;bottom:6px;right:6px;font-size:7px;letter-spacing:.11em;color:#fafafab0;background:#121720d9;border:1px solid #ffffff18;padding:3px 6px;border-radius:5px}.exercise .item-actions{justify-content:stretch;gap:7px}.exercise .item-actions .btn{flex:1}.exercise .item-actions .tiny-btn{font-size:10px}.anatomy-spotlight img{width:108px;height:90px;object-fit:contain;background:#0b1016}.anatomy-spotlight{background:linear-gradient(115deg,#29151d,#101319)}
+.catalog-mini{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;max-height:400px;overflow-y:auto;overscroll-behavior:contain;padding:2px 4px 3px 1px}.catalog-mini .catalog-entry{border:1px solid var(--line);background:var(--panel2);border-radius:10px;padding:10px;display:grid;gap:4px;min-width:0;align-content:start}.catalog-entry strong{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.catalog-entry small{font-size:10px;color:var(--muted)}.catalog-entry .tiny-btn{width:100%;padding:5px 8px;background:var(--panel)}.garage-catalog .card-caption{max-width:340px}.garage-catalog{align-self:start}.vehicle-img{height:160px}
+[hidden]{display:none!important}
+.file-hidden{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important;overflow:hidden!important}.upload-control{display:flex;gap:4px;flex-direction:column;justify-content:center;min-height:49px;cursor:pointer;background:var(--bg);border:1px dashed color-mix(in srgb,var(--accent) 35%,var(--line));padding:7px 11px;border-radius:10px}.upload-control:hover{background:color-mix(in srgb,var(--accent) 5%,var(--bg));border-color:var(--accent)}.upload-control span{font-size:12px;color:var(--text);font-weight:800}.upload-control small{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top-actions #quickAdd{white-space:nowrap}
+@media(max-width:700px){.top-actions #quickAdd:before{content:"＋";font-size:20px;font-weight:800;line-height:1}}
+@media(min-width:1450px){.exercise-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1050px){.home-bottom-grid{grid-template-columns:1fr}.hero-wide{grid-template-columns:1fr .55fr}}
+@media(max-width:700px){.hero-wide{grid-template-columns:1fr;min-height:0}.hero-visual{display:none}.hero-text{padding:25px 21px}.hero-text h2{font-size:36px}.home-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.home-stats .card{padding:13px 10px;min-height:107px}.home-stats .stat-value{font-size:25px}.home-stats .stat-head{font-size:10px;min-height:37px}.home-stats .stat-foot{font-size:9px}.home-bottom-grid{grid-template-columns:1fr}.catalog-mini{max-height:310px}.exercise figure{height:120px}.topbar{gap:8px}.section-head{flex-wrap:wrap}.section-head .form-actions{margin-top:4px}.garage-catalog .card-caption{max-width:none}}
+
+
+/* VOLT v4 — portfolio, garage and anatomy refinements */
+.home-stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pill{display:inline-flex;align-items:center;gap:6px;color:var(--accent2);font-size:10px;letter-spacing:.13em;font-weight:850;text-transform:uppercase}
+.garage-entry-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:-4px 0 16px}
+.image-help{margin-top:12px;line-height:1.6}.type-lock{padding:11px 12px;border-radius:10px;background:var(--bg);border:1px solid var(--line);font-size:13px;font-weight:700}
+.collection-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:18px;background:linear-gradient(130deg,var(--panel),var(--panel2))}
+.collection-summary>div{display:grid;gap:3px;border-right:1px solid var(--line);padding:6px 16px}.collection-summary>div:last-child{border:0}.collection-summary .muted{font-size:10px;font-weight:800;letter-spacing:.11em}.collection-summary strong{font-size:28px;letter-spacing:-.04em}
+.collection-toolbar{display:grid;grid-template-columns:180px minmax(0,1fr);gap:12px;margin-bottom:16px}
+.courses-hero{background:radial-gradient(ellipse at 90% 50%,#e12d3828,transparent 52%),linear-gradient(110deg,#1d2028,#121318);border:1px solid #36323a;border-radius:20px;display:flex;align-items:center;justify-content:space-between;padding:30px 34px;gap:20px;margin-bottom:17px;color:#f6f7f9;overflow:hidden;position:relative}
+.courses-hero h3{font-size:clamp(23px,3vw,34px);font-weight:850;letter-spacing:-.045em;max-width:620px;margin:12px 0 6px}.courses-hero p{margin:0;color:#bac0ca;font-size:13px;max-width:590px}.course-hero-icon{width:130px;height:130px;border-radius:28px;background:linear-gradient(145deg,#ff6472,#a51b2d);display:grid;place-items:center;flex:none;font-size:70px;font-weight:900;transform:rotate(-10deg);box-shadow:0 20px 60px #ef344955}
+.course-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-bottom:18px}.course-stat{display:grid;gap:7px}.course-stat span{color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em}.course-stat strong{font-size:31px;line-height:1.2}
+.course-layout{grid-template-columns:minmax(280px,.92fr) minmax(0,1.08fr);align-items:start}.course-filters{display:grid;grid-template-columns:minmax(0,1fr) 145px;gap:10px;margin:5px 0 17px}.course-list{display:grid;gap:12px}
+.course-item{border:1px solid var(--line);border-radius:14px;background:var(--panel2);padding:17px;display:grid;gap:12px;transition:border-color .2s}.course-item:hover{border-color:#f0444455}.course-item-top{display:flex;align-items:flex-start;gap:13px}.course-symbol{width:46px;height:46px;border-radius:13px;background:#f0444418;border:1px solid #f0444433;display:grid;place-items:center;color:var(--accent2);font-size:25px;flex:none}.course-item-content{min-width:0;flex:1}.course-item h4{font-size:15px;line-height:1.4;font-weight:800;margin:1px 0 5px;overflow-wrap:anywhere}.course-institution{font-size:12px;color:var(--muted);margin:0}.course-chips{display:flex;flex-wrap:wrap;gap:5px}.course-chips span{background:var(--panel);border:1px solid var(--line);padding:4px 8px;border-radius:99px;color:var(--muted);font-size:11px}.course-description{font-size:12px;color:var(--muted);margin:0;overflow-wrap:anywhere}.course-item-footer{display:flex;gap:7px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:12px}.course-item-footer a{font-size:12px;text-decoration:none}.course-item-footer a:hover{text-decoration:underline}
+.anatomy-visual img{width:100%;height:100%;object-fit:cover;object-position:center}.anatomy-visual{background:#0f1014}.anatomy-visual .illustration-tag{background:#15171cdd;backdrop-filter:blur(3px);font-size:9px;letter-spacing:.08em}
+.exercise figure{height:148px}.exercise figure .anatomy-visual{width:100%;height:100%}.anatomy-spotlight img{object-fit:cover}
+.vehicle-grid .vehicle-img{background:linear-gradient(140deg,#0c0e14,#232632)}
+@media(max-width:1120px){.home-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.course-layout{grid-template-columns:1fr}.course-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.home-stats,.course-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.course-list{grid-template-columns:1fr}.course-filters{grid-template-columns:1fr}.collection-toolbar{grid-template-columns:1fr}.collection-summary{padding:12px;gap:0}.collection-summary>div{padding:8px}.collection-summary .muted{font-size:9px}.collection-summary strong{font-size:23px}.courses-hero{padding:23px 20px}.course-hero-icon{width:65px;height:65px;font-size:33px;border-radius:15px}.course-stats .card{padding:13px}.course-stat strong{font-size:24px}.garage-entry-head{align-items:flex-start}.exercise figure{height:130px}}
+.exercise .item-actions{flex-wrap:wrap}.exercise .item-actions .btn{min-width:90px}.exercise .item-actions .tiny-btn{min-width:55px}.exercise figure .anatomy-visual img{object-fit:cover}
+
+
+/* VOLT STUDIO 2026 / identity system */
+:root{--bg:#0a0c10;--panel:#11151b;--panel2:#171c23;--line:#29303a;--text:#f4f6f9;--muted:#95a0ae;--accent:#f13048;--accent2:#ff6073;--shadow:0 7px 28px #0002}
+[data-theme=light]{--bg:#f2f4f8;--panel:#fff;--panel2:#f1f4f8;--line:#dee3eb;--text:#131821;--muted:#5f6b7a;--accent:#d9243e;--accent2:#e84056}
+body{background:var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+.app{grid-template-columns:234px minmax(0,1fr)}
+.sidebar{background:#090c11;border-right:1px solid #252b35;gap:17px;padding:23px 13px 19px;box-shadow:8px 0 50px #0002;overflow-y:auto;scrollbar-width:thin}
+.identity-brand{padding:5px 11px 9px}.brand-logo{width:193px;max-width:100%}.side-intro{padding:13px 15px 21px;border-bottom:1px solid #232a34;display:grid;gap:9px;margin-bottom:5px}.side-intro-line{height:2px;width:30px;background:#ee304c}.side-intro strong{color:#f2f4f8;font-size:15px;line-height:1.27;letter-spacing:-.025em}.side-intro small{color:#7d8899;font-size:8px;letter-spacing:.18em}.nav-label{font-size:10px;font-weight:800;color:#738195;letter-spacing:.18em}.nav{gap:6px}.nav button{color:#a7afbc;border-radius:9px;font-size:12px;letter-spacing:.005em;padding:12px 13px;gap:12px}.nav button.active{background:linear-gradient(95deg,#bb1734,#4c1424);color:white;box-shadow:inset 3px 0 #ff6073}.nav button.active .nav-icon{color:white}.nav button:hover{background:#1b2029;color:#fff}.nav-icon{font-size:20px;line-height:1;width:22px}.side-bottom{gap:17px}.side-quote{border-top:1px solid #252a36;padding:19px 13px 6px;position:relative}.side-quote span{font-size:47px;line-height:1;color:#f13b52;font-weight:1000}.side-quote p{color:#ebedf1;font-size:15px;line-height:1.45;font-weight:650;max-width:160px;margin:4px 0 10px}.side-quote small{color:#747c89;font-size:9px;letter-spacing:.15em}.side-version{color:#abb3c0;display:flex;align-items:center;gap:6px;padding:0 13px;font-weight:800;font-size:10px}.side-version b{color:#fa586c}.side-version span{margin-left:auto;color:#687483;font-weight:500;font-size:8px}
+main{max-width:1900px;padding:19px clamp(15px,1.7vw,34px) 42px}
+.topbar{height:48px;display:flex;align-items:center;gap:18px;margin-bottom:17px}.global-search-shell{position:relative;width:clamp(260px,55vw,640px);max-width:calc(100% - 150px);min-width:0;display:flex;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--muted);padding:0 12px}.global-search-shell:focus-within{border-color:#a9364a;box-shadow:0 0 0 3px #f1304814}.global-search-shell .search-mark{font-size:23px;margin-right:9px;color:#bcc4cf}.global-search-shell input{height:43px;min-width:0;width:100%;background:none;border:none;outline:none!important;color:var(--text);font-size:12px}.global-search-shell input::placeholder{color:var(--muted)}.search-shortcut{font-size:9px;white-space:nowrap;color:#778291;background:#242b34;padding:5px 7px;border-radius:5px}.global-results{position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:35;background:var(--panel);border:1px solid var(--line);box-shadow:0 22px 55px #0008;border-radius:12px;padding:7px}.global-results button{width:100%;padding:10px 12px;display:flex;align-items:center;gap:10px;text-align:left;background:transparent;border:0;color:var(--text);border-radius:7px;font-size:12px}.global-results button:hover,.global-results button:focus-visible{background:var(--panel2)}.global-results small{display:block;color:var(--muted);font-size:10px}.global-results strong{display:block}.global-results .search-result-icon{color:#fc6173;font-size:18px}.global-no-results{color:var(--muted);font-size:12px;padding:12px}
+.topbar-right{display:flex;align-items:center;gap:10px;margin-left:auto}.date-chip{color:var(--muted);font-size:11px;white-space:nowrap}.top-separator{width:1px;height:22px;background:var(--line)}.top-avatar{height:35px;width:35px;border-radius:50%;background:linear-gradient(135deg,#c9223b,#260e1b);color:white;border:1px solid #ff6a7e60;display:grid;place-items:center;font-weight:1000;font-style:italic;box-shadow:0 0 0 3px #f1264421}.top-quick{font-size:11px;padding:8px 10px}.icon-btn{height:34px;width:34px;border-radius:9px}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;padding:0}
+.card{box-shadow:none;border-radius:13px;background:var(--panel)}.btn.primary{background:linear-gradient(105deg,#f3324d,#cd1939);border-color:#f43952}.btn{border-radius:9px}.btn.glass{border:1px solid #ffffff3c;color:white;background:#ffffff15}.btn:hover{transform:translateY(-1px)}
+.identity-hero{min-height:264px;position:relative;display:grid;grid-template-columns:1fr minmax(300px,45%);overflow:hidden;border-radius:14px;border:1px solid #363038;background:radial-gradient(ellipse at 87% 8%,#7221354a,transparent 47%),linear-gradient(110deg,#12151b,#0a0e14 64%,#1b0c16);box-shadow:0 17px 45px #0003}.identity-hero:after{content:"";height:2px;position:absolute;top:0;left:30%;right:0;background:linear-gradient(90deg,transparent,#fb3e60aa,transparent)}
+.identity-hero .hero-text{padding:30px 36px 48px;display:flex;flex-direction:column;align-items:start;justify-content:center}.hero-overline{font-size:10px;font-weight:800;letter-spacing:.16em;color:#ff7889;display:flex;align-items:center;gap:10px}.pulse-dot{height:7px;width:7px;border-radius:50%;background:#f53a55;box-shadow:0 0 0 5px #f43b531b}.identity-hero h2{font-size:clamp(31px,3.3vw,52px);line-height:1.12;font-weight:900;letter-spacing:-.053em;margin:14px 0 12px;color:#f8f9fb}.identity-hero h2 span{color:#ff5269}.identity-hero p{font-size:12px;line-height:1.65;color:#abb3c0;max-width:475px;margin:0}.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:19px}.hero-cta .btn{padding:10px 14px;font-size:11px}.hero-footerline{position:absolute;bottom:0;left:0;right:0;border-top:1px solid #ffffff13;padding:9px 23px;display:flex;justify-content:space-between;gap:9px;font-size:8px;letter-spacing:.16em;color:#ffffff65;pointer-events:none}
+.hero-symbolic{position:relative;min-height:245px;overflow:hidden;background:radial-gradient(circle at 52% 50%,#d4224130,transparent 53%)}.hero-gridlines{position:absolute;inset:0;background:linear-gradient(#f3b6ba12 1px,transparent 1px),linear-gradient(90deg,#f3b6ba12 1px,transparent 1px);background-size:35px 35px;mask-image:linear-gradient(90deg,transparent,black 45%);transform:skewX(-14deg) scale(1.25)}.hero-orbit{position:absolute;left:50%;top:46%;border-radius:50%;border:1px solid #ff4e623e;transform:translate(-50%,-50%) rotate(24deg)}.orbit-one{width:225px;height:225px}.orbit-two{width:350px;height:350px;border-color:#ff4e6222}.hero-v{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%) skew(-12deg);font-size:clamp(170px,20vw,265px);font-weight:1000;color:#ec2e48;line-height:1;letter-spacing:-.13em;text-shadow:14px 10px 0 #421321,0 0 45px #ff2e4850}.hero-v:after{content:"";position:absolute;width:110px;height:6px;left:17%;top:42%;transform:rotate(-22deg);background:#ffbbc3;box-shadow:0 0 25px #ff546b}.hero-strip{position:absolute;font-size:9px;letter-spacing:.16em;color:#ff8e9b;font-weight:900;display:flex;gap:8px;align-items:center;background:#141720b8;padding:8px 10px;border:1px solid #f14d6042;border-radius:7px;backdrop-filter:blur(4px)}.hero-strip strong{font-size:9px;color:#f4f6fa;letter-spacing:.06em}.strip-one{top:18px;left:5%}.strip-two{top:56px;right:4%}.strip-three{bottom:42px;left:3%}.strip-four{bottom:80px;right:4%}
+.home-section-label{margin:17px 2px 9px;display:flex;align-items:center;gap:13px}.home-section-label span{font-size:10px;letter-spacing:.18em;font-weight:900;color:var(--text)}.home-section-label small{color:var(--muted);font-size:11px}.studio-stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 16px}.studio-stats .stat-card{min-height:115px;padding:17px 17px 12px;position:relative;overflow:hidden}.studio-stats .stat-card:before{left:0;right:auto;bottom:0;top:0;height:auto;width:3px;background:#ed334f}.studio-stats .stat-nutrition:before{background:#e5a052}.studio-stats .stat-garage:before{background:#519edb}.studio-stats .stat-courses:before{background:#9481e9}.studio-stats .stat-head{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#c1c8d3;gap:8px}.studio-stats .stat-icon{width:34px;height:34px;flex:none;background:#f3344b29;color:#ff6a7a}.studio-stats .stat-nutrition .stat-icon{background:#f8a14322;color:#ffc078}.studio-stats .stat-garage .stat-icon{background:#4f9dec29;color:#7bc0fb}.studio-stats .stat-courses .stat-icon{background:#9788ee26;color:#b7a5ff}.studio-stats .stat-value{font-size:25px;margin:2px 0 0}.studio-stats .stat-foot{font-size:10px;color:var(--muted)}.studio-stats .stat-track{height:3px;border-radius:10px;background:linear-gradient(90deg,#ef4058 30%,#1d2530 30%);margin-top:13px;opacity:.85}.studio-stats .stat-nutrition .stat-track{background:linear-gradient(90deg,#e5a052 30%,#1d2530 30%)}.studio-stats .stat-garage .stat-track{background:linear-gradient(90deg,#519edb 30%,#1d2530 30%)}.studio-stats .stat-courses .stat-track{background:linear-gradient(90deg,#9481e9 30%,#1d2530 30%)}
+.studio-columns{display:grid;grid-template-columns:minmax(0,1.64fr) minmax(325px,.86fr);gap:15px;align-items:start}.studio-main-column,.studio-right-column{display:grid;gap:15px;min-width:0}.studio-columns .card{padding:17px}.panel-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:15px}.panel-heading h3{font-size:16px;letter-spacing:-.03em;margin:2px 0 2px;font-weight:850}.panel-heading p{color:var(--muted);font-size:10.5px;line-height:1.5;margin:0}.section-kicker{font-size:9px;letter-spacing:.15em;font-weight:900;color:#ff677b}.kicker-orange{color:#eeb267}.kicker-blue{color:#87b6fa}.panel-symbol{width:37px;height:37px;border:1px solid var(--line);border-radius:11px;display:grid;place-items:center;font-size:20px;flex:none}.panel-symbol.orange{color:#efa453;background:#efa4531a}.panel-symbol.blue{color:#80b5f7;background:#578cda18}.panel-symbol.red{color:#fd6a7c;background:#ed29441b}
+.studio-exercise-panel{min-height:574px}.home-exercise-tabs{display:flex;gap:5px;overflow:auto hidden;scrollbar-width:thin;padding-bottom:10px;margin:-3px 0 4px}.home-exercise-tabs button{border:1px solid #303843;border-radius:8px;background:var(--panel2);color:var(--muted);font-size:10px;font-weight:700;padding:8px 10px;white-space:nowrap}.home-exercise-tabs button.active{background:#e62643;color:white;border-color:#e62643}.home-exercise-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.home-exercise-card{cursor:pointer;text-align:left;padding:0;border:1px solid #2d343f;background:#0d1118;color:white;border-radius:11px;overflow:hidden;transition:transform .16s,border-color .16s;min-width:0}.home-exercise-card:hover,.home-exercise-card:focus-visible{transform:translateY(-2px);border-color:#fb4a61}.home-exercise-art{height:117px;background:#090b11;overflow:hidden}.home-exercise-art .anatomy-visual{width:100%;height:100%}.home-exercise-art img{width:100%;height:100%;object-fit:cover}.home-exercise-art .illustration-tag{display:none}.home-exercise-card .home-exercise-details{padding:9px 9px 10px;display:grid;gap:6px}.home-exercise-card strong{font-size:10.5px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:27px}.home-exercise-card small{color:#b2c0d3;font-size:9px}.home-exercise-card .group-tag{border-radius:5px;padding:3px 6px;background:#c3284430;color:#ff7889;display:inline-block;width:max-content;font-weight:700}.home-text-link{width:100%;margin-top:12px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:10px;font-size:11px;font-weight:800;display:flex;justify-content:center;align-items:center;gap:8px}.home-text-link:hover{border-color:#f3324d}.home-text-link span{color:#ff6679}.studio-life-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}.studio-life-grid .card{min-height:249px}.meal-feature-graphic{display:flex;gap:12px;align-items:center;padding:10px;border:1px solid var(--line);background:var(--panel2);border-radius:10px;min-height:122px}.meal-simulated-plate{height:108px;width:108px;flex:0 0 108px;background:radial-gradient(circle,#edeff0 0 54%,#b9c3cb 57%,#f5f5f5 61%,#6a737e 65%,transparent 66%);border-radius:50%;position:relative;box-shadow:0 4px 21px #0006}.meal-simulated-plate i,.meal-simulated-plate b,.meal-simulated-plate em,.meal-simulated-plate small{position:absolute;border-radius:50%}.meal-simulated-plate i{width:44px;height:33px;background:radial-gradient(circle at 50% 40%,#79b653,#276c46);left:18px;top:23px;transform:rotate(30deg)}.meal-simulated-plate b{height:34px;width:41px;background:radial-gradient(circle,#d9ba76,#b17a3e);right:17px;top:32px;transform:rotate(-15deg)}.meal-simulated-plate em{height:25px;width:44px;background:radial-gradient(circle,#e7d6a6,#c2a870);bottom:15px;left:31px;transform:rotate(20deg)}.meal-simulated-plate small{height:19px;width:23px;background:radial-gradient(circle,#b64034,#842b2b);top:19px;right:25px}.meal-copy{display:grid;gap:5px;min-width:0}.meal-copy strong{font-size:12px}.meal-copy span{color:var(--muted);font-size:10px;line-height:1.55}.panel-actions{display:flex;gap:7px;margin-top:12px}.panel-actions .btn{flex:1;font-size:10px}.course-brief-list{display:grid;gap:8px}.course-brief-item{display:flex;align-items:center;gap:10px;padding:9px;border:1px solid var(--line);background:var(--panel2);border-radius:8px}.course-brief-icon{display:grid;place-items:center;width:36px;height:36px;flex:none;border:1px solid #738fbd39;border-radius:9px;background:#638db31a;color:#94c9fa;font-size:20px}.course-brief-item .course-brief-copy{min-width:0;display:grid;gap:2px;flex:1}.course-brief-item strong{font-size:10.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.course-brief-item small{font-size:9.5px;color:var(--muted)}.course-brief-status{font-size:9px;font-weight:800;color:#79d8b1;flex:none}.home-empty-card{border:1px dashed #353d49;background:#10151bd9;color:#a7b1bf;border-radius:9px;font-size:11px;line-height:1.6;padding:15px;text-align:center}
+.studio-vehicle-quick .mini-switch{display:flex;border:1px solid var(--line);background:var(--panel2);padding:4px;border-radius:9px;margin:-2px 0 13px}.mini-switch button{background:none;color:var(--muted);border:0;border-radius:6px;padding:9px;flex:1;font-weight:800;font-size:11px}.mini-switch button.active{background:linear-gradient(90deg,#ed2947,#be1c39);color:white}.quick-vehicle-form{display:grid;grid-template-columns:1fr 1fr;gap:10px}.quick-vehicle-form label{display:grid;gap:5px;color:var(--muted);font-size:10px;font-weight:700}.quick-vehicle-form input,.quick-vehicle-form select{width:100%;min-width:0;padding:10px 9px;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:8px;font-size:11px}.quick-vehicle-form label:nth-child(2){grid-column:span 1}.quick-vehicle-form label:nth-child(3){grid-column:span 2}.quick-vehicle-form .quick-submit{grid-column:span 2;display:flex;justify-content:space-between;margin-top:3px;font-size:12px;padding:11px 13px}.quick-tip{font-size:10px;color:var(--muted);margin-top:12px;line-height:1.5}.header-mini-link{color:#fb6378;border:0;background:transparent;font-size:10px;font-weight:800;white-space:nowrap}.garage-preview-list{display:grid;gap:8px}.garage-preview-card{display:flex;align-items:center;gap:10px;text-align:left;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:7px;color:var(--text);width:100%;min-width:0}.garage-preview-card:hover{border-color:#ff6578}.garage-preview-photo{width:81px;height:58px;border-radius:7px;background:#0c1016;display:grid;place-items:center;overflow:hidden;flex:none;font-size:25px}.garage-preview-photo img{width:100%;height:100%;object-fit:cover}.garage-preview-card strong,.garage-preview-card small{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.garage-preview-card strong{font-size:11px}.garage-preview-card small{font-size:10px;color:var(--muted)}.studio-recent-panel .recent-entry{padding:11px 0}.studio-recent-panel .recent-entry:last-child{border-bottom:0}.studio-recent-panel .recent-entry small{font-size:9px}.studio-recent-panel .recent-entry strong{font-size:11px}.studio-bottomline{border-top:1px solid var(--line);margin-top:16px;padding:15px 3px 1px;display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--muted);font-size:9px;letter-spacing:.13em}.studio-bottomline b{color:var(--accent2)}
+/* Refined form and secondary page language */
+.section:not(#page-home)>.section-head{margin-top:12px}.section:not(#page-home)>.section-head h2{font-size:clamp(23px,2.6vw,33px);font-weight:880}.section:not(#page-home)>.section-head p{font-size:12px}.section:not(#page-home)>.section-head::before{content:"";align-self:stretch;width:3px;background:var(--accent);border-radius:9px;order:-1}.section:not(#page-home)>.section-head{justify-content:flex-start}.section:not(#page-home)>.section-head>.form-actions{margin-left:auto}.exercise{transition:transform .2s,border-color .2s}.exercise:hover{transform:translateY(-2px);border-color:#b02b41}.exercise figure{background:#0b1016}.exercise-grid{gap:12px}
+@media(min-width:1600px){.home-exercise-art{height:145px}.studio-columns{grid-template-columns:minmax(0,1.72fr) minmax(340px,.78fr)}}
+@media(max-width:1200px){.app{grid-template-columns:213px minmax(0,1fr)}.sidebar .brand-logo{width:179px}.studio-columns{grid-template-columns:1fr}.studio-right-column{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.studio-recent-panel{grid-column:1/-1}.home-exercise-art{height:130px}.identity-hero{grid-template-columns:1fr minmax(240px,43%)}.date-chip{display:none}}
+@media(max-width:850px){.app{grid-template-columns:200px minmax(0,1fr)}.studio-life-grid,.studio-right-column{grid-template-columns:1fr}.studio-recent-panel{grid-column:auto}.identity-hero{grid-template-columns:1fr}.hero-symbolic{display:none}.identity-hero{min-height:245px}.home-exercise-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.search-shortcut{display:none}.top-quick span:last-child{display:none}}
+@media(max-width:700px){.app{display:block}.sidebar{display:none}main{padding:12px 12px calc(98px + env(safe-area-inset-bottom))}.topbar{margin:0 0 14px;height:45px}.global-search-shell{max-width:none;width:100%;padding:0 9px}.global-search-shell input{font-size:11px}.topbar-right{gap:6px}.top-separator,.top-quick{display:none}.top-avatar{height:30px;width:30px}.icon-btn{height:33px;width:33px}.identity-hero{min-height:0}.identity-hero .hero-text{padding:28px 22px 54px}.identity-hero h2{font-size:clamp(30px,7vw,42px)}.identity-hero p{font-size:11px}.hero-footerline{font-size:7px;padding:8px 12px}.hero-footerline span:last-child{display:none}.home-section-label{margin:16px 2px 9px}.home-section-label small{font-size:10px}.studio-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.studio-stats .stat-card{min-height:108px;padding:13px 12px 9px}.studio-stats .stat-value{font-size:24px}.studio-stats .stat-head{font-size:10px}.studio-columns,.studio-right-column,.studio-life-grid{grid-template-columns:1fr;gap:12px}.studio-main-column{gap:12px}.studio-columns .card{padding:14px}.home-exercise-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.home-exercise-art{height:131px}.studio-exercise-panel{min-height:0}.panel-heading h3{font-size:15px}.panel-heading p{font-size:10px}.quick-vehicle-form{grid-template-columns:1fr 1fr}.meal-feature-graphic{min-height:119px}.studio-bottomline{font-size:8px}.studio-bottomline span:last-child{display:none}.bottom-nav{background:#0d1118e8;border-color:#222834}.bottom-nav button.active{color:#ff536b}.section:not(#page-home)>.section-head{flex-wrap:wrap}}
+@media(max-width:380px){.home-exercise-art{height:110px}.studio-stats .stat-head{font-size:9px}.hero-cta .btn{font-size:10px}.studio-columns .card{padding:12px}}
+
+
+/* VOLT | biblioteca vetorial padronizada */
+.exercise{background:linear-gradient(155deg,var(--panel),var(--panel2));border-color:var(--line);transition:border-color .2s,transform .2s}
+.exercise:hover{border-color:#df456070;transform:translateY(-2px)}
+.exercise figure{height:137px;background:#121a24;border:1px solid #ffffff10}
+.exercise .anatomy-visual img{object-fit:contain;max-height:100%;width:100%;height:100%}
+.exercise .illustration-tag{background:#081018d9;color:#dce6ef;border-color:#ffffff23;font-weight:700;letter-spacing:.045em;font-size:8px}
+.home-exercise-art img{object-fit:contain!important;image-rendering:auto}
+#selectedExerciseFigure{background:#111923!important;border:1px solid #ffffff16}
+#selectedExercisePreview .anatomy-visual img{object-fit:contain}
+.exercise .item-actions button{white-space:nowrap}
+#exerciseImageHelp{display:block;margin:9px 0 1px;font-size:11px;color:var(--muted);line-height:1.55}
+
+/* VOLT 3D + weekly planning + cardio additions */
+.full-library-card{width:100%}.full-library-card .exercise-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.full-library-card .exercise{min-width:0;overflow:hidden}.full-library-card .exercise figure{aspect-ratio:auto!important;width:100%!important;min-width:0!important;max-width:100%!important;height:155px!important;min-height:0!important;box-sizing:border-box;margin:0;overflow:hidden}.full-library-card .exercise .anatomy-visual{width:100%!important;max-width:100%!important;height:100%!important;box-sizing:border-box}
+.anatomy-visual.anatomy-3d img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.anatomy-visual{overflow:hidden}.anatomy-visual .illustration-tag{z-index:2}
+.exercise-photo-note{font-size:11px;color:var(--muted)}
+.training-layout{align-items:start}.week-switch{display:flex;align-items:center;justify-content:space-between;background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:9px 10px;margin:13px 0}
+.week-switch strong{font-size:13px}.week-switch .tiny-btn{font-size:22px;min-width:37px}
+.week-intro{display:flex;gap:16px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-bottom:12px}.week-intro>span{display:inline-flex;gap:6px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;background:var(--muted)}.dot-plan{background:var(--accent2)}.dot-done{background:#37b98a}
+.week-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px;margin:12px 0 16px}.week-day{border:1px solid var(--line);background:var(--panel2);border-radius:10px;padding:10px 2px 8px;display:flex;flex-direction:column;align-items:center;gap:9px;min-width:0}
+.week-day.is-planned{border-color:rgba(239,52,78,.55);background:rgba(220,35,60,.065)}.week-day.is-done{border-color:rgba(55,185,138,.6);background:rgba(55,185,138,.07)}.week-day.today{box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+.week-day b{font-size:11px;font-weight:700}.week-day time{font-size:11px;color:var(--muted)}.week-day .week-toggle{border:0;border-radius:7px;background:var(--panel);color:var(--text);font:inherit;cursor:pointer;width:95%;min-height:30px;font-size:10px}
+.week-day .week-toggle:hover{background:var(--hover)}.week-day .week-mark{font-size:10px;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:7px;background:transparent;cursor:pointer;width:95%;min-height:28px}
+.week-day .week-mark.is-marked{color:#45d4a2;border-color:#248b69;background:rgba(30,140,90,.1)}.week-day .week-mark:disabled{opacity:.35;cursor:not-allowed}
+.week-track{height:8px;background:var(--panel2);border-radius:50px;overflow:hidden;border:1px solid var(--line)}.week-track>div{height:100%;width:0%;background:linear-gradient(90deg,#ef334c,#39bf91);transition:width .2s ease}
+.week-status{font-size:13px;font-weight:650;margin:13px 0;color:var(--muted)}.week-status.success{color:#45d4a2}.week-status>strong{font-size:15px}
+.cardio-intro{display:flex;gap:14px;align-items:center;padding:18px 20px;background:linear-gradient(100deg,rgba(246,45,75,.18),rgba(246,45,75,.025));border:1px solid rgba(246,45,75,.2);border-radius:15px;margin-bottom:18px}.cardio-intro-icon{background:rgba(246,45,75,.18);border-radius:13px;color:#fc4e67;font-size:30px;padding:7px 14px}.cardio-intro strong{font-size:18px}.cardio-intro p{font-size:12px;color:var(--muted);margin-top:3px}
+.cardio-layout{align-items:start}.cardio-estimate{display:flex;flex-direction:column;border:1px solid rgba(246,45,75,.25);border-radius:14px;padding:18px;background:var(--panel2);gap:6px;margin:14px 0}.cardio-estimate span{font-size:12px;color:var(--muted)}.cardio-estimate strong{font-size:30px;font-weight:850;letter-spacing:-.03em}.cardio-estimate small{font-size:11px;color:var(--muted)}
+.cardio-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-top:16px}.cardio-stats div{display:flex;flex-direction:column;gap:6px;padding:17px;border:1px solid var(--line);background:var(--panel2);border-radius:12px}.cardio-stats span{font-size:12px;color:var(--muted)}.cardio-stats strong{font-size:25px}.weekly-mini-banner{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:12px;font-size:12px;color:var(--muted)}
+.home-training-strip{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:linear-gradient(100deg,rgba(245,42,72,.14),rgba(24,30,40,.65));border:1px solid rgba(242,49,72,.28);border-radius:15px;padding:17px 20px;margin:15px 0 19px}.home-training-strip>div:first-child{display:flex;flex-direction:column;gap:4px}.home-training-strip small{color:var(--accent2);letter-spacing:.13em;font-size:9px;font-weight:800}.home-training-strip strong{font-size:16px}.home-training-strip span{font-size:12px;color:var(--muted)}.home-training-strip-actions{display:flex;gap:8px;flex-wrap:wrap}
+@media(max-width:1150px){.week-days{gap:4px}.week-day{padding:7px 1px}.week-day .week-toggle,.week-day .week-mark{font-size:9px}}
+@media(max-width:650px){.week-days{grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}.week-day{border-radius:8px}.week-day b,.week-day time{font-size:9px}.week-day .week-toggle,.week-day .week-mark{font-size:8px;min-height:28px}.cardio-layout{grid-template-columns:1fr!important}.home-training-strip-actions{width:100%}.home-training-strip-actions button{flex:1}.full-library-card .exercise-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.full-library-card .exercise figure{height:120px!important}}
+
+/* VOLT Studio — biblioteca textual e painel semanal sem mídias de exercício */
+.volt-week-panel{min-height:0;display:grid;gap:0}
+.volt-week-hero{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-height:156px;margin:0 0 13px}
+.volt-week-big{padding:18px 21px;border:1px solid #633142;border-radius:13px;background:radial-gradient(circle at 90% 5%,#f131542d,transparent 65%),linear-gradient(145deg,#26121d,#12141d);display:flex;flex-direction:column;justify-content:center}
+.volt-week-big>span,.volt-week-hero-side>strong{color:#ff8fa0;font-size:9px;font-weight:900;letter-spacing:.14em}
+.volt-week-big>strong{font-size:clamp(42px,5vw,60px);font-weight:900;letter-spacing:-.07em;line-height:1.1;margin:8px 0 5px;color:#fff;font-variant-numeric:tabular-nums}
+.volt-week-big>strong em{font-style:normal;color:#8c95a4;font-size:.54em}
+.volt-week-big>small{font-size:10px;color:#c5bfca}
+.volt-week-hero-side{position:relative;overflow:hidden;padding:17px 20px;border:1px solid #303642;border-radius:13px;background:linear-gradient(145deg,#181d28,#11141c);display:flex;flex-direction:column;justify-content:flex-end;gap:5px}
+.volt-week-hero-side>strong{position:relative;z-index:1;letter-spacing:.08em}
+.volt-week-hero-side>small{font-size:10px;color:#bdc4d0;line-height:1.5;position:relative;z-index:1}
+.volt-week-orb{position:absolute;right:11px;top:-28px;font-size:145px;line-height:1;font-style:italic;font-weight:1000;letter-spacing:-.1em;color:#e72e4830;transform:skew(-12deg);pointer-events:none}
+.volt-week-progress{height:5px;border-radius:999px;background:#2c303b;overflow:hidden;margin-bottom:17px}
+.volt-week-progress>span{display:block;height:100%;width:0%;background:linear-gradient(90deg,#bb233e,#ff536c);border-radius:999px;transition:width .25s}
+.volt-week-days-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:9px}
+.volt-week-days-head>span{font-size:9px;letter-spacing:.15em;font-weight:900;color:#e1e7f0}.volt-week-days-head small{font-size:9px;color:var(--muted)}
+.volt-week-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.volt-week-day{min-width:0;padding:13px 3px 11px;display:grid;justify-items:center;gap:7px;border:1px solid #303744;border-radius:11px;background:#111720;text-align:center;transition:border-color .2s}
+.volt-week-day>span{font-size:9px;color:#a5afc0;font-weight:850}.volt-week-day strong{font-size:21px;font-weight:850;letter-spacing:-.04em;color:#e3eaf3}.volt-week-day small{font-size:8px;color:#858e9e}
+.volt-week-day.is-planned{border-color:#864455;background:#261a24}.volt-week-day.is-planned small{color:#ff95a7}.volt-week-day.is-complete{border-color:#45886c;background:#14251f}.volt-week-day.is-complete small{color:#93dec0}
+.volt-week-day.is-today{box-shadow:inset 0 0 0 1px #f04a64}.volt-week-day.is-today strong{color:#fff}
+.volt-week-bottom{margin-top:21px;border-top:1px solid #2d3540;padding-top:18px}.volt-week-bottom-heading{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:10px}
+.volt-week-bottom-heading h4{font-size:14px;margin:5px 0 0;letter-spacing:-.02em}.volt-week-counter{font-size:9px;font-weight:750;background:#222933;border:1px solid #343e49;border-radius:20px;padding:6px 8px;color:#ced6e2;text-align:right}
+.volt-week-record-list{display:grid;gap:8px}.volt-week-record{display:flex;align-items:center;gap:11px;border:1px solid #303743;background:#10151d;padding:11px 13px;border-radius:9px}.volt-week-record-mark{width:30px;height:30px;flex:none;display:grid;place-items:center;border-radius:8px;color:#ff667b;background:#eb3f5922;font-size:18px}.volt-week-record>div{min-width:0}.volt-week-record strong{display:block;color:#e9eef6;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.volt-week-record small{display:block;font-size:10px;color:var(--muted);margin-top:3px}.volt-week-record-empty{font-size:11px;color:var(--muted);border:1px dashed #3b4351;border-radius:10px;padding:17px;line-height:1.6}
+.volt-week-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}.volt-week-actions .btn{flex:1;min-width:max-content}
+#selectedExercisePreview{display:grid!important;gap:6px;padding:17px 18px!important;border-left:3px solid #ed3653!important;border-radius:11px!important;min-height:94px;background:linear-gradient(115deg,#241923,#131922)!important}
+#selectedExercisePreview .volt-selection-mark{font-size:9px;color:#ff8092;font-weight:900;letter-spacing:.15em}
+#selectedExerciseName{font-size:16px!important;letter-spacing:-.02em}#selectedExerciseGroup{font-size:11px!important}
+.volt-library-hint{margin:0 0 13px;padding:11px 13px;border-left:3px solid #ee3e5a;border-radius:4px 8px 8px 4px;background:#ee3e5a10;color:#c5cfdb;font-size:11px;line-height:1.6}
+.full-library-card .exercise-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px}
+.full-library-card .exercise.exercise-name-item{min-height:82px!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between;gap:12px;padding:14px 14px 14px 12px!important;background:#131922!important;border:1px solid #303947;border-radius:11px}
+.full-library-card .exercise.exercise-name-item:hover{border-color:#bf3750;background:#1c202a!important}
+.exercise-name-main{display:flex;align-items:center;gap:11px;min-width:0;flex:1}
+.exercise-number{width:39px;height:39px;flex:none;border-radius:9px;display:grid;place-items:center;background:#ea345220;border:1px solid #e9415b40;color:#ff6479;font-size:12px;font-weight:900;font-variant-numeric:tabular-nums}
+.exercise-name-copy{min-width:0}.exercise-name-copy strong{font-size:12px!important;line-height:1.45!important;min-height:0!important;display:block;color:#eef1f6;overflow-wrap:anywhere}.exercise-name-copy small{font-size:10px;color:#98a4b5;display:block;margin-top:4px}
+.full-library-card .exercise-name-item .item-actions{margin:0!important;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.full-library-card .exercise-name-item .btn{padding:8px 10px;font-size:10px}.full-library-card .exercise-name-item .tiny-btn{font-size:10px}
+@media(max-width:900px){.full-library-card .exercise-grid{grid-template-columns:1fr!important}}
+@media(max-width:700px){.volt-week-hero{grid-template-columns:1fr 1fr;gap:8px;min-height:133px}.volt-week-big,.volt-week-hero-side{padding:12px}.volt-week-big>strong{font-size:43px}.volt-week-day{padding:9px 1px;gap:6px}.volt-week-day>span{font-size:9px}.volt-week-day strong{font-size:17px}.volt-week-day small{font-size:7px}.volt-week-days{gap:4px}.volt-week-bottom-heading{align-items:center}.volt-week-counter{max-width:44%}.full-library-card .exercise.exercise-name-item{padding:11px!important;min-height:72px!important}.exercise-number{height:34px;width:34px;font-size:10px}.exercise-name-main{gap:8px}.exercise-name-copy strong{font-size:11px!important}.full-library-card .exercise-name-item .btn{padding:7px 8px;font-size:9px}}
+@media(max-width:385px){.volt-week-day strong{font-size:15px}.volt-week-day small{font-size:6px}.volt-week-big>strong{font-size:37px}.volt-week-hero-side>small{font-size:9px}}
+</style>
+<link rel="stylesheet" href="./auth.css"/>
+<script src="./config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+<div id="voltAuthScreen" class="volt-auth-screen" aria-label="Acesso VOLT Studio">
+  <div class="volt-auth-glow"></div>
+  <div class="volt-auth-layout">
+    <div class="volt-auth-story">
+      <img src="./assets/logo-volt.svg" alt="VOLT Studio" class="volt-auth-logo" />
+      <div class="volt-auth-kicker">SEU ESPAÇO. SEU RITMO.</div>
+      <h1>Seu universo,<br><em>em um só lugar.</em></h1>
+      <p>Treinos, cursos, garagem e rotina, agora com uma conta que acompanha você no celular e no computador.</p>
+      <div class="volt-auth-points"><span>✦ Dados separados por pessoa</span><span>✦ Sincronização na nuvem</span><span>✦ Exercícios simples e organizados</span></div>
+      <div class="volt-auth-foot">VOLT / STUDIO <span>ACESSO SEGURO</span></div>
+    </div>
+    <div class="volt-auth-box">
+      <div class="volt-auth-card">
+        <span class="volt-auth-mini">VOLT STUDIO / ACESSAR</span>
+        <div id="voltAuthSetup" hidden>
+          <h2>Conecte seu VOLT</h2><p>O site está pronto, mas falta adicionar a URL e a chave pública do Supabase em <code>config.js</code> e executar o arquivo <code>supabase/setup.sql</code>.</p>
+          <p class="volt-auth-note">Essas configurações são necessárias antes de publicar para outras pessoas. Não coloque chaves secretas no GitHub.</p>
+          <a class="volt-auth-help" href="./CONFIGURAR.md">Abrir o guia de configuração ↗</a>
+        </div>
+        <div id="voltAuthLoading"><div class="volt-spinner"></div><h2>Carregando sua conta</h2><p>Verificando sua sessão de forma segura...</p></div>
+        <div id="voltAuthForms" hidden>
+          <div class="volt-auth-head"><h2 id="voltAuthTitle">Bem-vindo de volta</h2><p id="voltAuthDescription">Acesse o seu espaço pessoal.</p></div>
+          <p class="volt-auth-message" id="voltAuthMessage" role="status" aria-live="polite" hidden></p>
+          <form id="voltLoginForm" class="volt-auth-form">
+            <label>Seu e-mail, usuário ou telefone<input id="voltLoginId" name="login" autocomplete="username" required placeholder="email@exemplo.com ou seu usuário" /></label>
+            <label>Senha<div class="volt-password-wrap"><input id="voltLoginPassword" name="password" type="password" autocomplete="current-password" required placeholder="Digite sua senha" minlength="6" /><button type="button" class="volt-showpass" data-toggle-pass="voltLoginPassword" aria-label="Mostrar ou ocultar senha">◉</button></div></label>
+            <button class="volt-auth-link volt-forgot-link" type="button" data-auth-mode="recover">Esqueceu sua senha?</button>
+            <button class="volt-auth-primary" type="submit">Entrar no VOLT <span>→</span></button>
+            <p class="volt-auth-switch">Ainda não tem conta? <button class="volt-auth-link" type="button" data-auth-mode="signup">Criar conta grátis</button></p>
+          </form>
+          <form id="voltSignupForm" class="volt-auth-form" hidden>
+            <label>Como quer ser chamado?<input id="voltSignupName" autocomplete="name" required maxlength="60" placeholder="Seu nome" /></label>
+            <label>Nome de usuário<input id="voltSignupUsername" autocomplete="nickname" required minlength="3" maxlength="24" pattern="[a-zA-Z0-9_]{3,24}" placeholder="seu_usuario" /><small>3–24 letras, números ou _. O usuário deve ser único.</small></label>
+            <label>E-mail<input id="voltSignupEmail" type="email" autocomplete="email" required placeholder="voce@gmail.com" /><small>Use Gmail, Hotmail, Outlook ou qualquer outro e-mail válido.</small></label>
+            <label>Telefone (opcional)<input id="voltSignupPhone" type="tel" autocomplete="tel" placeholder="+55 81 99999-9999" /><small>Contato opcional. A recuperação de senha é feita exclusivamente pelo e-mail cadastrado.</small></label>
+            <label>Crie uma senha<div class="volt-password-wrap"><input id="voltSignupPassword" type="password" autocomplete="new-password" required minlength="8" placeholder="Pelo menos 8 caracteres" /><button type="button" class="volt-showpass" data-toggle-pass="voltSignupPassword" aria-label="Mostrar ou ocultar senha">◉</button></div></label>
+            <button class="volt-auth-primary" type="submit">Criar minha conta <span>→</span></button>
+            <p class="volt-auth-switch">Já tem conta? <button class="volt-auth-link" type="button" data-auth-mode="login">Entrar</button></p>
+          </form>
+          <form id="voltConfirmSignupForm" class="volt-auth-form" hidden>
+            <p class="volt-auth-note">Enviamos uma confirmação para <strong id="voltConfirmAddress"></strong>. Abra o link do e-mail ou digite o código de 6 dígitos <em>se o envio de códigos estiver configurado</em>.</p>
+            <label>Código recebido por e-mail<input id="voltSignupOtp" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" placeholder="000000" /></label>
+            <button class="volt-auth-primary" type="submit">Confirmar código</button>
+            <button class="volt-auth-link volt-auth-secondary" type="button" data-auth-mode="login">Voltar para entrar</button>
+          </form>
+          <form id="voltRecoverForm" class="volt-auth-form" hidden>
+            <p class="volt-auth-note">Informe o e-mail da sua conta. Você receberá um link seguro para criar uma nova senha. Funciona com Gmail, Hotmail, Outlook e outros provedores.</p>
+            <label>E-mail cadastrado<input id="voltRecoveryEmail" type="email" autocomplete="email" required placeholder="voce@gmail.com" /></label>
+            <button class="volt-auth-primary" type="submit">Enviar e-mail de recuperação <span>→</span></button>
+            <button class="volt-auth-link volt-auth-secondary" type="button" data-auth-mode="login">Voltar para login</button>
+          </form>
+          <form id="voltRecoveryCodeForm" class="volt-auth-form" hidden>
+            <p id="voltRecoveryNotice" class="volt-auth-note">Digite o código que recebeu. Se seu e-mail contém um link, pode clicar nele diretamente.</p>
+            <label>Código de verificação<input id="voltRecoveryOtp" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="000000" /></label>
+            <button class="volt-auth-primary" type="submit">Validar código</button>
+            <button class="volt-auth-link volt-auth-secondary" type="button" data-auth-mode="recover">Reenviar / tentar de novo</button>
+          </form>
+          <form id="voltNewPasswordForm" class="volt-auth-form" hidden>
+            <label>Nova senha<input id="voltNewPassword" type="password" minlength="8" autocomplete="new-password" required placeholder="Pelo menos 8 caracteres" /></label>
+            <label>Confirme a nova senha<input id="voltNewPasswordConfirm" type="password" minlength="8" autocomplete="new-password" required placeholder="Digite novamente" /></label>
+            <button class="volt-auth-primary" type="submit">Salvar nova senha</button>
+          </form>
+        </div>
+      </div>
+      <p class="volt-auth-under">Seu espaço privado · Seus dados sincronizados · Feito para qualquer dispositivo</p>
+    </div>
+  </div>
+</div>
+<div id="voltAccountBackdrop" class="volt-account-backdrop" hidden>
+  <div class="volt-account-dialog" role="dialog" aria-modal="true" aria-labelledby="voltAccountHeading">
+    <div class="volt-account-heading"><div><span class="volt-auth-mini">CONFIGURAÇÕES</span><h2 id="voltAccountHeading">Minha conta</h2></div><button type="button" id="voltAccountClose" aria-label="Fechar">×</button></div>
+    <p class="volt-account-email" id="voltAccountEmail"></p>
+    <form id="voltAccountProfileForm" class="volt-auth-form"><label>Nome exibido<input id="voltAccountName" maxlength="60" required /></label><label>Nome de usuário<input id="voltAccountUsername" minlength="3" maxlength="24" pattern="[a-zA-Z0-9_]{3,24}" required /><small>Pode ser usado no login quando a função opcional de usuário estiver publicada.</small></label><button class="volt-auth-primary" type="submit">Salvar perfil</button></form>
+    <div class="volt-account-divider"></div>
+    <h3>Telefone de contato (opcional)</h3><p class="volt-auth-note" id="voltPhoneState">A recuperação da senha é somente por e-mail. A verificação opcional do telefone requer SMS configurado no Supabase.</p>
+    <form id="voltAccountPhoneForm" class="volt-auth-form"><label>Número com DDI (+55...)<input id="voltAccountPhone" autocomplete="tel" type="tel" placeholder="+55 81 99999-9999" /></label><button class="volt-auth-primary" type="submit">Enviar código de verificação SMS</button></form>
+    <form id="voltAccountPhoneOtpForm" class="volt-auth-form" hidden><label>Código SMS de 6 dígitos<input id="voltPhoneOtp" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" autocomplete="one-time-code" /></label><button class="volt-auth-primary" type="submit">Verificar meu telefone</button></form>
+    <div class="volt-account-divider"></div>
+    <h3>Seus registros</h3><p class="volt-auth-note">Se você já utilizava a versão antiga no mesmo navegador, pode copiar os registros locais para esta conta. Isso substitui os dados atuais desta conta.</p>
+    <button class="volt-account-action" id="voltImportLegacy" type="button">↥ Importar dados da versão antiga deste navegador</button>
+    <p class="volt-auth-note" id="voltAccountFeedback" role="status" aria-live="polite"></p>
+    <div class="volt-account-divider"></div>
+    <button class="volt-account-logout" id="voltLogOut" type="button">Sair desta conta <span>↗</span></button>
+  </div>
+</div>
+
+<div class="app">
+<aside class="sidebar">
+<div class="brand identity-brand"><img alt="VOLT — Sua vida em movimento" class="brand-logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NDAgMTUwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlZPTFQg4oCUIHN1YSB2aWRhIGVtIG1vdmltZW50byI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJ2bCIgeDE9IjAiIHgyPSIxIiB5MT0iMCIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNmZjYwNmIiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNjOTEwMmQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1IDUpIj48cGF0aCBkPSJNNCAyN2g0M2wyNiA0NEw5NyAyN2g0M0w3NCAxMzJ6IiBmaWxsPSJ1cmwoI3ZsKSIvPjxwYXRoIGQ9Ik02OSAyaDUzTDgxIDY0aDQybC03MyA3MyAyNi01OEg0M3oiIGZpbGw9IiNmZjU4NjkiIHN0cm9rZT0iIzE1MTQxOSIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9nPjx0ZXh0IHg9IjE1OCIgeT0iMTAxIiBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjkwMCIgZm9udC1zaXplPSIxMDEiIGxldHRlci1zcGFjaW5nPSItNiIgZmlsbD0iI2Y0ZjZmYSI+Vk9MVDwvdGV4dD48dGV4dCB4PSIxNjQiIHk9IjEzMiIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMTciIGxldHRlci1zcGFjaW5nPSI0IiBmaWxsPSIjYTdiMGMwIj5TVUEgVklEQSBFTSBNT1ZJTUVOVE88L3RleHQ+PC9zdmc+"/></div>
+<div class="side-intro"><span class="side-intro-line"></span><strong>Seu universo,<br/>em um só lugar.</strong><small>ORGANIZAÇÃO QUE ACOMPANHA VOCÊ</small></div>
+<div class="nav-label">ESPAÇOS</div>
+<nav class="nav" id="sideNav">
+<button class="active" data-page="home"><span class="nav-icon">⌂</span>Visão geral</button>
+<button data-page="workouts"><span class="nav-icon">⌁</span>Treinos</button><button data-page="exercises"><span class="nav-icon">▦</span>Biblioteca</button><button data-page="cardio"><span class="nav-icon">♡</span>Cardio</button>
+<button data-page="nutrition"><span class="nav-icon">◈</span>Alimentação</button>
+<button data-page="garage"><span class="nav-icon">＋</span>Adicionar veículo</button>
+<button data-page="collection"><span class="nav-icon">▱</span>Minha garagem</button>
+<button data-page="courses"><span class="nav-icon">▤</span>Cursos &amp; certificados</button>
+</nav>
+<div class="side-bottom">
+<div class="side-quote"><span>V</span><p>O que importa merece seu próprio espaço.</p><small>VOLT · PERSONAL HUB</small></div>
+<button class="volt-account-shortcut" id="voltAccountSide" type="button">♙ &nbsp; Minha conta</button><div class="side-version">VOLT <b>STUDIO</b><span>CONTA PESSOAL</span></div>
+</div>
+</aside>
+<main>
+<header class="topbar">
+<div class="global-search-shell">
+<span aria-hidden="true" class="search-mark">⌕</span>
+<input aria-controls="globalSearchResults" aria-expanded="false" aria-label="Pesquisar em todo o VOLT" autocomplete="off" id="globalSearch" placeholder="Buscar exercícios, cursos, veículos..." type="search"/>
+<span class="search-shortcut">ENTER ↵</span>
+<div class="global-results" hidden="" id="globalSearchResults"></div>
+</div>
+<div class="topbar-right">
+<span class="date-chip" id="topDateLabel"></span><span class="volt-cloud-status" id="voltCloudStatus" aria-live="polite">● Preparando conta</span>
+<span class="top-separator"></span>
+<button aria-label="Alternar tema" class="icon-btn" id="themeBtn" title="Alternar tema">☼</button>
+<button class="btn primary top-quick" id="quickAdd"><span>＋</span><span>Novo registro</span></button>
+<button class="top-avatar" type="button" id="voltOpenAccount" aria-label="Abrir minha conta" title="Minha conta">V</button>
+</div>
+<div class="sr-only"><span id="eyebrow">VOLT · ORGANIZAÇÃO</span><h1 class="page-title" id="pageTitle">Visão geral</h1><p class="page-sub" id="pageSub">Tudo no seu ritmo, em um só lugar.</p></div>
+</header>
+<section class="section active" id="page-home">
+<div class="identity-hero">
+<div class="hero-text">
+<div class="hero-overline"><span class="pulse-dot"></span> SEU ESPAÇO · SUAS CONQUISTAS</div>
+<h2>Todos os seus planos.<br/><span>Um só lugar.</span></h2>
+<p>Cuide da sua rotina, registre suas conquistas e acompanhe aquilo que faz parte da sua vida. Tudo com o seu estilo.</p>
+<div class="hero-cta"><button class="btn primary" data-go="courses">▤ Meu portfólio</button><button class="btn glass" data-go="workouts">⌁ Explorar treinos</button></div>
+</div>
+<div aria-hidden="true" class="hero-symbolic">
+<div class="hero-gridlines"></div><div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+<div class="hero-v">V</div><div class="hero-strip strip-one">01 <strong>MOVIMENTO</strong></div><div class="hero-strip strip-two">02 <strong>CONHECIMENTO</strong></div><div class="hero-strip strip-three">03 <strong>ROTINA</strong></div><div class="hero-strip strip-four">04 <strong>CONQUISTAS</strong></div>
+</div>
+<div class="hero-footerline"><span>VOLT / PERSONAL HUB</span><span>SEU PRÓXIMO CAPÍTULO COMEÇA AQUI</span></div>
+</div>
+<div class="home-section-label"><span>VISÃO DO DIA</span><small id="todayDate">Sua atividade e seu portfólio, em tempo real</small></div>
+<div class="grid stats home-stats studio-stats">
+<div class="card stat-card stat-training"><div class="stat-head"><span>Treinos registrados</span><span class="stat-icon">⌁</span></div><div class="stat-value" id="statWorkouts">0</div><div class="stat-foot">Exercícios no histórico</div><div class="stat-track"></div></div>
+<div class="card stat-card stat-nutrition"><div class="stat-head"><span>Refeições de hoje</span><span class="stat-icon">◈</span></div><div class="stat-value" id="statMeals">0</div><div class="stat-foot">Registros do dia</div><div class="stat-track"></div></div>
+<div class="card stat-card stat-garage"><div class="stat-head"><span>Minha garagem</span><span class="stat-icon">▱</span></div><div class="stat-value" id="statVehicles">0</div><div class="stat-foot">Veículos guardados</div><div class="stat-track"></div></div>
+<div class="card stat-card stat-courses"><div class="stat-head"><span>Cursos e certificados</span><span class="stat-icon">▤</span></div><div class="stat-value" id="statCourses">0</div><div class="stat-foot">Formações cadastradas</div><div class="stat-track"></div></div>
+</div>
+<div class="home-training-strip" id="homeTrainingStrip"><div><small>PLANEJAMENTO</small><strong id="homeWeekMessage">Sua semana, no seu ritmo</strong><span id="homeWeekDetail">Escolha dias de treino para acompanhar sua semana.</span></div><div class="home-training-strip-actions"><button class="btn small primary" data-go="workouts" type="button">Minha semana</button><button class="btn small ghost" data-go="cardio" type="button">Registrar cardio</button></div></div>
+
+<div class="studio-columns">
+<div class="studio-main-column">
+<article class="card volt-week-panel">
+<div class="panel-heading"><div><span class="section-kicker">ORGANIZAÇÃO</span><h3>Minha semana em foco</h3><p>Seus dias planejados e registros, em um só lugar.</p></div><button class="btn primary small" type="button" data-go="workouts">Minha semana ↗</button></div>
+<div class="volt-week-hero">
+  <div class="volt-week-big"><span>PLANO DE TREINOS</span><strong id="homeWeekNumbers">0 <em>/ 0</em></strong><small id="homeWeekNumbersLabel">Dias concluídos na semana</small></div>
+  <div class="volt-week-hero-side"><span class="volt-week-orb">V</span><strong id="homeWeekIndicator">COMECE NO SEU RITMO</strong><small id="homeWeekIndicatorSub">Organize os dias que fizerem sentido para você.</small></div>
+</div>
+<div class="volt-week-progress" aria-hidden="true"><span id="homeWeekProgressFill"></span></div>
+<div class="volt-week-days-head"><span>SEUS 7 DIAS</span><small>Planejado · Concluído · Livre</small></div>
+<div id="homeWeekDaysOverview" class="volt-week-days" aria-label="Resumo dos dias desta semana"></div>
+<div class="volt-week-bottom">
+  <div class="volt-week-bottom-heading"><div><span class="section-kicker">ATIVIDADE</span><h4>Exercícios recentes</h4></div><span id="homeWeekRecordCount" class="volt-week-counter">0 registros nesta semana</span></div>
+  <div id="homeRecentExerciseList" class="volt-week-record-list"></div>
+</div>
+<div class="volt-week-actions"><button class="btn primary small" data-go="workouts" type="button">＋ Registrar exercício</button><button class="btn ghost small" data-go="cardio" type="button">Registrar cardio</button></div>
+</article>
+<div class="studio-life-grid">
+<article class="card studio-nutrition-panel">
+<div class="panel-heading"><div><span class="section-kicker kicker-orange">EQUILÍBRIO</span><h3>Alimentação</h3><p>Seu diário, sem complicação.</p></div><span class="panel-symbol orange">◈</span></div>
+<div class="meal-feature-graphic"><div aria-hidden="true" class="meal-simulated-plate"><i></i><b></b><em></em><small></small></div><div class="meal-copy"><strong id="homeLatestMeal">Seus hábitos começam aqui.</strong><span id="homeLatestMealInfo">Registre refeições e acompanhe seus alimentos.</span></div></div>
+<div class="panel-actions"><button class="btn primary small" data-go="nutrition">＋ Registrar alimento</button><button class="btn small" data-go="nutrition">Minha rotina ↗</button></div>
+</article>
+<article class="card studio-courses-panel">
+<div class="panel-heading"><div><span class="section-kicker kicker-blue">APRENDIZADO</span><h3>Cursos e certificados</h3><p>Seu portfólio de formação.</p></div><span class="panel-symbol blue">▤</span></div>
+<div class="course-brief-list" id="homeCourseList"></div>
+<button class="home-text-link" data-go="courses">Gerenciar portfólio <span>↗</span></button>
+</article>
+</div>
+</div>
+<aside class="studio-right-column">
+<article class="card studio-vehicle-quick">
+<div class="panel-heading"><div><span class="section-kicker">MEUS PLANOS</span><h3>Adicionar veículo</h3><p>Seu próximo carro ou moto.</p></div><span class="panel-symbol red">▱</span></div>
+<div aria-label="Tipo de veículo" class="mini-switch" role="group"><button class="active" data-quick-type="Moto" type="button">Moto</button><button data-quick-type="Carro" type="button">Carro</button></div>
+<div class="quick-vehicle-form">
+<label>Marca<select id="quickVehicleBrand"><option value="">Escolha uma marca</option></select></label>
+<label>Modelo<input autocomplete="off" id="quickVehicleModel" placeholder="Ex.: CB 300F Twister"/></label>
+<label>Ano<input id="quickVehicleYear" max="2100" min="1950" placeholder="2026" type="number"/></label>
+<button class="btn primary quick-submit" id="quickVehicleSubmit" type="button">Continuar cadastro <span>↗</span></button>
+</div>
+<div class="quick-tip">A foto e o preço podem ser incluídos no cadastro completo.</div>
+</article>
+<article class="card studio-garage-preview">
+<div class="panel-heading"><div><span class="section-kicker kicker-blue">COLEÇÃO</span><h3>Minha garagem</h3><p>Veículos salvos por você.</p></div><button class="header-mini-link" data-go="collection">Ver todos ↗</button></div>
+<div class="garage-preview-list" id="homeVehicleList"></div>
+<button class="home-text-link" data-go="garage">＋ Adicionar à garagem <span>↗</span></button>
+</article>
+<article class="card studio-recent-panel">
+<div class="panel-heading"><div><span class="section-kicker">ACOMPANHAMENTO</span><h3>Últimos registros</h3><p>O que você registrou recentemente.</p></div></div>
+<div class="recent-entry"><span class="recent-icon">⌁</span><div><small>ÚLTIMO TREINO</small><strong id="homeWorkoutText">Nenhum treino registrado</strong><span id="homeWorkoutSub">Adicione seu primeiro treino.</span></div></div>
+<div class="recent-entry"><span class="recent-icon">◈</span><div><small>ÚLTIMA REFEIÇÃO</small><strong id="homeMealText">Nenhum alimento registrado</strong><span id="homeMealSub">Registre uma refeição quando quiser.</span></div></div>
+</article>
+</aside>
+</div>
+<div class="studio-bottomline"><span><b>VOLT.</b> SUA VIDA, SUAS ESCOLHAS.</span><span>ROTINA · ESTUDOS · ALIMENTAÇÃO · MOVIMENTO · GARAGEM</span></div>
+</section>
+<section class="section" id="page-workouts">
+<div class="section-head"><div><h2>Meus treinos</h2><p>Registre exercícios e acompanhe os dias que você planejou nesta semana.</p></div><div class="form-actions"><button class="btn primary" id="showWorkoutForm">＋ Registrar</button></div></div><div class="grid two-col training-layout"><div class="card"><div class="card-title-row"><div><h3 class="card-title">Registrar exercício</h3><p class="card-caption">Anote o que fez no treino.</p></div></div>
+<form id="workoutForm"><div class="form-grid">
+<div class="field span-2"><label for="exerciseSelect">Exercício</label><select id="exerciseSelect" required=""></select></div>
+<div class="span-2" id="selectedExercisePreview" aria-live="polite"><span class="volt-selection-mark">EXERCÍCIO ESCOLHIDO</span><strong id="selectedExerciseName">Selecione um exercício</strong><span class="card-caption" id="selectedExerciseGroup">Grupo muscular</span></div>
+<div class="field"><label for="workoutDate">Data</label><input id="workoutDate" required="" type="date"/></div>
+<div class="field"><label for="workoutGroup">Grupo muscular</label><select id="workoutGroup"><option>Peito</option><option>Costas</option><option>Pernas</option><option>Ombros</option><option>Bíceps</option><option>Tríceps</option><option>Abdômen</option><option>Corpo inteiro</option><option>Cardio</option></select></div>
+<div class="field"><label for="workoutWeight">Carga (kg)</label><input id="workoutWeight" min="0" placeholder="Ex.: 20" required="" step="0.25" type="number"/></div>
+<div class="field"><label for="workoutSets">Séries</label><input id="workoutSets" max="30" min="1" required="" type="number" value="3"/></div>
+<div class="field"><label for="workoutReps">Repetições por série</label><input id="workoutReps" max="200" min="1" required="" type="number" value="12"/></div>
+<div class="field"><label for="workoutRest">Descanso (segundos)</label><input id="workoutRest" min="0" type="number" value="60"/></div>
+<div class="field span-2"><label for="workoutNotes">Observações</label><input id="workoutNotes" placeholder="Como se sentiu, variações, etc."/></div>
+</div><div class="form-actions"><button class="btn primary" type="submit">Salvar exercício</button><button class="btn ghost" type="reset">Limpar</button></div></form>
+</div>
+<div class="card week-planner" id="weekPlannerCard">
+<div class="card-title-row"><div><h3 class="card-title">Minha semana de treinos</h3><p class="card-caption">Escolha seus dias e marque cada um quando finalizar.</p></div><span class="chip" id="weekProgressChip">Sem plano</span></div>
+<div class="week-switch"><button aria-label="Semana anterior" class="tiny-btn" id="weekPrev" type="button">‹</button><strong id="weekPeriod">Semana atual</strong><button aria-label="Próxima semana" class="tiny-btn" id="weekNext" type="button">›</button></div>
+<div class="week-intro"><span><span class="dot dot-plan"></span>Dia planejado</span><span><span class="dot dot-done"></span>Concluído</span></div>
+<div class="week-days" id="weekDays"></div>
+<div aria-label="Progresso da semana" class="week-track"><div id="weekTrackFill"></div></div>
+<div aria-live="polite" class="week-status" id="weekStatus"></div>
+<p class="card-caption">Você decide quantos dias quer treinar. Descanso também faz parte da rotina; não há meta obrigatória.</p>
+</div>
+</div>
+
+<div class="card" style="margin-top:16px"><div class="card-title-row"><div><h3 class="card-title">Histórico de treinos</h3><p class="card-caption">Seus registros mais recentes.</p></div><span class="chip" id="workoutCount">0 registros</span></div><div class="list" id="workoutHistory"></div></div>
+</section><section class="section" id="page-exercises"><div class="section-head"><div><h2>Biblioteca de exercícios</h2><p>Encontre exercícios pelo nome e grupo muscular, sem fotos ou GIFs.</p></div><div class="form-actions" id="libraryHeaderActions"><button class="btn ghost" id="openCustomExercise" type="button">＋ Novo exercício</button></div></div><div class="full-library-card card"><div class="card-title-row"><div><h3 class="card-title">Biblioteca de exercícios</h3><p class="card-caption">Lista organizada por nome para você buscar, selecionar e registrar os exercícios com facilidade.</p></div></div>
+<details class="custom-panel" id="customExercisePanel"><summary>＋ Cadastrar exercício próprio</summary>
+<form id="customExerciseForm"><div class="form-grid" style="margin-top:13px">
+<div class="field span-2"><label for="customExerciseName">Nome do exercício</label><input id="customExerciseName" maxlength="80" placeholder="Ex.: Remada unilateral na máquina" required=""/></div>
+<div class="field span-2"><label for="customExerciseGroup">Grupo muscular</label><select id="customExerciseGroup"><option>Peito</option><option>Costas</option><option>Pernas</option><option>Ombros</option><option>Bíceps</option><option>Tríceps</option><option>Abdômen</option><option>Corpo inteiro</option><option>Cardio</option></select></div>
+</div><button class="btn primary small" style="margin-top:13px" type="submit">Salvar exercício</button></form></details>
+<p class="volt-library-hint">Tudo simples: digite o nome, escolha o grupo e selecione um exercício para registrar no treino.</p>
+<div class="form-grid exercise-filters" style="margin-bottom:12px"><div class="field"><label for="exerciseSearch">Buscar exercício</label><input id="exerciseSearch" placeholder="Ex.: supino, agachamento..."/></div><div class="field"><label for="exerciseFilterGroup">Grupo muscular</label><select id="exerciseFilterGroup"><option value="Todos">Todos os grupos</option><option>Peito</option><option>Costas</option><option>Pernas</option><option>Ombros</option><option>Bíceps</option><option>Tríceps</option><option>Abdômen</option><option>Cardio</option><option>Corpo inteiro</option></select></div></div><div class="exercise-grid" id="exerciseLibrary"></div><button class="btn ghost" id="showMoreExercises" style="width:100%;margin-top:12px" type="button">Mostrar mais exercícios</button><p class="card-caption" style="margin-top:12px">Você pode adicionar exercícios personalizados e organizar sua biblioteca sem precisar enviar arquivos.</p></div></section><section class="section" id="page-cardio">
+<div class="section-head"><div><h2>Cardio</h2><p>Registre seu tempo de movimento e veja uma estimativa ampla de gasto energético.</p></div></div>
+<div class="cardio-intro">
+<span class="cardio-intro-icon">♡</span><div><strong>Movimento no seu ritmo.</strong><p>Caminhada, corrida, bicicleta e outras atividades — sem metas obrigatórias.</p></div>
+</div>
+<div class="grid two-col cardio-layout">
+<div class="card"><div class="card-title-row"><div><h3 class="card-title">Registrar atividade</h3><p class="card-caption">Informe o exercício e a duração.</p></div><span class="chip">REGISTRO PESSOAL</span></div>
+<form id="cardioForm"><div class="form-grid">
+<div class="field span-2"><label for="cardioType">Atividade</label><select id="cardioType"><option value="walk">Caminhada</option><option value="run">Corrida</option><option value="bike">Bicicleta</option><option value="stationary">Bicicleta ergométrica</option><option value="elliptical">Elíptico</option><option value="swim">Natação</option><option value="dance">Dança</option><option value="stairs">Escadas</option></select></div>
+<div class="field"><label for="cardioMinutes">Tempo (minutos)</label><input id="cardioMinutes" inputmode="numeric" max="480" min="1" required="" type="number" value="10"/></div>
+<div class="field"><label for="cardioIntensity">Intensidade percebida</label><select id="cardioIntensity"><option value="light">Leve</option><option selected="" value="moderate">Moderada</option><option value="vigorous">Intensa</option></select></div>
+<div class="field span-2"><label for="cardioDate">Data</label><input id="cardioDate" required="" type="date"/></div>
+</div>
+<div aria-live="polite" class="cardio-estimate"><span>Estimativa ilustrativa para essa duração</span><strong id="cardioEstimate">—</strong><small id="cardioEstimateDetails">Varia com o ritmo e as características da pessoa.</small></div>
+<p class="card-caption" style="margin:12px 0">O valor é uma <b>faixa aproximada</b> calculada com equivalentes metabólicos (METs) e pesos de referência genéricos. Não mede calorias efetivamente gastas e não deve ser usado para compensar refeições.</p>
+<div class="form-actions"><button class="btn primary" type="submit">Salvar atividade</button><button class="btn ghost" type="reset">Limpar</button></div></form>
+</div>
+<div class="card"><div class="card-title-row"><div><h3 class="card-title">Resumo da semana</h3><p class="card-caption">Registros feitos de segunda a domingo.</p></div></div>
+<div class="cardio-stats"><div><span>Atividades</span><strong id="cardioWeeklyCount">0</strong></div><div><span>Tempo total</span><strong id="cardioWeeklyMinutes">0 min</strong></div></div>
+<div class="weekly-mini-banner" id="cardioWeekBanner">Cada registro conta sua história de movimento.</div>
+</div>
+</div>
+<div class="card" style="margin-top:16px"><div class="card-title-row"><div><h3 class="card-title">Histórico de cardio</h3><p class="card-caption">Data, atividade e duração. Os valores são apenas estimados.</p></div><span class="chip" id="cardioCount">0 registros</span></div><div class="list" id="cardioHistory"></div></div>
+</section>
+<section class="section" id="page-nutrition">
+<div class="section-head"><div><h2>Alimentação</h2><p>Registre o que come e acompanhe estimativas de energia e nutrientes.</p></div></div>
+<div class="grid two-col" style="margin-bottom:17px">
+<div class="card"><div class="card-title-row"><div><h3 class="card-title">Planejador de refeições equilibradas</h3><p class="card-caption">Sugestões práticas conforme suas preferências, sem dietas restritivas.</p></div><span class="chip">LOCAL</span></div>
+<div class="form-grid"><div class="field"><label for="planRoutine">Minha rotina</label><select id="planRoutine"><option value="normal">Rotina regular</option><option value="busy">Dia corrido / escola</option><option value="active">Dia com atividades físicas</option><option value="custom">Outra — escrever minha rotina</option></select></div><div class="field"><label for="planStyle">Preferências</label><select id="planStyle"><option value="mixed">Alimentação variada</option><option value="vegetarian">Vegetariana</option><option value="noMilk">Sem leite</option></select></div><div class="field span-2" hidden="" id="planCustomRoutineWrap"><label for="planCustomRoutine">Descreva sua rotina</label><input id="planCustomRoutine" maxlength="150" placeholder="Ex.: escola de manhã, treino à tarde, trabalho aos sábados"/></div><div class="field span-2"><label for="planAvoid">Alergias ou alimentos que não consumo</label><input id="planAvoid" placeholder="Ex.: amendoim, ovo, glúten..."/></div></div><div class="form-actions"><button class="btn primary" id="makeMealPlan" type="button">Montar sugestões de refeições</button></div>
+<div class="notice" style="margin-top:12px"><strong>Planejamento responsável:</strong> este planejador não usa peso ou altura para impor limites de calorias. As opções incluem refeições e lanches variados; porções dependem da fome, rotina e necessidades individuais. Para uma dieta em gramas personalizada, procure nutricionista.</div>
+</div>
+<div class="card"><h3 class="card-title">Minha rotina sugerida</h3><div class="plan-list" id="mealPlanResult"><div class="empty">Escolha suas preferências e monte um plano de ideias de refeições.</div></div></div>
+</div>
+<div class="grid stats">
+<div class="card"><div class="stat-head">Energia registrada <span class="stat-icon">◉</span></div><div class="stat-value" id="nutritionCalories">0</div><div class="stat-foot">kcal hoje</div></div>
+<div class="card"><div class="stat-head">Proteínas <span class="stat-icon">P</span></div><div class="stat-value" id="nutritionProtein">0 g</div><div class="stat-foot">estimativa diária</div></div>
+<div class="card"><div class="stat-head">Carboidratos <span class="stat-icon">C</span></div><div class="stat-value" id="nutritionCarbs">0 g</div><div class="stat-foot">estimativa diária</div></div>
+<div class="card"><div class="stat-head">Gorduras <span class="stat-icon">G</span></div><div class="stat-value" id="nutritionFat">0 g</div><div class="stat-foot">estimativa diária</div></div>
+</div>
+<div class="grid two-col">
+<div class="card"><div class="card-title-row"><div><h3 class="card-title">Adicionar alimento</h3><p class="card-caption">Use valores do rótulo ou uma base nutricional confiável.</p></div></div>
+<form id="mealForm"><div class="form-grid">
+<div class="field"><label for="mealDate">Data</label><input id="mealDate" required="" type="date"/></div>
+<div class="field"><label for="mealType">Refeição</label><select id="mealType"><option>Café da manhã</option><option>Almoço</option><option>Lanche</option><option>Jantar</option><option>Ceia</option><option>Outro</option></select></div>
+<div class="field span-2"><label for="foodName">Alimento</label><input id="foodName" placeholder="Ex.: arroz cozido" required=""/></div>
+<div class="field"><label for="foodGrams">Quantidade (g)</label><input id="foodGrams" min="0" placeholder="150" required="" step="1" type="number"/></div>
+<div class="field"><label for="foodCalories">Calorias (kcal, porção toda)</label><input id="foodCalories" min="0" placeholder="Opcional" step="1" type="number"/></div>
+<div class="field"><label for="foodProtein">Proteína (g)</label><input id="foodProtein" min="0" placeholder="Opcional" step=".1" type="number"/></div>
+<div class="field"><label for="foodCarbs">Carboidratos (g)</label><input id="foodCarbs" min="0" placeholder="Opcional" step=".1" type="number"/></div>
+<div class="field"><label for="foodFat">Gorduras (g)</label><input id="foodFat" min="0" placeholder="Opcional" step=".1" type="number"/></div>
+<div class="field"><label for="foodFiber">Fibras (g)</label><input id="foodFiber" min="0" placeholder="Opcional" step=".1" type="number"/></div>
+</div><div class="form-actions"><button class="btn primary" type="submit">Salvar alimento</button><button class="btn ghost" type="reset">Limpar</button></div></form>
+</div>
+<div class="card"><div class="card-title-row"><div><h3 class="card-title">Analisar prato por foto</h3><p class="card-caption">Use uma foto para organizar o registro; confirme os ingredientes e as quantidades manualmente.</p></div></div>
+<label class="btn" for="mealPhotoInput">📷 Escolher/tirar foto</label><input accept="image/*" capture="environment" class="hide" id="mealPhotoInput" type="file"/>
+<img alt="Prévia da foto do prato" class="meal-photo" id="mealPhotoPreview"/>
+<div class="plate-helper" style="margin-top:14px"><h4 style="margin:0 0 7px;font-size:14px">Análise guiada da foto</h4><p class="card-caption">Selecione o alimento que você vê na foto e a quantidade. O site preenche valores aproximados usando uma pequena tabela local — não é reconhecimento por IA.</p><div class="form-grid" style="margin-top:13px"><div class="field"><label for="guidedFood">Alimento</label><select id="guidedFood"><option value="">Selecione...</option></select></div><div class="field"><label for="guidedGrams">Quantidade (g)</label><input id="guidedGrams" min="1" step="1" type="number" value="100"/></div></div><button class="btn small primary" id="guidedAdd" style="margin-top:10px" type="button">Preencher registro alimentar</button></div><div class="notice" style="margin-top:13px"><strong>Análise assistida:</strong> a foto é exibida para você revisar. Esta versão ainda não envia a imagem a uma IA nem calcula nutrientes automaticamente, porque isso exige conectar um serviço de IA com segurança. Use o formulário ao lado para registrar cada alimento e a quantidade; os valores continuam editáveis.</div><div class="form-actions" style="margin-top:10px"><button class="btn" id="photoHelpBtn" type="button">Como registrar esta foto</button></div><p class="card-caption" id="photoHelpText" style="display:none;margin-top:10px">1. Identifique os alimentos visíveis. 2. Estime ou pese a porção em gramas. 3. Consulte o rótulo ou uma fonte nutricional confiável. 4. Registre cada item separadamente e confira os valores. A foto não é enviada para nenhum servidor nesta versão.</p>
+<div class="divider"></div><div class="field"><label for="nutritionNote">Notas sobre alimentação</label><textarea id="nutritionNote" placeholder="Preferências, alergias a considerar, observações..."></textarea></div><button class="btn" id="saveNutritionNote" style="margin-top:10px">Salvar notas</button>
+</div>
+</div>
+<div class="card" style="margin-top:16px"><div class="card-title-row"><div><h3 class="card-title">Diário alimentar</h3><p class="card-caption">Os valores dependem dos dados informados por você.</p></div></div><div class="list" id="mealHistory"></div></div>
+<div class="notice" style="margin-top:15px"><strong>Saúde em primeiro lugar:</strong> calorias e porções são estimativas. Este registro não prescreve dieta individual nem substitui nutricionista. Se você ainda está crescendo, evite metas restritivas de perda de peso e procure orientação profissional para necessidades específicas.</div>
+</section>
+<section class="section" id="page-garage">
+<div class="section-head"><div><h2>Adicionar veículo</h2><p>Escolha moto ou carro, complete os dados e selecione a foto de sua preferência.</p></div></div>
+<div class="garage-entry-head"><span class="pill">01 · CADASTRO</span><button class="btn small" data-go="collection" type="button">Ver minha garagem →</button></div>
+<div class="grid two-col">
+<div class="card"><h3 class="card-title">Adicionar veículo</h3><p class="card-caption" style="margin-bottom:15px">Cadastre qualquer carro ou moto, mesmo fora do catálogo.</p>
+<form id="vehicleForm"><div class="form-grid"><div class="field"><label for="vehicleType">Tipo</label><select id="vehicleType"><option>Moto</option><option>Carro</option></select></div><div class="field"><label for="vehicleBrand">Marca</label><input id="vehicleBrand" list="vehicleBrandOptions" placeholder="Digite ou escolha uma marca" required=""/><datalist id="vehicleBrandOptions"></datalist></div><div class="field span-2"><label for="vehicleName">Modelo</label><input id="vehicleName" list="vehicleModelOptions" placeholder="Ex.: CB 300F Twister" required=""/><datalist id="vehicleModelOptions"></datalist></div><div class="field"><label for="vehicleYear">Ano do modelo</label><input id="vehicleYear" max="2035" min="1900" placeholder="Ex.: 2025" required="" step="1" type="number"/></div><div class="field"><label for="vehiclePhotoUpload">Foto do veículo</label><label class="upload-control" for="vehiclePhotoUpload"><span>📷 Escolher imagem</span><small id="vehiclePhotoName">JPG, PNG, WebP ou GIF</small></label><input accept="image/jpeg,image/png,image/webp,image/gif" class="file-hidden" id="vehiclePhotoUpload" type="file"/></div><div class="field"><label for="vehiclePrice">Preço desejado (R$)</label><input id="vehiclePrice" min="0" placeholder="Ex.: 30000" required="" step="0.01" type="number"/></div><div class="field"><label for="vehicleSaved">Já economizado (R$)</label><input id="vehicleSaved" min="0" required="" step="0.01" type="number" value="0"/></div><div class="field span-2"><label for="vehicleImage">Link direto para imagem (opcional)</label><input id="vehicleImage" placeholder="Ou cole aqui a URL direta de uma imagem" type="url"/></div></div><div class="photo-match" id="vehiclePhotoPreview"><span>🖼️ A mídia aparecerá aqui quando você selecionar uma imagem ou GIF. Você pode buscar imagens e enviar a escolhida.</span></div><div class="form-actions"><button class="btn primary" type="submit">＋ Salvar na minha garagem</button><button class="btn" id="googleImageSearch" type="button">⌕ Buscar foto no Google</button></div>
+<p class="card-caption image-help">A busca abre o Google Imagens com marca, modelo e ano. Para usar a foto, envie um arquivo ou cole a URL <strong>direta</strong> da imagem (não a URL da página da busca). Use imagens que você tenha permissão para reutilizar.</p></form>
+<div class="notice" style="margin-top:14px"><strong>Foto do veículo:</strong> pesquise no Google Imagens ou envie uma imagem do computador ou celular. Ela será reduzida para salvar no navegador e aparecerá na garagem. Também é possível colar uma URL direta. <strong>Marcas</strong> são filtradas por moto ou carro. Preços ilustrativos são editáveis.</div>
+</div>
+<div class="card garage-catalog"><div class="card-title-row"><div><h3 class="card-title">Escolha rapidamente</h3><p class="card-caption">Sugestões compactas. Qualquer outro modelo pode ser digitado no formulário ao lado.</p></div><span class="chip">CATÁLOGO</span></div><div class="form-grid" style="margin-bottom:12px"><div class="field"><label>Categoria atual</label><div class="type-lock" id="catalogTypeLabel">🏍️ Motos</div></div><div class="field"><label for="vehicleCatalogSearch">Buscar marca ou modelo</label><input id="vehicleCatalogSearch" placeholder="Ex.: Honda, Sahara, Corolla..."/></div></div><div class="catalog-mini" id="vehiclePresets"></div></div>
+</div>
+</section>
+<section class="section" id="page-collection">
+<div class="section-head"><div><span class="pill">COLEÇÃO PARTICULAR</span><h2 style="margin-top:10px">Minha garagem</h2><p>Seus carros e motos salvos, cada um com imagem, ano e progresso de economia.</p></div><button class="btn primary" data-go="garage" type="button">＋ Adicionar veículo</button></div>
+<div class="card collection-summary"><div><span class="muted">VEÍCULOS SALVOS</span><strong id="garageTotal">0</strong></div><div><span class="muted">MOTOCICLETAS</span><strong id="garageMotorcycles">0</strong></div><div><span class="muted">CARROS</span><strong id="garageCars">0</strong></div></div>
+<div class="collection-toolbar"><div class="field"><label for="garageFilter">Mostrar</label><select id="garageFilter"><option value="Todos">Todos</option><option value="Moto">Motos</option><option value="Carro">Carros</option></select></div><div class="field"><label for="garageSearch">Buscar na minha garagem</label><input id="garageSearch" placeholder="Marca, modelo ou ano"/></div></div>
+<div class="grid vehicle-grid" id="vehicleList"></div>
+</section>
+<section class="section" id="page-courses">
+<div class="section-head"><div><span class="pill">PORTFÓLIO DE APRENDIZAGEM</span><h2 style="margin-top:10px">Cursos e certificados</h2><p>Organize suas formações e mantenha os links dos certificados à mão.</p></div><button class="btn primary" id="newCourseButton" type="button">＋ Novo curso</button></div>
+<div class="courses-hero"><div><span class="pill">FORMAÇÃO CONTÍNUA</span><h3>Conhecimento que fica no seu portfólio.</h3><p>Registre instituição, modalidade, carga horária e link do certificado. Um visual limpo, inspirado em perfis profissionais.</p></div><div class="course-hero-icon">▤</div></div>
+<div class="course-stats"><div class="card course-stat"><span>CURSOS REGISTRADOS</span><strong id="courseTotal">0</strong></div><div class="card course-stat"><span>HORAS DE FORMAÇÃO</span><strong id="courseHours">0 h</strong></div><div class="card course-stat"><span>CONCLUÍDOS</span><strong id="courseCompleted">0</strong></div></div>
+<div class="grid course-layout">
+<div class="card" id="courseFormCard"><div class="card-title-row"><div><h3 class="card-title" id="courseFormTitle">Adicionar formação</h3><p class="card-caption">Os dados ficam salvos neste navegador.</p></div><span class="chip">MEU CURRÍCULO</span></div>
+<form id="courseForm"><input id="courseEditingId" type="hidden"/><div class="form-grid">
+<div class="field span-2"><label for="courseName">Nome do curso *</label><input id="courseName" maxlength="120" placeholder="Ex.: Excel Avançado" required=""/></div>
+<div class="field span-2"><label for="courseInstitution">Instituição / plataforma *</label><input id="courseInstitution" maxlength="100" placeholder="Ex.: SENAI, Fundação Bradesco, Udemy" required=""/></div>
+<div class="field"><label for="courseYear">Ano *</label><input id="courseYear" max="2100" min="1950" placeholder="Ex.: 2026" required="" type="number"/></div>
+<div class="field"><label for="courseHoursInput">Carga horária (horas) *</label><input id="courseHoursInput" max="100000" min="0.5" placeholder="Ex.: 40" required="" step="0.5" type="number"/></div>
+<div class="field"><label for="courseMode">Modalidade</label><select id="courseMode"><option>Online</option><option>Presencial</option><option>Híbrido</option></select></div>
+<div class="field"><label for="courseStatus">Situação</label><select id="courseStatus"><option>Concluído</option><option>Em andamento</option></select></div>
+<div class="field span-2"><label for="courseLink">Link do certificado (Drive ou outro endereço)</label><input id="courseLink" placeholder="https://drive.google.com/..." type="url"/></div>
+<div class="field span-2"><label for="courseDescription">Descrição ou habilidades (opcional)</label><textarea id="courseDescription" maxlength="400" placeholder="O que você aprendeu? Ferramentas, tecnologias, atividades..." rows="3"></textarea></div>
+</div><div class="form-actions"><button class="btn primary" id="courseSubmit" type="submit">Salvar curso</button><button class="btn" hidden="" id="courseCancel" type="button">Cancelar edição</button></div></form>
+<p class="card-caption" style="margin-top:15px">Use um link de visualização acessível apenas às pessoas autorizadas por você. Não alteramos as permissões do Google Drive.</p>
+</div>
+<div class="card course-portfolio"><div class="card-title-row"><div><h3 class="card-title">Meu portfólio</h3><p class="card-caption">Formações organizadas como um currículo digital.</p></div></div>
+<div class="course-filters"><div class="field"><label for="courseSearch">Buscar curso ou instituição</label><input id="courseSearch" placeholder="Pesquisar"/></div><div class="field"><label for="courseFilter">Situação</label><select id="courseFilter"><option value="Todos">Todos</option><option>Concluído</option><option>Em andamento</option></select></div></div>
+<div class="course-list" id="courseList"></div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<nav class="bottom-nav" id="bottomNav">
+<button class="active" data-page="home"><span>▦</span>Início</button><button data-page="workouts"><span>↗</span>Treinos</button><button data-page="exercises"><span>▦</span>Exerc.</button><button data-page="cardio"><span>♡</span>Cardio</button><button data-page="nutrition"><span>◉</span>Comida</button><button data-page="collection"><span>▱</span>Garagem</button><button data-page="courses"><span>▤</span>Cursos</button>
+</nav>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+<script>
+(() => {
+const LEGACY_KEY='centralPessoal_v1';
+const uid=()=>typeof crypto!=='undefined'&&typeof crypto.randomUUID==='function'?crypto.randomUUID():'volt-'+Date.now()+'-'+Math.random().toString(36).slice(2,10);
+const today=()=>new Date().toLocaleDateString('en-CA');
+const fmtDate=(s)=>{if(!s)return '—';const d=new Date(s+'T12:00:00');return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'});};
+const brl=(n)=>Number(n||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:2});
+const num=(n)=>Number(n||0).toLocaleString('pt-BR');
+const esc=(s)=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const defaults={theme:'dark',cardioRecords:[],trainingWeeks:{},workouts:[],meals:[],steps:[],goals:[],vehicles:[],body:[],customExercises:[],courses:[],stepsGoal:8000,nutritionNote:''};
+let data=JSON.parse(JSON.stringify(defaults));
+let cloudClient=null, currentUser=null, cloudReady=false, cloudWriting=null, pendingRevision=0, syncedRevision=0, cloudSyncTimer=null, cloudRun=0, currentProfile=null;
+const signedMediaRefs=new Map(), uploadedMediaRefs=new Map();
+const $=id=>document.getElementById(id);
+function save(){if(!cloudReady||!currentUser){toast('Entre na sua conta para salvar.');return;}pendingRevision++;setCloudStatus('Alterações aguardando sincronização', 'pending');clearTimeout(cloudSyncTimer);cloudSyncTimer=setTimeout(()=>flushCloud().catch(console.warn),500);}
+let toastTimer;
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2400);}
+const pages={
+home:['VOLT · VISÃO GERAL','Painel principal','Treino, alimentação e garagem com a sua identidade.'],
+workouts:['ROTINA & CONSTÂNCIA','Meus treinos','Registre seus exercícios e acompanhe sua semana.'],
+exercises:['BIBLIOTECA DE MOVIMENTOS','Exercícios','Busque, adicione e personalize suas imagens.'],
+cardio:['MOVIMENTO & TEMPO','Cardio','Registre o tempo de atividade e acompanhe estimativas.'],
+nutrition:['ROTINA & EQUILÍBRIO','Alimentação','Um diário simples para entender seus hábitos alimentares.'],
+garage:['CATÁLOGO & CADASTRO','Adicionar veículo','Cadastre carros e motos com dados e fotos escolhidas por você.'],
+collection:['COLEÇÃO PESSOAL','Minha garagem','Seus veículos favoritos reunidos em um só lugar.'],
+courses:['EDUCAÇÃO & PORTFÓLIO','Cursos e certificados','Sua trajetória de aprendizado, organizada e acessível.']
+};
+function go(page){if(!pages[page])return;document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));$('page-'+page).classList.add('active');document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===page));$('eyebrow').textContent=pages[page][0];$('pageTitle').textContent=pages[page][1];$('pageSub').textContent=pages[page][2];window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+function setTheme(theme){data.theme=theme;document.documentElement.dataset.theme=theme==='light'?'light':'dark';$('themeBtn').textContent=theme==='light'?'☾':'☼';save();}
+$('themeBtn').addEventListener('click',()=>setTheme(data.theme==='dark'?'light':'dark'));
+const exercises=[
+['Supino reto com barra','Peito','supino'],['Supino inclinado com halteres','Peito','supinoInclinado'],['Supino com halteres','Peito','halteres'],['Crucifixo com halteres','Peito','crucifixo'],['Crossover na polia','Peito','crossover'],['Flexão de braços','Peito','flexao'],['Flexão inclinada','Peito','flexao'],['Puxada frontal na polia','Costas','puxada'],['Barra fixa','Costas','barraFixa'],['Remada curvada','Costas','remada'],['Remada baixa','Costas','remadaBaixa'],['Remada unilateral com halter','Costas','remada'],['Levantamento terra','Costas','terra'],['Pulldown com braços retos','Costas','puxada'],['Agachamento livre','Pernas','agachamento'],['Agachamento goblet','Pernas','agachamento'],['Leg press','Pernas','leg'],['Cadeira extensora','Pernas','extensora'],['Cadeira flexora','Pernas','flexora'],['Levantamento romeno','Pernas','terra'],['Afundo / passada','Pernas','afundo'],['Elevação de panturrilha','Pernas','panturrilha'],['Hip thrust','Pernas','hipthrust'],['Desenvolvimento de ombros','Ombros','ombro'],['Elevação lateral','Ombros','lateral'],['Elevação frontal','Ombros','lateral'],['Crucifixo inverso','Ombros','crucifixoInverso'],['Encolhimento de ombros','Ombros','encolhimento'],['Rosca direta','Bíceps','rosca'],['Rosca alternada','Bíceps','rosca'],['Rosca martelo','Bíceps','martelo'],['Rosca Scott','Bíceps','rosca'],['Tríceps na polia','Tríceps','triceps'],['Tríceps testa','Tríceps','triceps'],['Mergulho no banco','Tríceps','triceps'],['Prancha abdominal','Abdômen','prancha'],['Abdominal curto','Abdômen','abdominal'],['Elevação de pernas','Abdômen','abdominal'],['Bicicleta abdominal','Abdômen','abdominal'],['Esteira / caminhada','Cardio','cardio'],['Corrida','Cardio','cardio'],['Bicicleta ergométrica','Cardio','cardio'],['Elíptico','Cardio','cardio'],['Burpee','Corpo inteiro','burpee'],['Mountain climber','Corpo inteiro','prancha'],['Kettlebell swing','Corpo inteiro','terra']
+];
+function allExercises(){return [...exercises,...(data.customExercises||[]).filter(x=>x&&x.name&&x.group).map(x=>[x.name,x.group,'','custom',x.id])];}
+function refreshExerciseSelect(selectName){const prev=selectName||$('exerciseSelect').value;$('exerciseSelect').innerHTML=allExercises().map(e=>`<option value="${esc(e[0])}">${esc(e[0])}${e[3]==='custom'?' · personalizado':''}</option>`).join('');if(allExercises().some(e=>e[0]===prev))$('exerciseSelect').value=prev;updateSelectedExercise();}
+let visibleExerciseCount=12;
+function renderExercises(){
+  const q=($('exerciseSearch').value||'').toLocaleLowerCase('pt-BR');
+  const grp=$('exerciseFilterGroup').value;
+  const fullList=allExercises().filter(e=>(grp==='Todos'||e[1]===grp)&&(e[0]+' '+e[1]).toLocaleLowerCase('pt-BR').includes(q));
+  const list=fullList.slice(0,visibleExerciseCount);
+  $('showMoreExercises').hidden=fullList.length<=visibleExerciseCount;
+  $('showMoreExercises').textContent=`Mostrar mais exercícios (${Math.max(0,fullList.length-visibleExerciseCount)} restantes)`;
+  $('exerciseLibrary').innerHTML=list.map((e,i)=>`<article class="exercise exercise-name-item">
+      <div class="exercise-name-main"><span class="exercise-number" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><div class="exercise-name-copy"><strong>${esc(e[0])}</strong><small>${esc(e[1])}${e[3]==='custom'?' · Personalizado':''}</small></div></div>
+      <div class="item-actions"><button class="btn small primary" type="button" data-ex="${esc(e[0])}">Selecionar</button>${e[3]==='custom'?`<button class="tiny-btn danger" type="button" data-remove-ex="${esc(e[4])}" title="Excluir exercício personalizado">Excluir</button>`:''}</div>
+    </article>`).join('')||'<div class="empty">Nenhum exercício encontrado. Você pode cadastrar um novo acima.</div>';
+  document.querySelectorAll('[data-ex]').forEach(b=>b.addEventListener('click',()=>{$('exerciseSelect').value=b.dataset.ex;updateSelectedExercise();go('workouts');$('workoutForm').scrollIntoView({behavior:'smooth',block:'center'});toast('Exercício selecionado.');}));
+  document.querySelectorAll('[data-remove-ex]').forEach(b=>b.addEventListener('click',()=>{if(!confirm('Excluir este exercício personalizado? Os treinos já registrados serão mantidos.'))return;data.customExercises=data.customExercises.filter(x=>x.id!==b.dataset.removeEx);save();refreshExerciseSelect();renderExercises();toast('Exercício retirado da biblioteca.');}));
+}
+function updateSelectedExercise(){
+  const e=allExercises().find(x=>x[0]===$('exerciseSelect').value)||allExercises()[0];
+  if(!e)return;
+  $('selectedExerciseName').textContent=e[0];
+  $('selectedExerciseGroup').textContent=e[1];
+  if($('workoutGroup'))$('workoutGroup').value=e[1];
+}
+$('exerciseSelect').addEventListener('change',updateSelectedExercise);
+$('exerciseSearch').addEventListener('input',()=>{visibleExerciseCount=12;renderExercises();});
+$('exerciseFilterGroup').addEventListener('change',()=>{visibleExerciseCount=12;renderExercises();});
+$('showMoreExercises').addEventListener('click',()=>{visibleExerciseCount+=12;renderExercises();});
+$('openCustomExercise').addEventListener('click',()=>{go('exercises');$('customExercisePanel').open=true;$('customExercisePanel').scrollIntoView({behavior:'smooth',block:'center'});$('customExerciseName').focus();});
+$('customExerciseForm').addEventListener('submit',e=>{e.preventDefault();const name=$('customExerciseName').value.trim(),group=$('customExerciseGroup').value;
+  if(!name){toast('Digite um nome para o exercício.');return;}
+  if(allExercises().some(x=>x[0].toLocaleLowerCase('pt-BR')===name.toLocaleLowerCase('pt-BR'))){toast('Já existe um exercício com esse nome.');return;}
+  data.customExercises=data.customExercises||[];data.customExercises.push({id:uid(),name,group});save();
+  $('exerciseSearch').value=name;visibleExerciseCount=12;refreshExerciseSelect(name);renderExercises();$('customExerciseForm').reset();$('customExercisePanel').open=false;toast('Exercício personalizado salvo.');
+});
+refreshExerciseSelect();renderExercises();
+$('workoutDate').value=today();$('mealDate').value=today();
+$('workoutForm').addEventListener('submit',e=>{e.preventDefault();data.workouts.unshift({id:uid(),exercise:$('exerciseSelect').value,date:$('workoutDate').value,group:$('workoutGroup').value,weight:+$('workoutWeight').value,sets:+$('workoutSets').value,reps:+$('workoutReps').value,rest:+$('workoutRest').value||0,notes:$('workoutNotes').value});save();renderAll();toast('Exercício salvo no dispositivo.');$('workoutNotes').value='';});
+$('showWorkoutForm').addEventListener('click',()=>{$('workoutForm').scrollIntoView({behavior:'smooth',block:'center'});$('exerciseSelect').focus();});
+$('mealForm').addEventListener('submit',e=>{e.preventDefault();data.meals.unshift({id:uid(),date:$('mealDate').value,type:$('mealType').value,name:$('foodName').value.trim(),grams:+$('foodGrams').value,calories:+$('foodCalories').value||0,protein:+$('foodProtein').value||0,carbs:+$('foodCarbs').value||0,fat:+$('foodFat').value||0,fiber:+$('foodFiber').value||0});save();renderAll();toast('Alimento salvo.');e.target.reset();$('mealDate').value=today();});
+$('mealPhotoInput').addEventListener('change',e=>{const f=e.target.files?.[0];if(!f)return;const url=URL.createObjectURL(f);$('mealPhotoPreview').src=url;$('mealPhotoPreview').style.display='block';toast('Foto carregada para consulta visual.');});
+$('saveNutritionNote').addEventListener('click',()=>{data.nutritionNote=$('nutritionNote').value;save();toast('Notas salvas.');});
+$('vehicleForm').addEventListener('submit',async e=>{e.preventDefault();const f=$('vehiclePhotoUpload').files[0];let image=$('vehicleImage').value.trim();if(image&&!/^https?:\/\//i.test(image)){toast('A URL da foto deve começar com http ou https.');return;}if(f){try{image=await compressVehicleImage(f);}catch(err){toast('Não foi possível ler essa mídia. Tente JPG, PNG, WebP ou GIF.');return;}}
+const item={id:uid(),type:$('vehicleType').value,brand:$('vehicleBrand').value.trim(),name:$('vehicleName').value.trim(),year:+$('vehicleYear').value,price:+$('vehiclePrice').value,saved:+$('vehicleSaved').value||0,image,photoSource:f?'Foto pessoal':(image?'Link adicionado':'')};if(!item.brand||!item.name||item.price<0||!Number.isFinite(item.price)){toast('Preencha os dados válidos do veículo.');return;}data.vehicles.unshift(item);save();renderAll();e.target.reset();$('vehicleType').value='Moto';refreshBrandOptions(true);$('vehicleSaved').value='0';$('vehiclePhotoPreview').innerHTML='<span>📷 Selecione uma foto para visualizá-la aqui.</span>';$('vehiclePhotoName').textContent='JPG, PNG, WebP ou GIF';toast('Veículo salvo! Veja na sua garagem.');go('collection');});
+function del(type,id){if(!confirm('Excluir este registro? Esta ação não pode ser desfeita.'))return;data[type]=data[type].filter(x=>x.id!==id);save();renderAll();toast('Registro excluído.');}
+function bindDelete(){document.querySelectorAll('[data-delete]').forEach(b=>b.addEventListener('click',()=>del(b.dataset.delete,b.dataset.id)));}
+function renderWorkouts(){ $('workoutCount').textContent=`${data.workouts.length} registros`;const list=data.workouts.slice(0,50);$('workoutHistory').innerHTML=list.map(w=>`<div class="item"><div class="item-main"><strong>${esc(w.exercise)} · ${num(w.weight)} kg</strong><small>${fmtDate(w.date)} · ${esc(w.group)} · ${w.sets} séries × ${w.reps} reps${w.rest?` · ${w.rest}s descanso`:''}${w.notes?' · '+esc(w.notes):''}</small></div><button class="tiny-btn danger" data-delete="workouts" data-id="${w.id}">Excluir</button></div>`).join('')||'<div class="empty">Seus exercícios registrados aparecerão aqui.</div>';}
+function renderMeals(){const todays=data.meals.filter(m=>m.date===today());const sum=k=>todays.reduce((a,m)=>a+(+m[k]||0),0);$('nutritionCalories').textContent=num(sum('calories'));$('nutritionProtein').textContent=num(sum('protein'))+' g';$('nutritionCarbs').textContent=num(sum('carbs'))+' g';$('nutritionFat').textContent=num(sum('fat'))+' g';$('mealHistory').innerHTML=data.meals.slice(0,80).map(m=>`<div class="item"><div class="item-main"><strong>${esc(m.name)} · ${num(m.grams)} g</strong><small>${fmtDate(m.date)} · ${esc(m.type)} · ${num(m.calories)} kcal · P ${num(m.protein)} g · C ${num(m.carbs)} g · G ${num(m.fat)} g</small></div><button class="tiny-btn danger" data-delete="meals" data-id="${m.id}">Excluir</button></div>`).join('')||'<div class="empty">Seu diário alimentar está vazio. Adicione um alimento para começar.</div>';if(document.activeElement!==$('nutritionNote'))$('nutritionNote').value=data.nutritionNote||'';}
+const carBrands=['Abarth','Acura','Alfa Romeo','Aston Martin','Audi','BAIC','Bentley','BMW','BYD','CAOA Chery','Changan','Chery','Chevrolet','Chrysler','Citroën','Dacia','Dodge','DS Automobiles','Ferrari','Fiat','Ford','GAC','Geely','GMC','GWM','Haval','Honda','Hyundai','Infiniti','Iveco','Jaguar','Jeep','JAC','Jaecoo','Kia','Lamborghini','Land Rover','Lexus','Lifan','Lincoln','Lotus','Maserati','Mazda','McLaren','Mercedes-Benz','Mini','Mitsubishi','Neta','Nissan','Omoda','Opel','Peugeot','Porsche','RAM','Renault','Rolls-Royce','Seat','Seres','Skoda','Smart','Subaru','Suzuki','Tesla','Toyota','Troller','Volkswagen','Volvo','Zeekr'];
+const motoBrands=['AJP','Aprilia','Avelloz','Bajaj','Benelli','BMW Motorrad','Bull','Dafra','Ducati','Haojue','Harley-Davidson','Honda','Husqvarna','Indian','Kawasaki','KTM','Kymco','Lambretta','Lifan','Lon-V','Mottu','MV Agusta','Piaggio','Royal Enfield','Shineray','Suzuki','Triumph','Vespa','Voltz','Voge','Vmoto','Yamaha','Zontes'];
+
+const presets=[
+{type:'Moto',brand:'Honda',name:'Sahara 300',price:30000,year:2025},{type:'Moto',brand:'Honda',name:'CG 160 Titan',price:20000},{type:'Moto',brand:'Honda',name:'Biz 125',price:15000},{type:'Moto',brand:'Honda',name:'CB 300F Twister',price:25000},{type:'Moto',brand:'Honda',name:'XRE 190',price:23000},{type:'Moto',brand:'Yamaha',name:'Fazer FZ25',price:25000},{type:'Moto',brand:'Yamaha',name:'Lander 250',price:30000},{type:'Moto',brand:'Yamaha',name:'Factor 150',price:17000},{type:'Moto',brand:'Yamaha',name:'MT-03',price:35000},{type:'Moto',brand:'Royal Enfield',name:'Hunter 350',price:23000},{type:'Moto',brand:'Royal Enfield',name:'Classic 350',price:25000},{type:'Moto',brand:'Bajaj',name:'Dominar 400',price:27000},{type:'Moto',brand:'Bajaj',name:'Pulsar N160',price:18000},{type:'Moto',brand:'Shineray',name:'SHI 175',price:16000},{type:'Moto',brand:'Kawasaki',name:'Ninja 400',price:35000},{type:'Moto',brand:'BMW Motorrad',name:'G 310 GS',price:40000},{type:'Moto',brand:'Triumph',name:'Speed 400',price:30000},{type:'Moto',brand:'Suzuki',name:'V-Strom 650',price:55000},{type:'Moto',brand:'Ducati',name:'Monster',price:80000},{type:'Moto',brand:'KTM',name:'Duke 390',price:40000},
+{type:'Carro',brand:'Fiat',name:'Mobi',price:75000},{type:'Carro',brand:'Fiat',name:'Argo',price:90000},{type:'Carro',brand:'Fiat',name:'Strada',price:110000},{type:'Carro',brand:'Fiat',name:'Fastback',price:130000},{type:'Carro',brand:'Volkswagen',name:'Polo',price:95000},{type:'Carro',brand:'Volkswagen',name:'T-Cross',price:140000},{type:'Carro',brand:'Volkswagen',name:'Nivus',price:130000},{type:'Carro',brand:'Volkswagen',name:'Tiguan',price:280000},{type:'Carro',brand:'Chevrolet',name:'Onix',price:95000},{type:'Carro',brand:'Chevrolet',name:'Tracker',price:130000},{type:'Carro',brand:'Chevrolet',name:'S10',price:240000},{type:'Carro',brand:'Toyota',name:'Corolla',price:160000},{type:'Carro',brand:'Toyota',name:'Corolla Cross',price:190000},{type:'Carro',brand:'Toyota',name:'Hilux',price:250000},{type:'Carro',brand:'Honda',name:'Civic',price:250000},{type:'Carro',brand:'Honda',name:'City',price:120000},{type:'Carro',brand:'Honda',name:'HR-V',price:160000},{type:'Carro',brand:'Hyundai',name:'HB20',price:95000},{type:'Carro',brand:'Hyundai',name:'Creta',price:145000},{type:'Carro',brand:'Renault',name:'Kwid',price:80000},{type:'Carro',brand:'Renault',name:'Duster',price:130000},{type:'Carro',brand:'Jeep',name:'Renegade',price:130000},{type:'Carro',brand:'Jeep',name:'Compass',price:190000},{type:'Carro',brand:'Nissan',name:'Kicks',price:140000},{type:'Carro',brand:'Nissan',name:'Frontier',price:250000},{type:'Carro',brand:'Ford',name:'Maverick',price:250000},{type:'Carro',brand:'Ford',name:'Mustang',price:550000},{type:'Carro',brand:'BYD',name:'Dolphin Mini',price:120000},{type:'Carro',brand:'BYD',name:'Dolphin',price:150000},{type:'Carro',brand:'BYD',name:'Song Plus',price:230000},{type:'Carro',brand:'GWM',name:'Haval H6',price:220000},{type:'Carro',brand:'Geely',name:'EX2',price:120000},{type:'Carro',brand:'CAOA Chery',name:'Tiggo 7',price:150000},{type:'Carro',brand:'Mitsubishi',name:'Pajero Sport',price:350000},{type:'Carro',brand:'Peugeot',name:'208',price:100000},{type:'Carro',brand:'Citroën',name:'Basalt',price:110000},{type:'Carro',brand:'BMW',name:'320i',price:330000},{type:'Carro',brand:'Mercedes-Benz',name:'C 200',price:380000},{type:'Carro',brand:'Audi',name:'A3',price:300000},{type:'Carro',brand:'Volvo',name:'XC60',price:400000},{type:'Carro',brand:'Porsche',name:'911',price:900000},{type:'Carro',brand:'Tesla',name:'Model 3',price:300000},{type:'Carro',brand:'RAM',name:'Rampage',price:240000}
+];
+function renderPresets(){
+  const q=($('vehicleCatalogSearch').value||'').trim().toLocaleLowerCase('pt-BR');const type=$('vehicleType').value;$('catalogTypeLabel').textContent=type==='Moto'?'🏍️ Motos':'🚘 Carros';
+  const list=presets.filter(p=>(type==='Todos'||p.type===type)&&(p.brand+' '+p.name).toLocaleLowerCase('pt-BR').includes(q));
+  $('vehiclePresets').innerHTML=list.map(p=>`<div class="catalog-entry" title="${esc(p.brand+' '+p.name)}"><strong>${p.type==='Moto'?'🏍️':'🚘'} ${esc(p.brand)} ${esc(p.name)}</strong><small>${brl(p.price)} · ilustrativo</small><button class="tiny-btn" data-preset="${esc(p.type+'|'+p.brand+'|'+p.name)}">＋ Escolher</button></div>`).join('')||'<div class="empty" style="grid-column:1/-1">Nenhum modelo sugerido. Você pode digitar qualquer marca e modelo.</div>';
+  document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>{const [t,brand,name]=b.dataset.preset.split('|');const p=presets.find(x=>x.type===t&&x.brand===brand&&x.name===name);if(!p)return;$('vehicleType').value=p.type;refreshBrandOptions(true);$('vehicleBrand').value=p.brand;$('vehicleName').value=p.name;$('vehicleYear').value=p.year||new Date().getFullYear();$('vehiclePrice').value=p.price;$('vehicleSaved').value=0;refreshModelOptions();$('vehicleForm').scrollIntoView({behavior:'smooth',block:'center'});toast('Modelo preenchido — ajuste o ano e o preço.');}));
+}
+$('vehicleCatalogSearch').addEventListener('input',renderPresets);
+
+function renderVehicles(){
+  const filt=$('garageFilter').value;const search=$('garageSearch').value.trim().toLocaleLowerCase('pt-BR');
+  $('garageTotal').textContent=data.vehicles.length;$('garageMotorcycles').textContent=data.vehicles.filter(v=>v.type==='Moto').length;$('garageCars').textContent=data.vehicles.filter(v=>v.type==='Carro').length;
+  $('vehicleList').innerHTML=data.vehicles.filter(v=>(filt==='Todos'||v.type===filt)&&(v.brand+' '+v.name+' '+(v.year||'')).toLocaleLowerCase('pt-BR').includes(search)).map(v=>{const pct=v.price>0?Math.min(100,Math.round(v.saved/v.price*100)):0;const icon=v.type==='Moto'?'🏍️':'🚘';const safeImg=/^(https?:\/\/|data:image\/(jpeg|png|webp|gif);base64,)/i.test(v.image||'')?v.image:'';const photo=safeImg?`<img src="${esc(safeImg)}" alt="${esc(v.brand+' '+v.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">`:'';return `<article class="vehicle-card"><div class="vehicle-img">${photo}<span class="placeholder" ${safeImg?'style="display:none"':''}>${icon}</span></div><div class="vehicle-info"><span class="chip">${esc(v.type)}</span><h3 style="margin-top:8px">${esc(v.brand)} ${esc(v.name)} ${v.year?esc(v.year):''}</h3><p>${v.photoSource?esc(v.photoSource):'Adicione sua foto'}</p><div class="vehicle-price">${brl(v.price)}</div><div class="progress-line"><span style="width:${pct}%"></span></div><p>${brl(v.saved)} guardados · ${pct}% do valor</p><div class="form-actions"><button class="tiny-btn" data-add-saved="${v.id}">Economia</button><button class="tiny-btn" data-edit-vehicle="${v.id}">Editar</button><button class="tiny-btn" data-vehicle-search="${v.id}">⌕ Google Imagens</button><button class="tiny-btn" data-vehicle-link="${v.id}">⇥ Link da foto</button><button class="tiny-btn" data-vehicle-upload="${v.id}">📷 Foto</button><input class="hide" type="file" accept="image/jpeg,image/png,image/webp,image/gif" data-vehicle-file="${v.id}"><button class="tiny-btn danger" data-delete="vehicles" data-id="${v.id}">Excluir</button></div></div></article>`;}).join('')||'<div class="empty" style="grid-column:1/-1">Nenhum veículo nesta busca. Clique em “Adicionar veículo” para cadastrar um novo.</div>';
+  document.querySelectorAll('[data-add-saved]').forEach(b=>b.addEventListener('click',()=>{const v=data.vehicles.find(x=>x.id===b.dataset.addSaved);if(!v)return;const val=prompt('Quanto você já guardou no total (R$)?',String(v.saved));if(val!==null&&val.trim()!==''&&Number.isFinite(Number(val))&&Number(val)>=0){v.saved=Number(val);save();renderAll();toast('Valor atualizado.');}}));
+  document.querySelectorAll('[data-edit-vehicle]').forEach(b=>b.addEventListener('click',()=>{const v=data.vehicles.find(x=>x.id===b.dataset.editVehicle);if(!v)return;const brand=prompt('Marca:',v.brand);if(brand===null)return;const name=prompt('Modelo:',v.name);if(name===null)return;const year=prompt('Ano:',String(v.year||new Date().getFullYear()));if(year===null)return;const price=prompt('Preço em reais:',String(v.price));if(price===null)return;const url=prompt('URL direta da foto (deixe vazio para manter):','');if(url===null)return;if(!brand.trim()||!name.trim()||!Number.isFinite(Number(price))||Number(price)<0||!(Number(year)>=1900&&Number(year)<=2100)){toast('Algum dado é inválido.');return;}if(url.trim()&&!/^https?:\/\//i.test(url.trim())){toast('Cole um link http ou https para a foto.');return;}v.brand=brand.trim();v.name=name.trim();v.year=+year;v.price=+price;if(url.trim()){v.image=url.trim();v.photoSource='Link adicionado';}save();renderAll();toast('Veículo atualizado.');}));
+  document.querySelectorAll('[data-vehicle-search]').forEach(b=>b.addEventListener('click',()=>{const v=data.vehicles.find(x=>x.id===b.dataset.vehicleSearch);if(!v)return;window.open('https://www.google.com/search?tbm=isch&q='+encodeURIComponent([v.brand,v.name,v.year,v.type==='Moto'?'moto':'carro','foto'].filter(Boolean).join(' ')),'_blank','noopener,noreferrer');}));
+  document.querySelectorAll('[data-vehicle-link]').forEach(b=>b.addEventListener('click',()=>{const v=data.vehicles.find(x=>x.id===b.dataset.vehicleLink);if(!v)return;const raw=prompt('Cole a URL direta da imagem (https://...jpg, png ou webp). Não cole o link da página de resultados do Google:', /^https?:\/\//i.test(v.image||'')?v.image:'');if(raw===null)return;const url=raw.trim();if(url&&!/^https?:\/\//i.test(url)){toast('O link precisa começar com https:// ou http://');return;}v.image=url;v.photoSource=url?'Foto adicionada por link':'';save();renderAll();toast(url?'Link da foto atualizado.':'Foto por link removida.');}));
+  document.querySelectorAll('[data-vehicle-upload]').forEach(b=>b.addEventListener('click',()=>{document.querySelector(`[data-vehicle-file="${b.dataset.vehicleUpload}"]`)?.click();}));
+  document.querySelectorAll('[data-vehicle-file]').forEach(inp=>inp.addEventListener('change',async()=>{const f=inp.files?.[0],v=data.vehicles.find(x=>x.id===inp.dataset.vehicleFile);if(!f||!v)return;if(f.size>12*1024*1024){toast('Foto muito grande (máximo 12 MB).');return;}try{v.image=await compressVehicleImage(f);v.photoSource='Foto pessoal';save();renderAll();toast('Foto do veículo atualizada.');}catch(e){toast('Não consegui carregar a imagem. Use JPG, PNG, WebP ou GIF.');}}));
+}
+$('garageFilter').addEventListener('change',renderVehicles);$('garageSearch').addEventListener('input',renderVehicles);
+function renderHome(){const d=today();const meals=data.meals.filter(m=>m.date===d);$('statWorkouts').textContent=data.workouts.length;$('statMeals').textContent=meals.length;$('statVehicles').textContent=data.vehicles.length;$('statCourses').textContent=(data.courses||[]).length;$('todayDate').textContent=new Date().toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});const w=data.workouts[0];$('homeWorkoutText').textContent=w?w.exercise:'Nenhum treino registrado';$('homeWorkoutSub').textContent=w?`${fmtDate(w.date)} · ${num(w.weight)} kg · ${w.sets} séries`:'Comece com o exercício que quiser.';const m=data.meals[0];$('homeMealText').textContent=m?m.name:'Nenhum alimento registrado';$('homeMealSub').textContent=m?`${fmtDate(m.date)} · ${num(m.grams)} g`:'Registre uma refeição quando quiser.';}
+// Ideias de refeições: sem prescrição individual nem cálculos de restrição alimentar.
+const mealPlans={
+ mixed:{breakfast:'Pão integral com queijo ou ovo, uma fruta e água ou leite.',lunch:'Arroz, feijão, legumes e frango, peixe ou outra proteína de sua preferência.',snack:'Fruta com iogurte, ou sanduíche simples.',dinner:'Legumes, arroz ou batata e feijão/ovo/carne, conforme preferir.'},
+ vegetarian:{breakfast:'Pão integral, pasta de grão-de-bico e fruta.',lunch:'Arroz, feijão ou lentilha, salada e legumes.',snack:'Iogurte ou opção vegetal e fruta.',dinner:'Omelete ou tofu, batata e vegetais.'},
+ noMilk:{breakfast:'Pão com ovo ou pasta de grão-de-bico e fruta.',lunch:'Arroz, feijão, proteína à escolha e salada.',snack:'Fruta e um sanduíche sem leite.',dinner:'Legumes, batata e feijão, carne ou outra proteína.'}
+};
+const avoidFood=(phrase,avoid)=>avoid.some(w=>w&&phrase.toLocaleLowerCase('pt-BR').includes(w));
+function renderMealPlanner(){if(!data.mealPreferences)return;const p=data.mealPreferences;$('planRoutine').value=p.routine||'normal';$('planCustomRoutineWrap').hidden=p.routine!=='custom';$('planCustomRoutine').value=p.customRoutine||'';$('planStyle').value=p.style||'mixed';$('planAvoid').value=p.avoid||'';const suggestions=mealPlans[p.style]||mealPlans.mixed;const words=(p.avoid||'').toLocaleLowerCase('pt-BR').split(/[,;]+/).map(w=>w.trim()).filter(Boolean);const labels=[['Café da manhã',suggestions.breakfast],['Almoço',suggestions.lunch],['Lanche',suggestions.snack],['Jantar',suggestions.dinner]];if(p.routine==='busy')labels.push(['Ideia para levar','Leve água e um lanche prático que você goste.']);if(p.routine==='active')labels.push(['Após a atividade','Faça uma refeição ou lanche habitual quando sentir fome e beba água.']);if(p.routine==='custom'&&p.customRoutine)labels.unshift(['Minha rotina',p.customRoutine]);$('mealPlanResult').innerHTML=labels.map(([name,food])=>`<div class="plan-entry"><b>${esc(name)}</b><span>${words.some(w=>food.toLocaleLowerCase('pt-BR').includes(w))?'⚠️ Esta sugestão pode conter um item que você evita. Substitua por uma opção segura e confirme os ingredientes.':esc(food)}</span></div>`).join('')+'<p class="card-caption">Estas são ideias de refeições, não uma prescrição de calorias, porções ou peso.</p>';
+}
+$('planRoutine').addEventListener('change',()=>{$('planCustomRoutineWrap').hidden=$('planRoutine').value!=='custom';});
+$('makeMealPlan').addEventListener('click',()=>{if($('planRoutine').value==='custom'&&!$('planCustomRoutine').value.trim()){toast('Descreva sua rotina antes de continuar.');$('planCustomRoutine').focus();return;}data.mealPreferences={routine:$('planRoutine').value,customRoutine:$('planCustomRoutine').value.trim(),style:$('planStyle').value,avoid:$('planAvoid').value};save();renderMealPlanner();toast('Ideias de refeições organizadas.');});
+const foodsPer100=[['Arroz branco cozido',130,2.7,28.2,0.3],['Feijão cozido',77,4.8,13.6,0.5],['Frango grelhado',165,31,0,3.6],['Ovo cozido',155,13,1.1,11],['Batata cozida',87,1.9,20.1,0.1],['Banana',89,1.1,22.8,0.3],['Maçã',52,0.3,13.8,0.2],['Pão francês',300,9,58,3],['Alface',15,1.4,2.9,0.2],['Tomate',18,0.9,3.9,0.2],['Macarrão cozido',158,5.8,30.9,0.9],['Carne bovina grelhada',217,26,0,12],['Peixe grelhado',128,23,0,3],['Iogurte natural',61,3.5,4.7,3.3],['Aveia',389,16.9,66.3,6.9]];
+$('photoHelpBtn').addEventListener('click',()=>{const el=$('photoHelpText');el.style.display=el.style.display==='none'?'block':'none';});
+$('guidedFood').innerHTML+='<option disabled>— Valores médios por 100 g —</option>'+foodsPer100.map((f,i)=>`<option value="${i}">${esc(f[0])}</option>`).join('');
+$('guidedAdd').addEventListener('click',()=>{const idx=Number($('guidedFood').value),g=Number($('guidedGrams').value);if($('guidedFood').value===''||!Number.isFinite(g)||g<=0){toast('Selecione o alimento e informe os gramas.');return;}const f=foodsPer100[idx],scale=g/100;$('foodName').value=f[0];$('foodGrams').value=g;$('foodCalories').value=Math.round(f[1]*scale);$('foodProtein').value=(f[2]*scale).toFixed(1);$('foodCarbs').value=(f[3]*scale).toFixed(1);$('foodFat').value=(f[4]*scale).toFixed(1);$('mealForm').scrollIntoView({behavior:'smooth',block:'center'});toast('Dados médios preenchidos. Confira e salve.');});
+async function compressVehicleImage(file){
+  if(!/^image\/(jpeg|png|webp|gif)$/i.test(file.type))throw Error('Formato não aceito');
+  if(/^image\/gif$/i.test(file.type)){
+    if(file.size>12*1024*1024)throw Error('Arquivo muito grande');
+    return await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(Error('Não foi possível ler o GIF.'));reader.readAsDataURL(file);});
+  }
+  const image=await createImageBitmap(file);const max=760,scale=Math.min(1,max/Math.max(image.width,image.height));const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(image.width*scale));canvas.height=Math.max(1,Math.round(image.height*scale));canvas.getContext('2d').drawImage(image,0,0,canvas.width,canvas.height);image.close?.();return canvas.toDataURL('image/jpeg',.68);
+}
+$('vehiclePhotoUpload').addEventListener('change',e=>{const f=e.target.files?.[0];if(!f)return;$('vehiclePhotoName').textContent=f.name.length>30?f.name.slice(0,27)+'...':f.name;if(f.size>12*1024*1024){toast('Escolha uma foto com até 12 MB.');e.target.value='';return;}const reader=new FileReader();reader.onload=()=>{$('vehiclePhotoPreview').innerHTML=`<img src="${reader.result}" alt="Prévia da mídia selecionada"><small>Esta mídia será salva com o veículo quando você clicar em Adicionar.</small>`;};reader.readAsDataURL(f);});
+function refreshModelOptions(){const type=$('vehicleType').value,brand=$('vehicleBrand').value.trim().toLocaleLowerCase('pt-BR');$('vehicleModelOptions').innerHTML=presets.filter(p=>p.type===type&&p.brand.toLocaleLowerCase('pt-BR')===brand).map(p=>`<option value="${esc(p.name)}"></option>`).join('');}
+function refreshBrandOptions(reset=false){const type=$('vehicleType').value;const brands=type==='Moto'?motoBrands:carBrands;$('vehicleBrandOptions').innerHTML=brands.map(b=>`<option value="${esc(b)}"></option>`).join('');$('vehicleBrand').placeholder=type==='Moto'?'Ex.: Honda, Yamaha, Kawasaki':'Ex.: Toyota, Fiat, Volkswagen';if(reset){$('vehicleBrand').value='';$('vehicleName').value='';}refreshModelOptions();}
+$('vehicleType').addEventListener('change',()=>{refreshBrandOptions(true);renderPresets();});
+
+$('googleImageSearch').addEventListener('click',()=>{
+  const brand=$('vehicleBrand').value.trim(),model=$('vehicleName').value.trim(),year=$('vehicleYear').value.trim();
+  if(!brand||!model){toast('Preencha marca e modelo antes de buscar.');$('vehicleBrand').focus();return;}
+  const query=[brand,model,year,$('vehicleType').value==='Moto'?'moto':'carro','foto'].filter(Boolean).join(' ');
+  window.open('https://www.google.com/search?tbm=isch&q='+encodeURIComponent(query),'_blank','noopener,noreferrer');
+});
+
+$('vehicleBrand').addEventListener('input',refreshModelOptions);
+refreshBrandOptions();
+
+// Portfolio de cursos — dados pessoais armazenados localmente, sem integração Drive.
+function safeCourseLink(v){try{const u=new URL(v);return ['https:','http:'].includes(u.protocol)?u.href:'';}catch{return '';}}
+function renderCourses(){
+  const all=Array.isArray(data.courses)?data.courses:[];
+  $('courseTotal').textContent=all.length;
+  $('courseCompleted').textContent=all.filter(x=>x.status==='Concluído').length;
+  $('courseHours').textContent=num(all.reduce((sum,x)=>sum+(Number(x.hours)||0),0))+' h';
+  const q=$('courseSearch').value.trim().toLocaleLowerCase('pt-BR'),filter=$('courseFilter').value;
+  const found=all.filter(c=>(filter==='Todos'||c.status===filter)&&(c.name+' '+c.institution+' '+c.year).toLocaleLowerCase('pt-BR').includes(q));
+  $('courseList').innerHTML=found.map(c=>`<article class="course-item"><div class="course-item-top"><div class="course-symbol">▤</div><div class="course-item-content"><h4>${esc(c.name)}</h4><p class="course-institution">${esc(c.institution)}</p></div></div><div class="course-chips"><span>${esc(c.year)}</span><span>${num(c.hours)} horas</span><span>${esc(c.mode)}</span><span>${esc(c.status)}</span></div>${c.description?`<p class="course-description">${esc(c.description)}</p>`:''}<div class="course-item-footer">${safeCourseLink(c.link)?`<a class="btn small primary" href="${esc(safeCourseLink(c.link))}" target="_blank" rel="noopener noreferrer">↗ Ver certificado</a>`:''}<button class="tiny-btn" type="button" data-course-edit="${esc(c.id)}">Editar</button><button class="tiny-btn danger" type="button" data-course-delete="${esc(c.id)}">Excluir</button></div></article>`).join('')||'<div class="empty">Nenhum curso nesta busca. Comece adicionando seu primeiro curso.</div>';
+  document.querySelectorAll('[data-course-edit]').forEach(b=>b.addEventListener('click',()=>{const c=all.find(x=>x.id===b.dataset.courseEdit);if(!c)return;
+    $('courseEditingId').value=c.id;$('courseName').value=c.name;$('courseInstitution').value=c.institution;$('courseYear').value=c.year;$('courseHoursInput').value=c.hours;$('courseMode').value=c.mode;$('courseStatus').value=c.status;$('courseLink').value=c.link||'';$('courseDescription').value=c.description||'';
+    $('courseFormTitle').textContent='Editar curso';$('courseSubmit').textContent='Salvar alterações';$('courseCancel').hidden=false;$('courseFormCard').scrollIntoView({behavior:'smooth',block:'start'});
+  }));
+  document.querySelectorAll('[data-course-delete]').forEach(b=>b.addEventListener('click',()=>{if(!confirm('Excluir este curso do seu portfólio?'))return;data.courses=data.courses.filter(x=>x.id!==b.dataset.courseDelete);save();renderAll();toast('Curso excluído.');}));
+}
+function resetCourseForm(){
+  $('courseForm').reset();$('courseEditingId').value='';$('courseFormTitle').textContent='Adicionar formação';$('courseSubmit').textContent='Salvar curso';$('courseCancel').hidden=true;
+}
+$('courseForm').addEventListener('submit',e=>{e.preventDefault();
+  const item={id:$('courseEditingId').value||uid(),name:$('courseName').value.trim(),institution:$('courseInstitution').value.trim(),year:Number($('courseYear').value),hours:Number($('courseHoursInput').value),mode:$('courseMode').value,status:$('courseStatus').value,link:$('courseLink').value.trim(),description:$('courseDescription').value.trim()};
+  if(!item.name||!item.institution||item.year<1950||item.year>2100||!Number.isFinite(item.hours)||item.hours<=0){toast('Confira o nome, instituição, ano e horas.');return;}
+  if(item.link&&!safeCourseLink(item.link)){toast('Insira um link http ou https válido.');return;}
+  data.courses=Array.isArray(data.courses)?data.courses:[];
+  const idx=data.courses.findIndex(x=>x.id===item.id);
+  if(idx>=0)data.courses[idx]=item;else data.courses.unshift(item);
+  save();resetCourseForm();renderAll();toast(idx>=0?'Curso atualizado.':'Curso adicionado ao portfólio.');
+});
+$('courseCancel').addEventListener('click',resetCourseForm);
+$('newCourseButton').addEventListener('click',()=>{resetCourseForm();$('courseFormCard').scrollIntoView({behavior:'smooth',block:'center'});$('courseName').focus();});
+$('courseSearch').addEventListener('input',renderCourses);
+$('courseFilter').addEventListener('change',renderCourses);
+
+
+let quickType='Moto';
+function renderStudioHome(){
+  const dt=new Date();
+  $('topDateLabel').textContent=dt.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'}).replace('.','');
+  $('homeLatestMeal').textContent=data.meals.length?(data.meals[0].name||'Refeição registrada'):'Seus hábitos começam aqui.';
+  $('homeLatestMealInfo').textContent=data.meals.length?`${fmtDate(data.meals[0].date)} · ${num(data.meals[0].grams)} g registrados`:'Registre refeições e organize suas escolhas.';
+  renderStudioWeek();
+  const vehicles=data.vehicles.slice(0,3);
+  $('homeVehicleList').innerHTML=vehicles.length?vehicles.map(v=>{const safe=/^(https?:\/\/|data:image\/(jpeg|png|webp|gif);base64,)/i.test(v.image||'');return `<button class="garage-preview-card" data-go-view-garage="1"><span class="garage-preview-photo">${safe?`<img alt="${esc(v.brand+' '+v.name)}" src="${esc(v.image)}" onerror="this.style.display='none'">`:(v.type==='Moto'?'🏍':'🚘')}</span><span style="min-width:0"><strong>${esc(v.brand+' '+v.name)}</strong><small>${esc(v.type)} · ${esc(v.year||'Ano não informado')}</small></span></button>`;}).join(''):'<div class="home-empty-card">Sua garagem ainda está vazia. Cadastre a primeira moto ou carro.</div>';
+  const courses=(data.courses||[]).slice(0,3);
+  $('homeCourseList').innerHTML=courses.length?courses.map(c=>`<div class="course-brief-item"><span class="course-brief-icon">▤</span><div class="course-brief-copy"><strong>${esc(c.name)}</strong><small>${esc(c.institution)} · ${esc(c.year)} · ${num(c.hours)} h</small></div><span class="course-brief-status">${c.status==='Concluído'?'✓':'◷'}</span></div>`).join(''):'<div class="home-empty-card">Adicione um curso e comece a construir seu portfólio de certificados.</div>';
+}
+function renderStudioWeek(){
+  const start=weekStartDate(0),end=weekDayDate(start,6);
+  const {record,planned,completed,complete}=getWeekProgress(start);
+  const ratio=planned?Math.round(completed/planned*100):0;
+  $('homeWeekNumbers').innerHTML=`${completed} <em>/ ${planned}</em>`;
+  $('homeWeekNumbersLabel').textContent=planned?'Dias concluídos de dias planejados':'Nenhum dia planejado ainda';
+  $('homeWeekIndicator').textContent=complete?'SEMANA CONCLUÍDA':planned?'SEU PLANO EM ANDAMENTO':'COMECE NO SEU RITMO';
+  $('homeWeekIndicatorSub').textContent=complete?'Você concluiu os dias que planejou.':planned?'Confira os dias planejados abaixo.':'Escolha os dias que funcionam na sua rotina.';
+  $('homeWeekProgressFill').style.width=ratio+'%';
+  $('homeWeekDaysOverview').innerHTML=weekDayNames.map((name,i)=>{const d=weekDayDate(start,i),isToday=localIso(d)===today(),done=record.plan.includes(i)&&record.done.includes(i),plannedDay=record.plan.includes(i);const state=done?'Feito':plannedDay?'Planejado':'Livre';return `<div class="volt-week-day ${done?'is-complete':plannedDay?'is-planned':''} ${isToday?'is-today':''}" aria-label="${esc(name)}, dia ${d.getDate()}: ${state}"><span>${esc(name)}</span><strong>${String(d.getDate()).padStart(2,'0')}</strong><small>${state}</small></div>`;}).join('');
+  const from=localIso(start),to=localIso(end);
+  const weekly=(data.workouts||[]).filter(w=>w.date>=from&&w.date<=to);
+  $('homeWeekRecordCount').textContent=`${weekly.length} registro${weekly.length!==1?'s':''} nesta semana`;
+  const recent=(data.workouts||[]).slice(0,3);
+  $('homeRecentExerciseList').innerHTML=recent.length?recent.map(w=>`<div class="volt-week-record"><span class="volt-week-record-mark">⌁</span><div><strong>${esc(w.exercise||'Exercício')}</strong><small>${esc(w.group||'Treino')} · ${fmtDate(w.date)}</small></div></div>`).join(''):'<div class="volt-week-record-empty">Nenhum exercício registrado ainda. Quando você salvar seu primeiro treino, ele aparecerá aqui.</div>';
+}
+$('page-home').addEventListener('click',e=>{if(e.target.closest('[data-go-view-garage]'))go('collection');});
+function updateQuickBrands(){
+ $('quickVehicleBrand').innerHTML='<option value="">Selecione a marca</option>'+(quickType==='Moto'?motoBrands:carBrands).map(b=>`<option value="${esc(b)}">${esc(b)}</option>`).join('');
+ document.querySelectorAll('[data-quick-type]').forEach(b=>b.classList.toggle('active',b.dataset.quickType===quickType));
+}
+document.querySelectorAll('[data-quick-type]').forEach(b=>b.addEventListener('click',()=>{quickType=b.dataset.quickType;updateQuickBrands();}));
+$('quickVehicleSubmit').addEventListener('click',()=>{
+ const brand=$('quickVehicleBrand').value,name=$('quickVehicleModel').value.trim(),year=$('quickVehicleYear').value;
+ if(!brand||!name){toast('Escolha a marca e informe o modelo.');return;}
+ $('vehicleType').value=quickType;$('vehicleType').dispatchEvent(new Event('change'));
+ $('vehicleBrand').value=brand;$('vehicleBrand').dispatchEvent(new Event('input'));
+ $('vehicleName').value=name;$('vehicleYear').value=year;
+ go('garage');$('vehicleForm').scrollIntoView({behavior:'smooth',block:'start'});toast('Modelo preenchido. Confira e salve na garagem.');
+});
+updateQuickBrands();
+const globalInput=$('globalSearch'), globalResults=$('globalSearchResults');
+function globalTargets(q){
+  const term=q.toLocaleLowerCase('pt-BR');
+  const list=[];
+  for(const e of allExercises().filter(e=>e[0].toLocaleLowerCase('pt-BR').includes(term)).slice(0,4))list.push({kind:'exercise',label:e[0],detail:'Exercício · '+e[1],value:e[0],icon:'⌁'});
+  for(const c of (data.courses||[]).filter(c=>(c.name+' '+c.institution).toLocaleLowerCase('pt-BR').includes(term)).slice(0,3))list.push({kind:'courses',label:c.name,detail:'Curso · '+c.institution,value:c.name,icon:'▤'});
+  for(const v of data.vehicles.filter(v=>(v.brand+' '+v.name+' '+(v.year||'')).toLocaleLowerCase('pt-BR').includes(term)).slice(0,3))list.push({kind:'collection',label:v.brand+' '+v.name,detail:'Garagem · '+(v.year||''),value:v.name,icon:'▱'});
+  for(const item of [{label:'Alimentação',kind:'nutrition',icon:'◈'},{label:'Cursos',kind:'courses',icon:'▤'},{label:'Treinos',kind:'workouts',icon:'⌁'},{label:'Minha garagem',kind:'collection',icon:'▱'}])if(item.label.toLocaleLowerCase('pt-BR').includes(term))list.push({...item,detail:'Abrir seção',value:''});
+  return list.slice(0,7);
+}
+function openGlobalTarget(item){
+ const page=item.kind==='exercise'?'workouts':item.kind;go(page);
+ if(item.kind==='exercise'){ $('exerciseSearch').value=item.value;renderExercises();refreshExerciseSelect(item.value);$('exerciseSelect').value=item.value;updateSelectedExercise();}
+ if(item.kind==='courses'){$('courseSearch').value=item.value;renderCourses();}
+ if(item.kind==='collection'){$('garageSearch').value=item.value;renderVehicles();}
+ globalInput.value='';globalResults.hidden=true;globalInput.setAttribute('aria-expanded','false');
+}
+function updateGlobalSearch(){const q=globalInput.value.trim();if(!q){globalResults.hidden=true;globalInput.setAttribute('aria-expanded','false');return;}const results=globalTargets(q);globalResults.innerHTML=results.length?results.map((it,i)=>`<button type="button" data-global-index="${i}"><span class="search-result-icon">${it.icon}</span><span><strong>${esc(it.label)}</strong><small>${esc(it.detail||'')}</small></span></button>`).join(''):'<div class="global-no-results">Nada encontrado. Tente outro nome.</div>';globalResults.hidden=false;globalInput.setAttribute('aria-expanded','true');}
+globalInput.addEventListener('input',updateGlobalSearch);
+globalInput.addEventListener('keydown',e=>{if(e.key==='Escape'){globalResults.hidden=true;}if(e.key==='Enter'){const item=globalTargets(globalInput.value.trim())[0];if(item){e.preventDefault();openGlobalTarget(item);}}});
+globalResults.addEventListener('click',e=>{const b=e.target.closest('[data-global-index]');if(!b)return;const item=globalTargets(globalInput.value.trim())[+b.dataset.globalIndex];if(item)openGlobalTarget(item);});
+document.addEventListener('click',e=>{if(!e.target.closest('.global-search-shell')){globalResults.hidden=true;globalInput.setAttribute('aria-expanded','false');}});
+
+
+/* Weekly planner and cardio. Daily completion is explicitly marked by the user. */
+const weekDayNames=['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
+let weekOffset=0;
+function localIso(d){return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');}
+function weekStartFromDate(d){const x=new Date(d.getFullYear(),d.getMonth(),d.getDate(),12);x.setDate(x.getDate() - (x.getDay()+6)%7);return x;}
+function weekStartDate(offset=weekOffset){const d=weekStartFromDate(new Date());d.setDate(d.getDate()+7*offset);return d;}
+function weekDayDate(start,i){const d=new Date(start);d.setDate(d.getDate()+i);return d;}
+function weekRec(key,create=false){data.trainingWeeks=data.trainingWeeks||{};if(create&&!data.trainingWeeks[key])data.trainingWeeks[key]={plan:[],done:[]};return data.trainingWeeks[key]||{plan:[],done:[]};}
+function normalizedWeek(key){const record=weekRec(key);const plan=[...new Set((Array.isArray(record.plan)?record.plan:[]).map(Number).filter(x=>Number.isInteger(x)&&x>=0&&x<=6))];const done=(Array.isArray(record.done)?record.done:[]).filter(x=>Number.isInteger(Number(x)));return {plan,done};}
+function getWeekProgress(start=weekStartDate()){const key=localIso(start),record=normalizedWeek(key);const completed=record.plan.filter(i=>record.done.includes(i)).length;return {key,record,completed,planned:record.plan.length,complete:record.plan.length>0&&completed===record.plan.length};}
+function renderWeekly(){const start=weekStartDate();const {key,record,completed,planned,complete}=getWeekProgress(start);
+ const end=weekDayDate(start,6);$('weekPeriod').textContent=`${start.toLocaleDateString('pt-BR',{day:'2-digit',month:'short'})} – ${end.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'})}`;
+ $('weekDays').innerHTML=weekDayNames.map((day,i)=>{const d=weekDayDate(start,i),planned=record.plan.includes(i),done=planned&&record.done.includes(i),isToday=localIso(d)===today();return `<div class="week-day ${planned?'is-planned':''} ${done?'is-done':''} ${isToday?'today':''}"><b>${day}</b><time>${String(d.getDate()).padStart(2,'0')}</time><button type="button" class="week-toggle" data-week-plan="${i}" aria-label="${planned?'Retirar do plano':'Planejar'} ${day}">${planned?'Planejado':'Planejar'}</button><button type="button" class="week-mark ${done?'is-marked':''}" data-week-done="${i}" ${planned?'':'disabled'} aria-label="${done?'Desfazer conclusão':'Marcar conclusão'} ${day}">${done?'✓ Feito':'Concluir'}</button></div>`;}).join('');
+ $('weekProgressChip').textContent=planned?`${completed} de ${planned} dias`:'Sem dias definidos';$('weekTrackFill').style.width=planned?`${Math.round(100*completed/planned)}%`:'0%';
+ const status=$('weekStatus');status.classList.toggle('success',complete);status.innerHTML=complete?'<strong>✓ Semana concluída!</strong> Você finalizou os dias que planejou.':planned?`${completed} de ${planned} dias concluídos · Ajuste seu plano quando precisar.`:'Escolha os dias da semana em que pretende treinar.';
+ document.querySelectorAll('[data-week-plan]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.weekPlan),r=weekRec(key,true);if(r.plan.includes(i)){r.plan=r.plan.filter(x=>x!==i);r.done=r.done.filter(x=>x!==i);}else r.plan.push(i);save();renderWeekly();renderHomeTraining();}));
+ document.querySelectorAll('[data-week-done]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.weekDone),r=weekRec(key,true);if(!r.plan.includes(i))return;r.done=r.done.includes(i)?r.done.filter(x=>x!==i):[...r.done,i];save();renderWeekly();renderHomeTraining();}));
+}
+$('weekPrev').addEventListener('click',()=>{weekOffset--;renderWeekly();});
+$('weekNext').addEventListener('click',()=>{weekOffset++;renderWeekly();});
+function renderHomeTraining(){const p=getWeekProgress(weekStartDate(0));$('homeWeekMessage').textContent=p.complete?'✓ Semana de treinos concluída':p.planned?`${p.completed} de ${p.planned} dias planejados concluídos`:'Planeje seus dias de treino';$('homeWeekDetail').textContent=p.complete?'Você marcou todos os dias escolhidos nesta semana.':p.planned?'Marque um dia quando terminar o que havia planejado.':'Escolha os dias que fazem sentido para sua rotina.';renderStudioWeek();}
+const cardioMET={walk:{light:2.5,moderate:3.5,vigorous:4.6},run:{light:6,moderate:8,vigorous:10},bike:{light:3.8,moderate:6,vigorous:8},stationary:{light:3.5,moderate:5.5,vigorous:8},elliptical:{light:4,moderate:5.5,vigorous:7},swim:{light:4,moderate:6,vigorous:8},dance:{light:3,moderate:4.8,vigorous:6.5},stairs:{light:4,moderate:6, vigorous:8}};
+const cardioTitles={walk:'Caminhada',run:'Corrida',bike:'Bicicleta',stationary:'Bicicleta ergométrica',elliptical:'Elíptico',swim:'Natação',dance:'Dança',stairs:'Escadas'};
+// Public-domain MET-derived calculation: MET * 3.5 * reference body mass / 200 * minutes.
+// The 55-85 kg bracket is a generic example, never asserted as an individual's result.
+function cardioRange(type,intensity,minutes){const met=(cardioMET[type]||cardioMET.walk)[intensity]||3.5;const mins=Number(minutes);if(!Number.isFinite(mins)||mins<=0)return null;const min=Math.round(met*3.5*55/200*mins*.85/5)*5;const max=Math.round(met*3.5*85/200*mins*1.15/5)*5;return {min:Math.max(5,min),max:Math.max(10,max),met};}
+function updateCardioEstimate(){const est=cardioRange($('cardioType').value,$('cardioIntensity').value,$('cardioMinutes').value);$('cardioEstimate').textContent=est?`≈ ${num(est.min)}–${num(est.max)} kcal`:'Informe uma duração válida';$('cardioEstimateDetails').textContent=est?'Faixa ilustrativa para diferentes pessoas; não é uma medição individual.':'O cálculo depende de atividade, ritmo e duração.';}
+for(const id of ['cardioType','cardioIntensity','cardioMinutes'])$(id).addEventListener('input',updateCardioEstimate);
+$('cardioForm').addEventListener('reset',()=>setTimeout(updateCardioEstimate,0));
+$('cardioDate').value=today();updateCardioEstimate();
+$('cardioForm').addEventListener('submit',e=>{e.preventDefault();const type=$('cardioType').value,intensity=$('cardioIntensity').value,minutes=Number($('cardioMinutes').value),date=$('cardioDate').value;if(!cardioTitles[type]||!['light','moderate','vigorous'].includes(intensity)||!Number.isFinite(minutes)||minutes<1||minutes>480||!/^\d{4}-\d{2}-\d{2}$/.test(date)){toast('Confira os dados da atividade.');return;}const est=cardioRange(type,intensity,minutes);data.cardioRecords=data.cardioRecords||[];data.cardioRecords.unshift({id:uid(),type,intensity,minutes,date,estimateMin:est.min,estimateMax:est.max});save();renderCardio();toast('Atividade registrada.');});
+function renderCardio(){const entries=Array.isArray(data.cardioRecords)?data.cardioRecords:[];$('cardioCount').textContent=`${entries.length} registros`;
+ const start=weekStartDate(0),end=weekDayDate(start,6),startKey=localIso(start),endKey=localIso(end),weekly=entries.filter(x=>x.date>=startKey&&x.date<=endKey);$('cardioWeeklyCount').textContent=weekly.length;$('cardioWeeklyMinutes').textContent=`${num(weekly.reduce((n,x)=>n+Number(x.minutes||0),0))} min`;
+ $('cardioWeekBanner').textContent=weekly.length?`Você registrou ${weekly.length} atividade${weekly.length===1?'':'s'} nesta semana. Continue respeitando seu ritmo e seus dias de descanso.`:'Suas atividades aparecerão aqui depois do primeiro registro.';
+ $('cardioHistory').innerHTML=entries.slice(0,100).map(c=>`<div class="item"><div class="item-main"><strong>${esc(cardioTitles[c.type]||c.type)} · ${num(c.minutes)} min</strong><small>${fmtDate(c.date)} · ${esc({light:'Leve',moderate:'Moderada',vigorous:'Intensa'}[c.intensity]||'')} · estimativa ilustrativa ${num(c.estimateMin||0)}–${num(c.estimateMax||0)} kcal</small></div><button class="tiny-btn danger" data-delete-cardio="${esc(c.id)}">Excluir</button></div>`).join('')||'<div class="empty">Ainda não há atividades registradas.</div>';
+ document.querySelectorAll('[data-delete-cardio]').forEach(b=>b.addEventListener('click',()=>{data.cardioRecords=data.cardioRecords.filter(x=>x.id!==b.dataset.deleteCardio);save();renderCardio();toast('Atividade excluída.');}));}
+
+function renderAll(){renderHome();renderWeekly();renderHomeTraining();renderCardio();renderWorkouts();renderMeals();renderPresets();renderVehicles();renderMealPlanner();renderCourses();bindDelete();renderStudioHome();}
+$('quickAdd').addEventListener('click',()=>{const active=document.querySelector('.section.active')?.id.replace('page-','');if(active==='nutrition'){$('mealForm').scrollIntoView({behavior:'smooth',block:'center'});$('foodName').focus();}else if(active==='garage'){$('vehicleForm').scrollIntoView({behavior:'smooth',block:'center'});$('vehicleBrand').focus();}else if(active==='collection'){go('garage');$('vehicleBrand').focus();}else if(active==='courses'){$('courseFormCard').scrollIntoView({behavior:'smooth',block:'start'});$('courseName').focus();}else{if(active!=='workouts')go('workouts');$('workoutForm').scrollIntoView({behavior:'smooth',block:'center'});$('exerciseSelect').focus();}});
+setTheme(data.theme);renderAll();
+/* VOLT CLOUD AUTH + PER-USER DATA. All secrets remain in Supabase, never the browser. */
+function setCloudStatus(message, state='ok'){
+ const element=$('voltCloudStatus');if(element){element.textContent='● '+message;element.dataset.state=state;}
+}
+function authMsg(message, kind='warning'){
+ const element=$('voltAuthMessage');element.hidden=!message;element.textContent=message||'';element.dataset.kind=kind;
+}
+function authMode(mode){
+ const modes={login:['Bem-vindo de volta','Acesse o seu espaço pessoal.','voltLoginForm'],signup:['Crie seu espaço VOLT','Cada pessoa tem seus próprios dados.','voltSignupForm'],confirm:['Confirme seu e-mail','Ative sua conta para continuar.','voltConfirmSignupForm'],recover:['Recuperar por e-mail','Enviaremos um link de recuperação para o endereço cadastrado.','voltRecoverForm'],code:['Verificação de segurança','Confirme o código recebido.','voltRecoveryCodeForm'],password:['Defina uma nova senha','Escolha uma senha segura para esta conta.','voltNewPasswordForm']};
+ const option=modes[mode]||modes.login;
+ $('voltAuthTitle').textContent=option[0];$('voltAuthDescription').textContent=option[1];
+ for(const id of ['voltLoginForm','voltSignupForm','voltConfirmSignupForm','voltRecoverForm','voltRecoveryCodeForm','voltNewPasswordForm']) $(id).hidden=id!==option[2];
+ authMsg('');$('voltAuthLoading').hidden=true;$('voltAuthForms').hidden=false;$('voltAuthScreen').hidden=false;document.body.classList.remove('volt-ready');
+}
+function authBusy(form,busy){for(const btn of form.querySelectorAll('button[type=submit]')){btn.disabled=busy;btn.dataset.origText??=btn.innerHTML;btn.innerHTML=busy?'Aguarde...':btn.dataset.origText;}}
+const authError=e=>({invalid_credentials:'E-mail/usuário/telefone ou senha incorretos.',email_not_confirmed:'Confirme seu e-mail para entrar.',user_already_exists:'Este e-mail já está cadastrado.',over_email_send_rate_limit:'Limite de envios atingido. Tente mais tarde.',otp_expired:'Código inválido ou expirado. Solicite outro.'}[e?.code] || e?.message || 'Não foi possível realizar a operação.');
+const authForm=(id,action)=>$(id).addEventListener('submit',async e=>{e.preventDefault();authBusy(e.currentTarget,true);try{await action(e);}catch(error){console.warn('VOLT Auth:',error?.code||error?.name);if(e.currentTarget.closest('.volt-account-dialog'))$('voltAccountFeedback').textContent=authError(error);else authMsg(authError(error));}finally{authBusy(e.currentTarget,false);}});
+let recoveryMode=false,recoveryAddress='',signupEmail='',requestedPhone='';
+const normalizedPhone=value=>{const raw=String(value||'').replace(/[\s()\-]/g,'');if(!raw)return '';if(!/^\+[1-9][0-9]{7,14}$/.test(raw))throw Error('Use telefone com DDI, por exemplo +5581999999999.');return raw;};
+function setAuthVisible(visible){$('voltAuthScreen').hidden=!visible;document.body.classList.toggle('volt-ready',!visible);}
+function startLoginState(){
+ cloudReady=false;currentUser=null;currentProfile=null;data=JSON.parse(JSON.stringify(defaults));pendingRevision=0;syncedRevision=0;signedMediaRefs.clear();uploadedMediaRefs.clear();clearTimeout(cloudSyncTimer);cloudRun++;
+ $('voltAccountBackdrop').hidden=true;setAuthVisible(true);authMode('login');setCloudStatus('Fora da conta','pending');
+}
+async function uploadDataMedia(dataUrl,ownerId){
+ if(uploadedMediaRefs.has(dataUrl))return uploadedMediaRefs.get(dataUrl);
+ const mime=/^data:(image\/(?:jpeg|png|webp|gif));base64,/i.exec(dataUrl)?.[1];
+ if(!mime)throw Error('Formato de mídia não compatível.');
+ const body=await (await fetch(dataUrl)).blob();if(body.size>12*1024*1024)throw Error('A mídia excede o limite de 12 MB.');
+ const extension=({['image/jpeg']:'jpg',['image/png']:'png',['image/webp']:'webp',['image/gif']:'gif'})[mime.toLowerCase()]||'bin';
+ const mediaPath=ownerId+'/'+uid()+'.'+extension;
+ const {error}=await cloudClient.storage.from('volt-media').upload(mediaPath,body,{contentType:mime,upsert:false});
+ if(error)throw new Error('Erro ao salvar foto/GIF no Storage: '+error.message);
+ const token='volt-media:'+mediaPath;uploadedMediaRefs.set(dataUrl,token);return token;
+}
+async function encodeCloudState(value,ownerId){
+ if(typeof value==='string'){
+  if(signedMediaRefs.has(value))return signedMediaRefs.get(value);
+  if(/^data:image\/(jpeg|png|webp|gif);base64,/i.test(value))return uploadDataMedia(value,ownerId);
+  return value;
+ }
+ if(Array.isArray(value))return Promise.all(value.map(item=>encodeCloudState(item,ownerId)));
+ if(value&&typeof value==='object'){const entries=await Promise.all(Object.entries(value).map(async ([k,v])=>[k,await encodeCloudState(v,ownerId)]));return Object.fromEntries(entries);}
+ return value;
+}
+async function decodeCloudState(value){
+ if(typeof value==='string'&&value.startsWith('volt-media:')){
+  const mediaPath=value.slice('volt-media:'.length);
+  if(!mediaPath.startsWith(currentUser.id+'/'))return '';
+  const {data:uri,error}=await cloudClient.storage.from('volt-media').createSignedUrl(mediaPath,7*24*60*60);
+  if(error){console.warn('Não foi possível carregar mídia privada:',error.message);return '';}signedMediaRefs.set(uri.signedUrl,value);return uri.signedUrl;
+ }
+ if(Array.isArray(value))return Promise.all(value.map(decodeCloudState));
+ if(value&&typeof value==='object'){const entries=await Promise.all(Object.entries(value).map(async ([k,v])=>[k,await decodeCloudState(v)]));return Object.fromEntries(entries);}
+ return value;
+}
+async function flushCloud(){
+ if(!cloudReady||!currentUser||!cloudClient)return;
+ if(cloudWriting)return cloudWriting;
+ cloudWriting=(async()=>{
+  try{
+   while(cloudReady&&currentUser&&syncedRevision<pendingRevision){
+    const revision=pendingRevision,ownerId=currentUser.id,run=cloudRun;
+    setCloudStatus('Sincronizando…','pending');
+    const snapshot=JSON.parse(JSON.stringify(data));
+    const payload=await encodeCloudState(snapshot,ownerId);
+    if(run!==cloudRun||currentUser?.id!==ownerId)return;
+    const {error}=await cloudClient.from('volt_user_data').upsert({user_id:ownerId,payload,updated_at:new Date().toISOString()},{onConflict:'user_id'});
+    if(error)throw new Error(error.message);
+    syncedRevision=revision;
+   }
+   if(cloudReady)setCloudStatus('Salvo na nuvem','ok');
+  }catch(error){setCloudStatus('Falha ao salvar — confira conexão','error');toast('Não foi possível sincronizar. Seus registros ainda não estão seguros na nuvem.');throw error;}
+ })();
+ try{return await cloudWriting;}finally{cloudWriting=null;}
+}
+async function ensureProfile(user){
+ let {data:profile,error}=await cloudClient.from('volt_profiles').select('user_id,username,display_name').eq('user_id',user.id).maybeSingle();
+ if(error)throw error;
+ if(!profile){
+  const fallback='volt_'+user.id.replace(/-/g,'').slice(0,12);
+  const requested=String(user.user_metadata?.username||'').toLowerCase();
+  const username=/^[a-z0-9_]{3,24}$/.test(requested)?requested:fallback;
+  const result=await cloudClient.from('volt_profiles').upsert({user_id:user.id,username,display_name:user.user_metadata?.display_name||'Usuário VOLT'},{onConflict:'user_id'}).select().single();
+  if(result.error){if(result.error.code==='23505'){const retry=await cloudClient.from('volt_profiles').upsert({user_id:user.id,username:fallback,display_name:user.user_metadata?.display_name||'Usuário VOLT'},{onConflict:'user_id'}).select().single();if(retry.error)throw retry.error;profile=retry.data;}else throw result.error;}else profile=result.data;
+ }
+ return profile;
+}
+async function enterUser(user){
+ if(!user||recoveryMode)return;
+ if(currentUser?.id===user.id&&cloudReady)return;
+ if(currentUser?.id!==user.id){signedMediaRefs.clear();uploadedMediaRefs.clear();}
+ const run=++cloudRun;
+ currentUser=user;cloudReady=false;setCloudStatus('Carregando sua conta…','pending');
+ $('voltAuthLoading').hidden=false;$('voltAuthForms').hidden=true;$('voltAuthSetup').hidden=true;setAuthVisible(true);
+ try{
+  const [result,profile]=await Promise.all([cloudClient.from('volt_user_data').select('payload').eq('user_id',user.id).maybeSingle(),ensureProfile(user)]);
+  if(result.error)throw result.error;
+  if(run!==cloudRun||currentUser?.id!==user.id)return;
+  data=result.data?.payload?{...JSON.parse(JSON.stringify(defaults)),...await decodeCloudState(result.data.payload)}:JSON.parse(JSON.stringify(defaults));
+  currentProfile=profile;pendingRevision=0;syncedRevision=0;cloudReady=true;
+  setTheme(data.theme||'dark');renderAll();refreshExerciseSelect();renderExercises();updateSelectedExercise();
+  const badge=document.querySelector('#voltOpenAccount');if(badge)badge.textContent=(profile.display_name||user.email||'V').slice(0,1).toUpperCase();
+  setCloudStatus('Salvo na nuvem');setAuthVisible(false);renderAccount();
+ }catch(error){console.warn('VOLT cloud load error',error);cloudReady=false;setCloudStatus('Falha ao carregar','error');$('voltAuthLoading').hidden=true;$('voltAuthForms').hidden=false;authMode('login');authMsg('Não foi possível carregar seus dados. Confira o Supabase e execute setup.sql antes de entrar. '+(error.message||''));}
+}
+function renderAccount(){
+ if(!currentUser||!currentProfile)return;
+ $('voltAccountName').value=currentProfile.display_name||'';$('voltAccountUsername').value=currentProfile.username||'';
+ $('voltAccountEmail').textContent=currentUser.email||'Conta VOLT';
+ const verified=!!currentUser.phone_confirmed_at;
+ $('voltAccountPhone').value=currentUser.phone||currentUser.user_metadata?.phone_contact||'';
+ $('voltPhoneState').textContent=verified?('Telefone de contato verificado: '+currentUser.phone+'. Para recuperar a senha, use o e-mail cadastrado.'):'Telefone ainda não verificado. A recuperação da senha continua disponível somente pelo e-mail cadastrado. Verificar o telefone por SMS é opcional.';
+ $('voltAccountFeedback').textContent='';
+}
+function showAccount(){if(!currentUser||!cloudReady)return;renderAccount();$('voltAccountBackdrop').hidden=false;}
+$('voltOpenAccount').addEventListener('click',showAccount);
+$('voltAccountSide').addEventListener('click',showAccount);
+$('voltAccountClose').addEventListener('click',()=>{$('voltAccountBackdrop').hidden=true;});
+$('voltAccountBackdrop').addEventListener('click',e=>{if(e.target===$('voltAccountBackdrop'))$('voltAccountBackdrop').hidden=true;});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('voltAccountBackdrop').hidden=true;});
+for(const btn of document.querySelectorAll('[data-auth-mode]'))btn.addEventListener('click',()=>authMode(btn.dataset.authMode));
+for(const btn of document.querySelectorAll('[data-toggle-pass]'))btn.addEventListener('click',()=>{const input=$(btn.dataset.togglePass);input.type=input.type==='password'?'text':'password';});
+authForm('voltLoginForm',async()=>{
+ const identifier=$('voltLoginId').value.trim(),password=$('voltLoginPassword').value;
+ let result;
+ if(identifier.includes('@'))result=await cloudClient.auth.signInWithPassword({email:identifier,password});
+ else if(/^\+?[0-9()\-\s]{8,20}$/.test(identifier))result=await cloudClient.auth.signInWithPassword({phone:normalizedPhone(identifier),password});
+ else {
+  const username=identifier.toLowerCase();if(!/^[a-z0-9_]{3,24}$/.test(username))throw Error('Digite um e-mail, telefone com DDI ou usuário válido.');
+  const fn=window.VOLT_CONFIG?.usernameLoginFunction||'volt-username-login';
+  const answer=await cloudClient.functions.invoke(fn,{body:{username,password}});
+  if(answer.error)throw Error('Login por usuário ainda não está ativado ou a senha está incorreta. Você pode entrar com seu e-mail.');
+  if(!answer.data?.access_token||!answer.data?.refresh_token)throw Error('Não foi possível entrar com este usuário.');
+  result=await cloudClient.auth.setSession({access_token:answer.data.access_token,refresh_token:answer.data.refresh_token});
+ }
+ if(result.error)throw result.error;
+ if(result.data?.user)await enterUser(result.data.user);
+});
+authForm('voltSignupForm',async()=>{
+ const email=$('voltSignupEmail').value.trim().toLowerCase(),password=$('voltSignupPassword').value;
+ const username=$('voltSignupUsername').value.trim().toLowerCase(),display_name=$('voltSignupName').value.trim();
+ if(!/^[a-z0-9_]{3,24}$/.test(username))throw Error('Use 3 a 24 letras, números ou underline no usuário.');
+ if(password.length<8)throw Error('Sua senha precisa ter pelo menos 8 caracteres.');
+ const contact=$('voltSignupPhone').value.trim();if(contact)normalizedPhone(contact);
+ // The contact phone is unverified metadata until confirmed later via SMS.
+ const {data:created,error}=await cloudClient.auth.signUp({email,password,options:{data:{username,display_name,phone_contact:contact||''},emailRedirectTo:location.origin+location.pathname}});
+ if(error)throw error;
+ signupEmail=email;$('voltConfirmAddress').textContent=email;
+ if(created.session&&created.user){await enterUser(created.user);toast('Conta criada. Bem-vindo ao VOLT!');}
+ else {authMode('confirm');authMsg('Conta solicitada. Confira seu e-mail e confirme seu cadastro.', 'success');}
+});
+authForm('voltConfirmSignupForm',async()=>{
+ const token=$('voltSignupOtp').value.trim();if(!/^\d{6}$/.test(token))throw Error('Digite um código de 6 dígitos ou use o link recebido por e-mail.');
+ const {data:res,error}=await cloudClient.auth.verifyOtp({email:signupEmail,token,type:'email'});if(error)throw error;
+ if(res.user)await enterUser(res.user);
+});
+authForm('voltRecoverForm',async()=>{
+ recoveryAddress=$('voltRecoveryEmail').value.trim().toLowerCase();
+ if(!recoveryAddress||!$('voltRecoveryEmail').checkValidity())throw Error('Informe um e-mail válido.');
+ const {error}=await cloudClient.auth.resetPasswordForEmail(recoveryAddress,{redirectTo:location.origin+location.pathname});
+ if(error)throw error;
+ authMode('code');
+ $('voltRecoveryNotice').textContent='Se esse e-mail estiver cadastrado, você receberá um link para criar outra senha. Confira também a pasta de spam. Se o seu Supabase enviar um código de 6 dígitos, você pode digitá-lo abaixo.';
+ authMsg('Se esse e-mail estiver cadastrado, as instruções serão enviadas para ele.', 'success');
+});
+authForm('voltRecoveryCodeForm',async()=>{
+ const token=$('voltRecoveryOtp').value.trim();if(!/^\d{6}$/.test(token))throw Error('Insira um código de 6 dígitos válido.');
+ recoveryMode=true;
+ try{
+  const {error}=await cloudClient.auth.verifyOtp({email:recoveryAddress,token,type:'recovery'});if(error)throw error;
+  authMode('password');authMsg('Código confirmado. Defina uma nova senha.', 'success');
+ }catch(error){recoveryMode=false;throw error;}
+});
+authForm('voltNewPasswordForm',async()=>{
+ const password=$('voltNewPassword').value;
+ if(password.length<8||password!==$('voltNewPasswordConfirm').value)throw Error('As senhas devem coincidir e ter pelo menos 8 caracteres.');
+ const {error}=await cloudClient.auth.updateUser({password});if(error)throw error;
+ recoveryMode=false;await cloudClient.auth.signOut();startLoginState();authMsg('Senha atualizada. Entre com a nova senha.', 'success');
+});
+authForm('voltAccountProfileForm',async()=>{
+ if(!currentUser)return;
+ const display_name=$('voltAccountName').value.trim(),username=$('voltAccountUsername').value.trim().toLowerCase();
+ if(!/^[a-z0-9_]{3,24}$/.test(username))throw Error('Usuário inválido.');
+ const {data:profile,error}=await cloudClient.from('volt_profiles').update({display_name,username}).eq('user_id',currentUser.id).select().single();
+ if(error?.code==='23505')throw Error('Esse nome de usuário já está em uso. Escolha outro.');if(error)throw error;
+ currentProfile=profile;await cloudClient.auth.updateUser({data:{display_name,username}});
+ $('voltAccountFeedback').textContent='Perfil atualizado.';toast('Perfil salvo.');
+});
+authForm('voltAccountPhoneForm',async()=>{
+ requestedPhone=normalizedPhone($('voltAccountPhone').value);
+ if(!requestedPhone)throw Error('Preencha o telefone com DDI.');
+ const {error}=await cloudClient.auth.updateUser({phone:requestedPhone});if(error)throw error;
+ $('voltAccountPhoneOtpForm').hidden=false;$('voltAccountFeedback').textContent='Código de verificação solicitado por SMS. Confira seu telefone.';
+});
+authForm('voltAccountPhoneOtpForm',async()=>{
+ const token=$('voltPhoneOtp').value.trim();if(!/^\d{6}$/.test(token))throw Error('Informe o código SMS de 6 dígitos.');
+ const {data:res,error}=await cloudClient.auth.verifyOtp({phone:requestedPhone,token,type:'phone_change'});if(error)throw error;
+ const get=await cloudClient.auth.getUser();if(get.error)throw get.error;currentUser=get.data.user;
+ $('voltAccountPhoneOtpForm').hidden=true;renderAccount();$('voltAccountFeedback').textContent='Telefone verificado com sucesso.';toast('Telefone verificado.');
+});
+$('voltImportLegacy').addEventListener('click',async()=>{
+ if(!currentUser||!cloudReady)return;
+ let old;try{old=JSON.parse(localStorage.getItem(LEGACY_KEY)||'null');}catch(e){}
+ if(!old||typeof old!=='object'||Array.isArray(old)){$('voltAccountFeedback').textContent='Não há dados da versão antiga neste navegador.';return;}
+ if(!confirm('Importar os dados da versão antiga deste navegador? Os registros já presentes nesta conta serão SUBSTITUÍDOS. Importe apenas seus próprios dados.'))return;
+ data={...JSON.parse(JSON.stringify(defaults)),...old};pendingRevision++;setCloudStatus('Importando registros…','pending');
+ try{await flushCloud();setTheme(data.theme||'dark');renderAll();refreshExerciseSelect();renderExercises();updateSelectedExercise();$('voltAccountFeedback').textContent='Registros antigos importados e sincronizados.';toast('Dados importados com sucesso.');}
+ catch(error){$('voltAccountFeedback').textContent='Importação ainda não sincronizada. '+(error.message||'Confira sua conexão.');}
+});
+$('voltLogOut').addEventListener('click',async()=>{
+ if(!cloudReady)return;
+ if(pendingRevision>syncedRevision){try{await flushCloud();}catch(e){if(!confirm('Há registros não sincronizados. Se sair agora, eles podem ser perdidos. Sair mesmo assim?'))return;}}
+ const {error}=await cloudClient.auth.signOut();if(error){toast('Não foi possível sair da conta.');return;}startLoginState();
+});
+window.addEventListener('online',()=>{if(cloudReady&&pendingRevision>syncedRevision)flushCloud().catch(console.warn);});
+window.addEventListener('beforeunload',e=>{if(cloudReady&&pendingRevision>syncedRevision){e.preventDefault();e.returnValue='';}});
+async function startCloudAuth(){
+ const config=window.VOLT_CONFIG||{};
+ const valid=/^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/i.test(config.supabaseUrl||'')&&typeof config.supabaseAnonKey==='string'&&config.supabaseAnonKey.length>20;
+ $('voltAuthLoading').hidden=true;
+ if(!valid){$('voltAuthSetup').hidden=false;$('voltAuthForms').hidden=true;setCloudStatus('Falta conectar Supabase','error');return;}
+ if(!window.supabase?.createClient){$('voltAuthSetup').hidden=false;$('voltAuthForms').hidden=true;$('voltAuthSetup').innerHTML='<h2>Falha ao carregar</h2><p>Não foi possível iniciar a biblioteca de autenticação. Verifique a conexão com a internet e recarregue o site.</p>';return;}
+ try{cloudClient=window.supabase.createClient(config.supabaseUrl,config.supabaseAnonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+ cloudClient.auth.onAuthStateChange((event,session)=>{
+  setTimeout(()=>{
+   if(event==='PASSWORD_RECOVERY'){recoveryMode=true;setAuthVisible(true);$('voltAuthLoading').hidden=true;$('voltAuthForms').hidden=false;authMode('password');return;}
+   if(event==='SIGNED_OUT'){startLoginState();return;}
+   if(event==='SIGNED_IN'||event==='INITIAL_SESSION'){if(session?.user&&!recoveryMode)enterUser(session.user);}
+  },0);
+ });
+ $('voltAuthForms').hidden=false;authMode('login');
+ const {data:sessionData,error}=await cloudClient.auth.getSession();if(error)throw error;
+ if(sessionData?.session?.user&&!recoveryMode)await enterUser(sessionData.session.user);
+ }catch(error){$('voltAuthForms').hidden=false;authMode('login');authMsg('Falha ao conectar ao Supabase. Confira config.js. '+(error.message||''));}
+}
+startCloudAuth();
+
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) { navigator.serviceWorker.register('./service-worker.js').catch(()=>{}); }
+})();
+</script>
+</body>
+</html>
