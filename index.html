@@ -286,6 +286,7 @@ main{max-width:1900px;padding:19px clamp(15px,1.7vw,34px) 42px}
     <button class="volt-account-action" id="voltImportLegacy" type="button">↥ Importar dados da versão antiga deste navegador</button>
     <p class="volt-auth-note" id="voltAccountFeedback" role="status" aria-live="polite"></p>
     <div class="volt-account-divider"></div>
+    <p class="volt-auth-note" style="margin:12px 0 8px">Segurança: sua conta sai automaticamente após 30 minutos sem atividade neste navegador.</p>
     <button class="volt-account-logout" id="voltLogOut" type="button">Sair desta conta <span>↗</span></button>
   </div>
 </div>
@@ -407,7 +408,7 @@ main{max-width:1900px;padding:19px clamp(15px,1.7vw,34px) 42px}
 <section class="section" id="page-workouts">
 <div class="section-head"><div><h2>Meus treinos</h2><p>Registre exercícios e acompanhe os dias que você planejou nesta semana.</p></div><div class="form-actions"><button class="btn primary" id="showWorkoutForm">＋ Registrar</button></div></div><div class="grid two-col training-layout"><div class="card"><div class="card-title-row"><div><h3 class="card-title">Registrar exercício</h3><p class="card-caption">Anote o que fez no treino.</p></div></div>
 <form id="workoutForm"><div class="form-grid">
-<div class="field span-2"><label for="exerciseSelect">Exercício</label><select id="exerciseSelect" required=""></select></div>
+<div class="field span-2"><label for="exerciseSelect">Exercício</label><select id="exerciseSelect" required=""></select><div style="margin-top:10px"><button class="btn ghost small" id="createExerciseFromWorkout" type="button">＋ Cadastrar novo exercício</button><p class="card-caption" style="margin-top:6px">Não encontrou na lista? Cadastre pelo nome e grupo muscular e depois registre seu treino.</p></div></div>
 <div class="span-2" id="selectedExercisePreview" aria-live="polite"><span class="volt-selection-mark">EXERCÍCIO ESCOLHIDO</span><strong id="selectedExerciseName">Selecione um exercício</strong><span class="card-caption" id="selectedExerciseGroup">Grupo muscular</span></div>
 <div class="field"><label for="workoutDate">Data</label><input id="workoutDate" required="" type="date"/></div>
 <div class="field"><label for="workoutGroup">Grupo muscular</label><select id="workoutGroup"><option>Peito</option><option>Costas</option><option>Pernas</option><option>Ombros</option><option>Bíceps</option><option>Tríceps</option><option>Abdômen</option><option>Corpo inteiro</option><option>Cardio</option></select></div>
@@ -562,6 +563,104 @@ let data=JSON.parse(JSON.stringify(defaults));
 let cloudClient=null, currentUser=null, cloudReady=false, cloudWriting=null, pendingRevision=0, syncedRevision=0, cloudSyncTimer=null, cloudRun=0, currentProfile=null;
 const signedMediaRefs=new Map(), uploadedMediaRefs=new Map();
 const $=id=>document.getElementById(id);
+
+/* VOLT: encerramento local de sessão após 30 minutos sem atividade real.
+   O horário é compartilhado entre abas do mesmo navegador, por usuário.
+   Não altera as configurações de expiração de JWT do Supabase. */
+const VOLT_IDLE_LIMIT_MS=30*60*1000;
+const VOLT_IDLE_KEY_PREFIX='volt_idle_last_activity_v1_';
+let voltIdleUserId=null,voltIdleClock=null,voltIdleMemoryAt=0,voltIdleLastWrite=0;
+let voltIdleSigningOut=false,voltIdleLogoutNotice=false,voltIdleUnsavedWarning=false;
+const voltIdleStorageKey=id=>VOLT_IDLE_KEY_PREFIX+id;
+function voltIdleRead(id){
+  if(!id)return 0;
+  try{const n=Number(localStorage.getItem(voltIdleStorageKey(id)));if(Number.isFinite(n)&&n>0)return n;}
+  catch(_error){}
+  return voltIdleUserId===id?voltIdleMemoryAt:0;
+}
+function voltIdleWrite(id,time){
+  voltIdleMemoryAt=time;voltIdleLastWrite=time;
+  try{localStorage.setItem(voltIdleStorageKey(id),String(time));}catch(_error){}
+}
+function voltIdleStop(){
+  if(voltIdleClock!==null){clearInterval(voltIdleClock);voltIdleClock=null;}
+  voltIdleUserId=null;voltIdleMemoryAt=0;voltIdleLastWrite=0;
+}
+function voltIdleExpired(id){
+  const last=voltIdleRead(id);
+  return last>0&&Date.now()-last>=VOLT_IDLE_LIMIT_MS;
+}
+function voltIdleStart(user){
+  if(!user?.id||voltIdleSigningOut)return false;
+  if(voltIdleUserId&&voltIdleUserId!==user.id)voltIdleStop();
+  voltIdleUserId=user.id;
+  if(voltIdleExpired(user.id)){
+    void voltIdleLogout();
+    return false;
+  }
+  if(!voltIdleRead(user.id))voltIdleWrite(user.id,Date.now());
+  if(voltIdleClock===null)voltIdleClock=setInterval(voltIdleCheck,10000);
+  return true;
+}
+function voltIdleFreshLogin(user){
+  if(!user?.id)return;
+  voltIdleLogoutNotice=false;voltIdleUnsavedWarning=false;
+  voltIdleUserId=user.id;
+  voltIdleWrite(user.id,Date.now());
+}
+function voltIdleCheck(){
+  if(!voltIdleUserId||voltIdleSigningOut)return;
+  if(voltIdleExpired(voltIdleUserId))void voltIdleLogout();
+}
+function voltIdleActivity(){
+  if(!voltIdleUserId||voltIdleSigningOut||!currentUser)return;
+  if(voltIdleExpired(voltIdleUserId)){void voltIdleLogout();return;}
+  const now=Date.now();
+  // Evita gravações constantes no armazenamento ao mover o mouse.
+  if(now-voltIdleLastWrite>=5000)voltIdleWrite(voltIdleUserId,now);
+}
+async function voltIdleLogout(){
+  if(voltIdleSigningOut||!cloudClient||!voltIdleUserId)return;
+  voltIdleSigningOut=true;voltIdleLogoutNotice=true;voltIdleUnsavedWarning=false;
+  // Bloqueia imediatamente a interface, antes de aguardar rede e sincronização.
+  setAuthVisible(true);
+  $('voltAuthLoading').hidden=false;$('voltAuthForms').hidden=true;
+  clearTimeout(cloudSyncTimer);
+  if(cloudReady&&pendingRevision>syncedRevision){
+    try{
+      await Promise.race([flushCloud(),new Promise((_,reject)=>setTimeout(()=>reject(Error('Tempo esgotado')),7000))]);
+    }catch(error){voltIdleUnsavedWarning=true;console.warn('VOLT: sincronização pendente ao sair por inatividade.',error?.message||error);}
+  }
+  const expiredUserId=voltIdleUserId;
+  let signOutFailed=false;
+  try{
+    // Escopo local: não desconecta outros dispositivos do mesmo usuário.
+    const {error}=await cloudClient.auth.signOut({scope:'local'});
+    if(error)throw error;
+  }catch(error){
+    console.warn('VOLT: falha ao encerrar sessão por inatividade.',error?.message||error);
+    signOutFailed=true;
+  }finally{
+    startLoginState();
+    if(signOutFailed){
+      // Se o Supabase não conseguiu encerrar a sessão, impedir restauração silenciosa
+      // no próximo carregamento e tentar novamente.
+      try{localStorage.setItem(voltIdleStorageKey(expiredUserId),String(Date.now()-VOLT_IDLE_LIMIT_MS-1000));}catch(_error){}
+      authMsg('Não foi possível confirmar o encerramento da sessão. Verifique a conexão e recarregue a página.','warning');
+    }
+    voltIdleSigningOut=false;
+  }
+}
+// Eventos reais de interação. Voltar a uma aba não renova uma sessão vencida.
+for(const name of ['pointerdown','pointermove','keydown','touchstart','wheel','scroll']){
+  document.addEventListener(name,voltIdleActivity,{passive:true,capture:true});
+}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)voltIdleCheck();});
+window.addEventListener('focus',voltIdleCheck);
+window.addEventListener('storage',event=>{
+  if(voltIdleUserId&&event.key===voltIdleStorageKey(voltIdleUserId))voltIdleCheck();
+});
+
 function save(){if(!cloudReady||!currentUser){toast('Entre na sua conta para salvar.');return;}pendingRevision++;setCloudStatus('Alterações aguardando sincronização', 'pending');clearTimeout(cloudSyncTimer);cloudSyncTimer=setTimeout(()=>flushCloud().catch(console.warn),500);}
 let toastTimer;
 function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2400);}
@@ -611,12 +710,16 @@ $('exerciseSelect').addEventListener('change',updateSelectedExercise);
 $('exerciseSearch').addEventListener('input',()=>{visibleExerciseCount=12;renderExercises();});
 $('exerciseFilterGroup').addEventListener('change',()=>{visibleExerciseCount=12;renderExercises();});
 $('showMoreExercises').addEventListener('click',()=>{visibleExerciseCount+=12;renderExercises();});
-$('openCustomExercise').addEventListener('click',()=>{go('exercises');$('customExercisePanel').open=true;$('customExercisePanel').scrollIntoView({behavior:'smooth',block:'center'});$('customExerciseName').focus();});
+let customExerciseFromWorkout=false;
+$('createExerciseFromWorkout').addEventListener('click',()=>{customExerciseFromWorkout=true;go('exercises');$('customExercisePanel').open=true;$('customExercisePanel').scrollIntoView({behavior:'smooth',block:'center'});$('customExerciseName').focus();});
+$('openCustomExercise').addEventListener('click',()=>{customExerciseFromWorkout=false;go('exercises');$('customExercisePanel').open=true;$('customExercisePanel').scrollIntoView({behavior:'smooth',block:'center'});$('customExerciseName').focus();});
 $('customExerciseForm').addEventListener('submit',e=>{e.preventDefault();const name=$('customExerciseName').value.trim(),group=$('customExerciseGroup').value;
   if(!name){toast('Digite um nome para o exercício.');return;}
   if(allExercises().some(x=>x[0].toLocaleLowerCase('pt-BR')===name.toLocaleLowerCase('pt-BR'))){toast('Já existe um exercício com esse nome.');return;}
   data.customExercises=data.customExercises||[];data.customExercises.push({id:uid(),name,group});save();
-  $('exerciseSearch').value=name;visibleExerciseCount=12;refreshExerciseSelect(name);renderExercises();$('customExerciseForm').reset();$('customExercisePanel').open=false;toast('Exercício personalizado salvo.');
+  $('exerciseSearch').value=name;visibleExerciseCount=12;refreshExerciseSelect(name);renderExercises();$('customExerciseForm').reset();$('customExercisePanel').open=false;
+  if(customExerciseFromWorkout){customExerciseFromWorkout=false;go('workouts');$('workoutForm').scrollIntoView({behavior:'smooth',block:'center'});$('exerciseSelect').focus();toast('Exercício cadastrado! Agora registre seu treino.');}
+  else{toast('Exercício personalizado salvo.');}
 });
 refreshExerciseSelect();renderExercises();
 $('workoutDate').value=today();$('mealDate').value=today();
@@ -859,8 +962,13 @@ let recoveryMode=false,recoveryAddress='',signupEmail='',requestedPhone='';
 const normalizedPhone=value=>{const raw=String(value||'').replace(/[\s()\-]/g,'');if(!raw)return '';if(!/^\+[1-9][0-9]{7,14}$/.test(raw))throw Error('Use telefone com DDI, por exemplo +5581999999999.');return raw;};
 function setAuthVisible(visible){$('voltAuthScreen').hidden=!visible;document.body.classList.toggle('volt-ready',!visible);}
 function startLoginState(){
+ const previousIdleUser=voltIdleUserId;
+ voltIdleStop();
+ if(previousIdleUser){try{localStorage.removeItem(voltIdleStorageKey(previousIdleUser));}catch(_error){}}
  cloudReady=false;currentUser=null;currentProfile=null;data=JSON.parse(JSON.stringify(defaults));pendingRevision=0;syncedRevision=0;signedMediaRefs.clear();uploadedMediaRefs.clear();clearTimeout(cloudSyncTimer);cloudRun++;
+ $('voltLoginForm').reset();$('voltSignupForm').reset();$('voltSignupOtp').value='';
  $('voltAccountBackdrop').hidden=true;setAuthVisible(true);authMode('login');setCloudStatus('Fora da conta','pending');
+ if(voltIdleLogoutNotice)authMsg('Sua sessão foi encerrada após 30 minutos sem atividade. Entre novamente.'+(voltIdleUnsavedWarning?' Atenção: confira se suas últimas alterações foram salvas.':''),'warning');
 }
 async function uploadDataMedia(dataUrl,ownerId){
  if(uploadedMediaRefs.has(dataUrl))return uploadedMediaRefs.get(dataUrl);
@@ -927,7 +1035,8 @@ async function ensureProfile(user){
  return profile;
 }
 async function enterUser(user){
- if(!user||recoveryMode)return;
+ if(!user||recoveryMode||voltIdleSigningOut)return;
+ if(!voltIdleStart(user))return;
  if(currentUser?.id===user.id&&cloudReady)return;
  if(currentUser?.id!==user.id){signedMediaRefs.clear();uploadedMediaRefs.clear();}
  const run=++cloudRun;
@@ -975,7 +1084,7 @@ authForm('voltLoginForm',async()=>{
   result=await cloudClient.auth.setSession({access_token:answer.data.access_token,refresh_token:answer.data.refresh_token});
  }
  if(result.error)throw result.error;
- if(result.data?.user)await enterUser(result.data.user);
+ if(result.data?.user){voltIdleFreshLogin(result.data.user);await enterUser(result.data.user);}
 });
 authForm('voltSignupForm',async()=>{
  const email=$('voltSignupEmail').value.trim().toLowerCase(),password=$('voltSignupPassword').value;
@@ -987,13 +1096,13 @@ authForm('voltSignupForm',async()=>{
  const {data:created,error}=await cloudClient.auth.signUp({email,password,options:{data:{username,display_name,phone_contact:contact||''},emailRedirectTo:location.origin+location.pathname}});
  if(error)throw error;
  signupEmail=email;$('voltConfirmAddress').textContent=email;
- if(created.session&&created.user){await enterUser(created.user);toast('Conta criada. Bem-vindo ao VOLT!');}
+ if(created.session&&created.user){voltIdleFreshLogin(created.user);await enterUser(created.user);toast('Conta criada. Bem-vindo ao VOLT!');}
  else {authMode('confirm');authMsg('Conta solicitada. Confira seu e-mail e confirme seu cadastro.', 'success');}
 });
 authForm('voltConfirmSignupForm',async()=>{
  const token=$('voltSignupOtp').value.trim();if(!/^\d{6}$/.test(token))throw Error('Digite um código de 6 dígitos ou use o link recebido por e-mail.');
  const {data:res,error}=await cloudClient.auth.verifyOtp({email:signupEmail,token,type:'email'});if(error)throw error;
- if(res.user)await enterUser(res.user);
+ if(res.user){voltIdleFreshLogin(res.user);await enterUser(res.user);}
 });
 authForm('voltRecoverForm',async()=>{
  recoveryAddress=$('voltRecoveryEmail').value.trim().toLowerCase();
