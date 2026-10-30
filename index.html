@@ -208,7 +208,7 @@ main{max-width:1900px;padding:19px clamp(15px,1.7vw,34px) 42px}
   <div class="volt-auth-glow"></div>
   <div class="volt-auth-layout">
     <div class="volt-auth-story">
-      <img src="./assets/logo-volt.svg" alt="VOLT Studio" class="volt-auth-logo" />
+      <svg class="volt-auth-logo" aria-label="VOLT Studio" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 200" role="img" aria-labelledby="ttl"><title id="ttl">VOLT Central Pessoal</title><defs><linearGradient id="r" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#ff717b"/><stop offset=".52" stop-color="#f03945"/><stop offset="1" stop-color="#ae0b24"/></linearGradient></defs><g transform="translate(7 8)"><path d="M14 24h60l31 45 31-45h48L102 151 14 24Z" fill="url(#r)"/><path d="M56 41h36L113 72l20-31h22l-43 73-56-73Z" fill="#0c0d10"/><path d="M21 9h36l10 12H21z M123 9h35l-11 12h-35z" fill="#f0444e"/><path d="M49 136l52 36 54-36-53 54-53-54Z" fill="#ff5460"/></g><g fill="#f7f7f8" font-family="Arial,Helvetica,sans-serif" font-weight="900"><text x="208" y="110" font-size="100" letter-spacing="2">VOLT</text></g><text x="213" y="148" font-family="Arial,Helvetica,sans-serif" font-weight="700" letter-spacing="6" font-size="25" fill="#cbd0d9">CENTRAL PESSOAL</text></svg>
       <div class="volt-auth-kicker">SEU ESPAÇO. SEU RITMO.</div>
       <h1>Seu universo,<br><em>em um só lugar.</em></h1>
       <p>Treinos, cursos, garagem e rotina, agora com uma conta que acompanha você no celular e no computador.</p>
@@ -1078,10 +1078,28 @@ authForm('voltLoginForm',async()=>{
  else {
   const username=identifier.toLowerCase();if(!/^[a-z0-9_]{3,24}$/.test(username))throw Error('Digite um e-mail, telefone com DDI ou usuário válido.');
   const fn=window.VOLT_CONFIG?.usernameLoginFunction||'volt-username-login';
-  const answer=await cloudClient.functions.invoke(fn,{body:{username,password}});
-  if(answer.error)throw Error('Login por usuário ainda não está ativado ou a senha está incorreta. Você pode entrar com seu e-mail.');
-  if(!answer.data?.access_token||!answer.data?.refresh_token)throw Error('Não foi possível entrar com este usuário.');
-  result=await cloudClient.auth.setSession({access_token:answer.data.access_token,refresh_token:answer.data.refresh_token});
+  const controller=new AbortController();
+  let timer;
+  try {
+   const answer=await Promise.race([
+    cloudClient.functions.invoke(fn,{body:{username,password},signal:controller.signal}),
+    new Promise((_,reject)=>{timer=setTimeout(()=>{
+     controller.abort();
+     reject(Error('A conexão demorou demais. Confira sua internet e tente novamente.'));
+    },15000);})
+   ]);
+   if(answer.error){
+    const status=answer.error.context?.status;
+    if(status===401)throw Error('Usuário ou senha incorretos.');
+    if(status===429)throw Error('Muitas tentativas de login. Aguarde alguns minutos.');
+    throw Error('Não foi possível entrar com usuário agora. Verifique a conexão e tente novamente.');
+   }
+   if(!answer.data?.access_token||!answer.data?.refresh_token)throw Error('Não foi possível entrar. Tente novamente.');
+   result=await cloudClient.auth.setSession({access_token:answer.data.access_token,refresh_token:answer.data.refresh_token});
+  }catch(error){
+   if(error?.name==='AbortError')throw Error('A conexão demorou demais. Confira sua internet e tente novamente.');
+   throw error;
+  }finally{clearTimeout(timer);}
  }
  if(result.error)throw result.error;
  if(result.data?.user){voltIdleFreshLogin(result.data.user);await enterUser(result.data.user);}
@@ -1128,13 +1146,43 @@ authForm('voltNewPasswordForm',async()=>{
  recoveryMode=false;await cloudClient.auth.signOut();startLoginState();authMsg('Senha atualizada. Entre com a nova senha.', 'success');
 });
 authForm('voltAccountProfileForm',async()=>{
- if(!currentUser)return;
- const display_name=$('voltAccountName').value.trim(),username=$('voltAccountUsername').value.trim().toLowerCase();
- if(!/^[a-z0-9_]{3,24}$/.test(username))throw Error('Usuário inválido.');
- const {data:profile,error}=await cloudClient.from('volt_profiles').update({display_name,username}).eq('user_id',currentUser.id).select().single();
- if(error?.code==='23505')throw Error('Esse nome de usuário já está em uso. Escolha outro.');if(error)throw error;
- currentProfile=profile;await cloudClient.auth.updateUser({data:{display_name,username}});
- $('voltAccountFeedback').textContent='Perfil atualizado.';toast('Perfil salvo.');
+ if(!currentUser||!cloudReady)throw Error('Sua sessão ainda não está pronta. Entre novamente.');
+ const display_name=$('voltAccountName').value.trim();
+ const username=$('voltAccountUsername').value.trim().toLowerCase();
+ if(!display_name||display_name.length>60)throw Error('Informe um nome com até 60 caracteres.');
+ if(!/^[a-z0-9_]{3,24}$/.test(username))throw Error('O usuário precisa ter 3 a 24 letras, números ou underline.');
+ const ownerId=currentUser.id;
+ $('voltAccountFeedback').textContent='Salvando perfil...';
+ const controller=new AbortController();
+ let timer;
+ try{
+  const result=await Promise.race([
+   cloudClient.from('volt_profiles')
+    .update({display_name,username})
+    .eq('user_id',ownerId)
+    .select('user_id,username,display_name')
+    .single()
+    .abortSignal(controller.signal),
+   new Promise((_,reject)=>{timer=setTimeout(()=>{
+    controller.abort();
+    reject(Error('A conexão demorou demais. Feche e abra Minha conta para conferir se o perfil foi salvo, e tente novamente se necessário.'));
+   },15000);})
+  ]);
+  if(result.error?.code==='23505')throw Error('Esse nome de usuário já está em uso. Escolha outro.');
+  if(result.error){
+   if(controller.signal.aborted)throw Error('A conexão demorou demais. Confira sua internet e tente novamente.');
+   throw Error('Não foi possível salvar o perfil. '+result.error.message);
+  }
+  if(!result.data)throw Error('O Supabase não confirmou o salvamento. Tente novamente.');
+  if(currentUser?.id!==ownerId)throw Error('A sessão mudou durante o salvamento. Entre novamente.');
+  // volt_profiles é a fonte oficial do nome e usuário. Não é necessário
+  // aguardar auth.updateUser(), que podia manter o botão em "Aguarde...".
+  currentProfile=result.data;
+  const badge=document.querySelector('#voltOpenAccount');
+  if(badge)badge.textContent=(display_name||currentUser.email||'V').slice(0,1).toUpperCase();
+  $('voltAccountFeedback').textContent='Perfil salvo com sucesso.';
+  toast('Perfil salvo com sucesso.');
+ }finally{clearTimeout(timer);}
 });
 authForm('voltAccountPhoneForm',async()=>{
  requestedPhone=normalizedPhone($('voltAccountPhone').value);
