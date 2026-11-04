@@ -695,9 +695,23 @@ function renderExercises(){
   $('showMoreExercises').textContent=`Mostrar mais exercícios (${Math.max(0,fullList.length-visibleExerciseCount)} restantes)`;
   $('exerciseLibrary').innerHTML=list.map((e,i)=>`<article class="exercise exercise-name-item">
       <div class="exercise-name-main"><span class="exercise-number" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><div class="exercise-name-copy"><strong>${esc(e[0])}</strong><small>${esc(e[1])}${e[3]==='custom'?' · Personalizado':''}</small></div></div>
-      <div class="item-actions"><button class="btn small primary" type="button" data-ex="${esc(e[0])}">Selecionar</button>${e[3]==='custom'?`<button class="tiny-btn danger" type="button" data-remove-ex="${esc(e[4])}" title="Excluir exercício personalizado">Excluir</button>`:''}</div>
+      <div class="item-actions"><button class="btn small primary" type="button" data-ex="${esc(e[0])}">Selecionar</button>${e[3]==='custom'?`<button class="tiny-btn" type="button" data-edit-ex="${esc(e[4])}" title="Editar exercício personalizado">Editar</button><button class="tiny-btn danger" type="button" data-remove-ex="${esc(e[4])}" title="Excluir exercício personalizado">Excluir</button>`:''}</div>
     </article>`).join('')||'<div class="empty">Nenhum exercício encontrado. Você pode cadastrar um novo acima.</div>';
   document.querySelectorAll('[data-ex]').forEach(b=>b.addEventListener('click',()=>{$('exerciseSelect').value=b.dataset.ex;updateSelectedExercise();go('workouts');$('workoutForm').scrollIntoView({behavior:'smooth',block:'center'});toast('Exercício selecionado.');}));
+  document.querySelectorAll('[data-edit-ex]').forEach(b=>b.addEventListener('click',()=>{
+    const item=(data.customExercises||[]).find(x=>x.id===b.dataset.editEx);if(!item)return;
+    const newName=prompt('Editar nome do exercício:',item.name);if(newName===null)return;
+    const name=newName.trim();if(!name){toast('O nome não pode ficar vazio.');return;}
+    if(allExercises().some(x=>x[0].toLocaleLowerCase('pt-BR')===name.toLocaleLowerCase('pt-BR')&&x[4]!==item.id)){toast('Já existe um exercício com esse nome.');return;}
+    const group=prompt('Grupo muscular (Peito, Costas, Pernas, Ombros, Bíceps, Tríceps, Abdômen, Corpo inteiro ou Cardio):',item.group);
+    if(group===null)return;const groups=['Peito','Costas','Pernas','Ombros','Bíceps','Tríceps','Abdômen','Corpo inteiro','Cardio'];
+    const validGroup=groups.find(x=>x.toLocaleLowerCase('pt-BR')===group.trim().toLocaleLowerCase('pt-BR'));
+    if(!validGroup){toast('Escolha um grupo muscular válido.');return;}
+    const oldName=item.name;item.name=name;item.group=validGroup;
+    // Mantém o histórico coerente com o exercício personalizado renomeado.
+    data.workouts.forEach(w=>{if(w.exercise===oldName){w.exercise=name;w.group=validGroup;}});
+    save();refreshExerciseSelect(name);renderExercises();renderAll();toast('Exercício atualizado com sucesso.');
+  }));
   document.querySelectorAll('[data-remove-ex]').forEach(b=>b.addEventListener('click',()=>{if(!confirm('Excluir este exercício personalizado? Os treinos já registrados serão mantidos.'))return;data.customExercises=data.customExercises.filter(x=>x.id!==b.dataset.removeEx);save();refreshExerciseSelect();renderExercises();toast('Exercício retirado da biblioteca.');}));
 }
 function updateSelectedExercise(){
@@ -724,7 +738,31 @@ $('customExerciseForm').addEventListener('submit',e=>{e.preventDefault();const n
 });
 refreshExerciseSelect();renderExercises();
 $('workoutDate').value=today();$('mealDate').value=today();
-$('workoutForm').addEventListener('submit',e=>{e.preventDefault();data.workouts.unshift({id:uid(),exercise:$('exerciseSelect').value,date:$('workoutDate').value,group:$('workoutGroup').value,weight:+$('workoutWeight').value,sets:+$('workoutSets').value,reps:$('workoutReps').value.trim()===''?null:+$('workoutReps').value,rest:+$('workoutRest').value||0,notes:$('workoutNotes').value});save();renderAll();toast('Exercício salvo no dispositivo.');$('workoutNotes').value='';});
+$('workoutForm').addEventListener('submit',e=>{e.preventDefault();const values={exercise:$('exerciseSelect').value,date:$('workoutDate').value,group:$('workoutGroup').value,weight:+$('workoutWeight').value,sets:+$('workoutSets').value,reps:$('workoutReps').value.trim()===''?null:+$('workoutReps').value,rest:+$('workoutRest').value||0,notes:$('workoutNotes').value};
+ const current=editingWorkoutId===null?null:data.workouts.find(x=>x.id===editingWorkoutId);
+ if(current){Object.assign(current,values);save();cancelWorkoutEdit();renderAll();toast('Registro de treino atualizado.');}
+ else{data.workouts.unshift({id:uid(),...values});save();renderAll();toast('Exercício salvo no dispositivo.');}
+ $('workoutNotes').value='';});
+let editingWorkoutId=null;
+const workoutSubmit=$('workoutForm').querySelector('button[type="submit"]');
+const defaultWorkoutSubmitLabel=workoutSubmit?workoutSubmit.textContent:'';
+function cancelWorkoutEdit(){editingWorkoutId=null;if(workoutSubmit)workoutSubmit.textContent=defaultWorkoutSubmitLabel;const b=$('cancelWorkoutEdit');if(b)b.hidden=true;}
+const cancelEditButton=document.createElement('button');cancelEditButton.id='cancelWorkoutEdit';cancelEditButton.type='button';cancelEditButton.className='btn small';cancelEditButton.textContent='Cancelar edição';cancelEditButton.hidden=true;
+if(workoutSubmit)workoutSubmit.insertAdjacentElement('afterend',cancelEditButton);
+cancelEditButton.addEventListener('click',()=>{cancelWorkoutEdit();toast('Edição cancelada.');});
+document.addEventListener('click',e=>{
+ const btn=e.target.closest('[data-edit-workout]');if(!btn)return;
+ const w=data.workouts.find(x=>String(x.id)===btn.dataset.editWorkout);if(!w)return;
+ editingWorkoutId=w.id;
+ refreshExerciseSelect(w.exercise);$('exerciseSelect').value=w.exercise;
+ $('workoutDate').value=w.date||today();$('workoutGroup').value=w.group||$('workoutGroup').value;
+ $('workoutWeight').value=w.weight??0;$('workoutSets').value=w.sets??3;
+ $('workoutReps').value=w.reps===null||w.reps===undefined?'':w.reps;
+ $('workoutRest').value=w.rest??0;$('workoutNotes').value=w.notes||'';
+ if(workoutSubmit)workoutSubmit.textContent='Salvar alterações';cancelEditButton.hidden=false;
+ go('workouts');$('workoutForm').scrollIntoView({behavior:'smooth',block:'center'});
+ toast('Edite os campos e clique em Salvar alterações.');
+});
 $('showWorkoutForm').addEventListener('click',()=>{$('workoutForm').scrollIntoView({behavior:'smooth',block:'center'});$('exerciseSelect').focus();});
 $('mealForm').addEventListener('submit',e=>{e.preventDefault();data.meals.unshift({id:uid(),date:$('mealDate').value,type:$('mealType').value,name:$('foodName').value.trim(),grams:+$('foodGrams').value,calories:+$('foodCalories').value||0,protein:+$('foodProtein').value||0,carbs:+$('foodCarbs').value||0,fat:+$('foodFat').value||0,fiber:+$('foodFiber').value||0});save();renderAll();toast('Alimento salvo.');e.target.reset();$('mealDate').value=today();});
 $('mealPhotoInput').addEventListener('change',e=>{const f=e.target.files?.[0];if(!f)return;const url=URL.createObjectURL(f);$('mealPhotoPreview').src=url;$('mealPhotoPreview').style.display='block';toast('Foto carregada para consulta visual.');});
@@ -733,7 +771,7 @@ $('vehicleForm').addEventListener('submit',async e=>{e.preventDefault();const f=
 const item={id:uid(),type:$('vehicleType').value,brand:$('vehicleBrand').value.trim(),name:$('vehicleName').value.trim(),year:+$('vehicleYear').value,price:+$('vehiclePrice').value,saved:+$('vehicleSaved').value||0,image,photoSource:f?'Foto pessoal':(image?'Link adicionado':'')};if(!item.brand||!item.name||item.price<0||!Number.isFinite(item.price)){toast('Preencha os dados válidos do veículo.');return;}data.vehicles.unshift(item);save();renderAll();e.target.reset();$('vehicleType').value='Moto';refreshBrandOptions(true);$('vehicleSaved').value='0';$('vehiclePhotoPreview').innerHTML='<span>📷 Selecione uma foto para visualizá-la aqui.</span>';$('vehiclePhotoName').textContent='JPG, PNG, WebP ou GIF';toast('Veículo salvo! Veja na sua garagem.');go('collection');});
 function del(type,id){if(!confirm('Excluir este registro? Esta ação não pode ser desfeita.'))return;data[type]=data[type].filter(x=>x.id!==id);save();renderAll();toast('Registro excluído.');}
 function bindDelete(){document.querySelectorAll('[data-delete]').forEach(b=>b.addEventListener('click',()=>del(b.dataset.delete,b.dataset.id)));}
-function renderWorkouts(){ $('workoutCount').textContent=`${data.workouts.length} registros`;const list=data.workouts.slice(0,50);$('workoutHistory').innerHTML=list.map(w=>`<div class="item"><div class="item-main"><strong>${esc(w.exercise)} · ${num(w.weight)} kg</strong><small>${fmtDate(w.date)} · ${esc(w.group)} · ${w.sets} séries${w.reps===null||w.reps===undefined||w.reps===''?' · até a falha / sem contagem de reps':` × ${w.reps} reps`}${w.rest?` · ${w.rest}s descanso`:''}${w.notes?' · '+esc(w.notes):''}</small></div><button class="tiny-btn danger" data-delete="workouts" data-id="${w.id}">Excluir</button></div>`).join('')||'<div class="empty">Seus exercícios registrados aparecerão aqui.</div>';}
+function renderWorkouts(){ $('workoutCount').textContent=`${data.workouts.length} registros`;const list=data.workouts.slice(0,50);$('workoutHistory').innerHTML=list.map(w=>`<div class="item"><div class="item-main"><strong>${esc(w.exercise)} · ${num(w.weight)} kg</strong><small>${fmtDate(w.date)} · ${esc(w.group)} · ${w.sets} séries${w.reps===null||w.reps===undefined||w.reps===''?' · até a falha / sem contagem de reps':` × ${w.reps} reps`}${w.rest?` · ${w.rest}s descanso`:''}${w.notes?' · '+esc(w.notes):''}</small></div><div class="item-actions"><button class="tiny-btn" data-edit-workout="${w.id}">Editar</button><button class="tiny-btn danger" data-delete="workouts" data-id="${w.id}">Excluir</button></div></div>`).join('')||'<div class="empty">Seus exercícios registrados aparecerão aqui.</div>';}
 function renderMeals(){const todays=data.meals.filter(m=>m.date===today());const sum=k=>todays.reduce((a,m)=>a+(+m[k]||0),0);$('nutritionCalories').textContent=num(sum('calories'));$('nutritionProtein').textContent=num(sum('protein'))+' g';$('nutritionCarbs').textContent=num(sum('carbs'))+' g';$('nutritionFat').textContent=num(sum('fat'))+' g';$('mealHistory').innerHTML=data.meals.slice(0,80).map(m=>`<div class="item"><div class="item-main"><strong>${esc(m.name)} · ${num(m.grams)} g</strong><small>${fmtDate(m.date)} · ${esc(m.type)} · ${num(m.calories)} kcal · P ${num(m.protein)} g · C ${num(m.carbs)} g · G ${num(m.fat)} g</small></div><button class="tiny-btn danger" data-delete="meals" data-id="${m.id}">Excluir</button></div>`).join('')||'<div class="empty">Seu diário alimentar está vazio. Adicione um alimento para começar.</div>';if(document.activeElement!==$('nutritionNote'))$('nutritionNote').value=data.nutritionNote||'';}
 const carBrands=['Abarth','Acura','Alfa Romeo','Aston Martin','Audi','BAIC','Bentley','BMW','BYD','CAOA Chery','Changan','Chery','Chevrolet','Chrysler','Citroën','Dacia','Dodge','DS Automobiles','Ferrari','Fiat','Ford','GAC','Geely','GMC','GWM','Haval','Honda','Hyundai','Infiniti','Iveco','Jaguar','Jeep','JAC','Jaecoo','Kia','Lamborghini','Land Rover','Lexus','Lifan','Lincoln','Lotus','Maserati','Mazda','McLaren','Mercedes-Benz','Mini','Mitsubishi','Neta','Nissan','Omoda','Opel','Peugeot','Porsche','RAM','Renault','Rolls-Royce','Seat','Seres','Skoda','Smart','Subaru','Suzuki','Tesla','Toyota','Troller','Volkswagen','Volvo','Zeekr'];
 const motoBrands=['AJP','Aprilia','Avelloz','Bajaj','Benelli','BMW Motorrad','Bull','Dafra','Ducati','Haojue','Harley-Davidson','Honda','Husqvarna','Indian','Kawasaki','KTM','Kymco','Lambretta','Lifan','Lon-V','Mottu','MV Agusta','Piaggio','Royal Enfield','Shineray','Suzuki','Triumph','Vespa','Voltz','Voge','Vmoto','Yamaha','Zontes'];
